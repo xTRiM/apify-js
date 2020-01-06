@@ -86,7 +86,7 @@ separate, detailed, documentation pages accessible from the left sidebar.</p>
 <p><a name="module_Apify.addWebhook"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="apifyaddwebhookoptions-promise-object"></a><a href="#apifyaddwebhookoptions-promise-object" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Apify.addWebhook(options)</code> ⇒ <code>Promise&lt;Object&gt;</code></h2>
 <p>Creates an ad-hoc webhook for the current actor run, which lets you receive a notification when the actor run finished or failed. For more information
-about Apify actor webhooks, please see the <a href="https://apify.com/docs/webhooks" target="_blank">documentation</a>.</p>
+about Apify actor webhooks, please see the <a href="https://docs.apify.com/webhooks" target="_blank">documentation</a>.</p>
 <p>Note that webhooks are only supported for actors running on the Apify platform. In local environment, the function will print a warning and have no
 effect.</p>
 <p><strong>Returns</strong>: <code>Promise&lt;Object&gt;</code> - The return value is the Webhook object. For more information, see the
@@ -107,7 +107,7 @@ effect.</p>
 </tr>
 <tr>
 <td colspan="3"><p>Array of event types, which you can set for actor run, see
-  the <a href="https://apify.com/docs/webhooks#events-actor-run" target="_blank">actor run events</a> in the Apify doc.</p>
+  the <a href="https://docs.apify.com/webhooks/events#actor-run" target="_blank">actor run events</a> in the Apify doc.</p>
 </td></tr><tr>
 <td><code>options.requestUrl</code></td><td><code>string</code></td>
 </tr>
@@ -120,9 +120,9 @@ effect.</p>
 <td colspan="3"><p>Payload template is a JSON-like string that describes the structure of the webhook POST request payload.
   It uses JSON syntax, extended with a double curly braces syntax for injecting variables <code>{{variable}}</code>.
   Those variables are resolved at the time of the webhook&#39;s dispatch, and a list of available variables with their descriptions
-  is available in the <a href="https://apify.com/docs/webhooks" target="_blank">Apify webhook documentation</a>.</p>
+  is available in the <a href="https://docs.apify.com/webhooks" target="_blank">Apify webhook documentation</a>.</p>
 <p>  When omitted, the default payload template will be used.
-  <a href="https://apify.com/docs/webhooks" target="_blank">See the docs for the default payload template</a>.</p>
+  <a href="https://docs.apify.com/webhooks" target="_blank">See the docs for the default payload template</a>.</p>
 </td></tr><tr>
 <td><code>[options.idempotencyKey]</code></td><td><code>string</code></td>
 </tr>
@@ -142,7 +142,7 @@ the function returns immediately after the run is started.</p>
 <p>The result of the function is an <a href="../typedefs/actorrun"><code>ActorRun</code></a> object that contains details about the actor run and its output (if any). If the
 actor run fails, the function throws the <a href="../typedefs/apifycallerror"><code>ApifyCallError</code></a> exception.</p>
 <p>If you want to run an actor task rather than an actor, please use the <a href="../api/apify#module_Apify.callTask"><code>Apify.callTask()</code></a> function instead.</p>
-<p>For more information about actors, read the <a href="https://apify.com/docs/actor" target="_blank">documentation</a>.</p>
+<p>For more information about actors, read the <a href="https://docs.apify.com/actor" target="_blank">documentation</a>.</p>
 <p><strong>Example usage:</strong></p>
 <pre><code class="hljs css language-javascript"><span class="token keyword">const</span> run <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">Apify</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token string">'apify/hello-world'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> myInput<span class="token punctuation">:</span> <span class="token number">123</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Received message: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>run<span class="token punctuation">.</span>output<span class="token punctuation">.</span>body<span class="token punctuation">.</span>message<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -233,7 +233,7 @@ actor</a> and several other API endpoints to obtain the output.</p>
 <tr>
 <td colspan="3"><p>Specifies optional webhooks associated with the actor run, which can be used
  to receive a notification e.g. when the actor finished or failed, see
- <a href="https://apify.com/docs/webhooks#adhoc">ad hook webhooks documentation</a> for detailed description.</p>
+ <a href="https://docs.apify.com/webhooks/ad-hoc-webhooks">ad hook webhooks documentation</a> for detailed description.</p>
 </td></tr></tbody>
 </table>
 <a name="module_Apify.callTask"></a>
@@ -246,7 +246,7 @@ the function returns immediately after the run is started.</p>
 actor run failed, the function fails with <a href="../typedefs/apifycallerror"><code>ApifyCallError</code></a> exception.</p>
 <p>Note that an actor task is a saved input configuration and options for an actor. If you want to run an actor directly rather than an actor task,
 please use the <a href="../api/apify#module_Apify.call"><code>Apify.call()</code></a> function instead.</p>
-<p>For more information about actor tasks, read the <a href="https://apify.com/docs/tasks"><code>documentation</code></a>.</p>
+<p>For more information about actor tasks, read the <a href="https://docs.apify.com/tasks"><code>documentation</code></a>.</p>
 <p><strong>Example usage:</strong></p>
 <pre><code class="hljs css language-javascript"><span class="token keyword">const</span> run <span class="token operator">=</span> <span class="token keyword">await</span> Apify<span class="token punctuation">.</span><span class="token function">callTask</span><span class="token punctuation">(</span><span class="token string">'bob/some-task'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Received message: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>run<span class="token punctuation">.</span>output<span class="token punctuation">.</span>body<span class="token punctuation">.</span>message<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -328,17 +328,17 @@ obtain the output.</p>
 <tr>
 <td colspan="3"><p>Specifies optional webhooks associated with the actor run, which can be used
  to receive a notification e.g. when the actor finished or failed, see
- <a href="https://apify.com/docs/webhooks#adhoc">ad hook webhooks documentation</a> for detailed description.</p>
+ <a href="https://docs.apify.com/webhooks/ad-hoc-webhooks">ad hook webhooks documentation</a> for detailed description.</p>
 </td></tr></tbody>
 </table>
 <a name="module_Apify.client"></a>
 <h2><a class="anchor" aria-hidden="true" id="apifyclient"></a><a href="#apifyclient" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Apify.client</code></h2>
-<p>Gets the default instance of the <code>ApifyClient</code> class provided <a href="https://apify.com/docs/sdk/apify-client-js/latest"
+<p>Gets the default instance of the <code>ApifyClient</code> class provided <a href="https://docs.apify.com/api/apify-client-js/latest"
 target="_blank">apify-client</a> by the NPM package. The instance is created automatically by the Apify SDK and it is configured using the
 <code>APIFY_API_BASE_URL</code>, <code>APIFY_USER_ID</code> and <code>APIFY_TOKEN</code> environment variables.</p>
 <p>The instance is used for all underlying calls to the Apify API in functions such as <a href="#module_Apify.getValue"><code>Apify.getValue()</code></a> or
 <a href="#module_Apify.call"><code>Apify.call()</code></a>. The settings of the client can be globally altered by calling the
-<a href="https://apify.com/docs/sdk/apify-client-js/latest#ApifyClient-setOptions"
+<a href="https://docs.apify.com/api/apify-client-js/latest#ApifyClient-setOptions"
 target="_blank"><code>Apify.client.setOptions()</code></a> function. Beware that altering these settings might have unintended effects on the entire Apify SDK
 package.</p>
 <p><a name="module_Apify.events"></a></p>
@@ -404,7 +404,7 @@ function.</p>
 <p>Constructs an Apify Proxy URL using the specified settings. The proxy URL can be used from Apify actors, web browsers or any other HTTP proxy-enabled
 applications.</p>
 <p>For more information, see the <a href="https://my.apify.com/proxy" target="_blank">Apify Proxy</a> page in the app or the
-<a href="https://apify.com/docs/proxy" target="_blank">documentation</a>.</p>
+<a href="https://docs.apify.com/proxy" target="_blank">documentation</a>.</p>
 <p><strong>Returns</strong>: <code>String</code> - Returns the proxy URL, e.g. <code>http://auto:my_password@proxy.apify.com:8000</code>.</p>
 <table>
 <thead>
@@ -445,13 +445,14 @@ applications.</p>
 <td><code>[options.country]</code></td><td><code>String</code></td>
 </tr>
 <tr>
-<td colspan="3"><p>If specified, all proxied requests will use IP addresses that geolocated to the specified country.
-For example country-GB for IP&#39;s from Great Britain.
+<td colspan="3"><p>If specified, all proxied requests will use IP addresses that are geolocated to the specified country.
+For example <code>GB</code> for IPs from Great Britain. Note that online services often have their own rules for handling geolocation and thus
+the country selection is a best attempt at geolocation, rather than a guaranteed hit.
 This parameter is optional, by default, each proxied request is assigned an IP address from a random country.
 The country code needs to be a two letter ISO country code
 - see the <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements" target="_blank">
 full list of available country codes
-</a></p>
+</a>.</p>
 <p>This parameter is optional, by default, the proxy uses all available proxy servers from all countries.</p>
 </td></tr></tbody>
 </table>
@@ -486,7 +487,7 @@ full list of available country codes
     memoryMbytes<span class="token punctuation">:</span> Number<span class="token punctuation">,</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p>For the list of the <code>APIFY_XXX</code> environment variables, see <a href="https://apify.com/docs/actor#run-env-vars" target="_blank">Actor
+<p>For the list of the <code>APIFY_XXX</code> environment variables, see <a href="https://docs.apify.com/actor/run#environment-variables" target="_blank">Actor
 documentation</a>. If some of the variables are not defined or are invalid, the corresponding value in the resulting object will be null.</p>
 <p><a name="module_Apify.getInput"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="apifygetinput-promise-object"></a><a href="#apifygetinput-promise-object" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Apify.getInput</code> ⇒ <code>Promise&lt;Object&gt;</code></h2>
@@ -576,7 +577,7 @@ Puppeteer documentation</a> for more details.</p>
    </li>
    <li>
        If <code>options.useApifyProxy</code> is <code>true</code> then the function generates a URL of
-       <a href="https://apify.com/docs/proxy" target="_blank">Apify Proxy</a>
+       <a href="https://docs.apify.com/proxy" target="_blank">Apify Proxy</a>
        based on <code>options.apifyProxyGroups</code> and <code>options.apifyProxySession</code> and passes it as <code>options.proxyUrl</code>.
    </li>
    <li>
@@ -592,7 +593,7 @@ Puppeteer documentation</a> for more details.</p>
 </ul>
 <p>To use this function, you need to have the <a href="https://www.npmjs.com/package/puppeteer" target="_blank">puppeteer</a> NPM package installed in
 your project. When running on the Apify cloud, you can achieve that simply by using the <code>apify/actor-node-chrome</code> base Docker image for your actor -
-see <a href="https://apify.com/docs/actor#base-images" target="_blank">Apify Actor documentation</a> for details.</p>
+see <a href="https://docs.apify.com/actor/build#base-images" target="_blank">Apify Actor documentation</a> for details.</p>
 <p>For an example of usage, see the <a href="../examples/synchronousrun">Synchronous run Example</a> or the
 <a href="../examples/puppeteerwithproxy">Puppeteer proxy Example</a></p>
 <p><strong>Returns</strong>: <code>Promise&lt;Browser&gt;</code> - Promise that resolves to Puppeteer's <code>Browser</code> instance.</p>
@@ -958,7 +959,7 @@ The objects must be serializable to JSON and the JSON representation of each obj
 <td colspan="3"><p>Specifies a custom MIME content type of the record.</p>
 </td></tr></tbody>
 </table>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/guides/puppeteerliveview"><span class="arrow-prev">← </span><span>Puppeteer Live View</span></a><a class="docs-next button" href="/docs/api/autoscaledpool"><span class="function-name-prevnext">AutoscaledPool</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#apifyaddwebhookoptions-promise"><code>Apify.addWebhook(options)</code> ⇒ <code>Promise</code></a></li><li><a href="#apifycallactid-input-options-promise"><code>Apify.call(actId, [input], [options])</code> ⇒ <a href="../typedefs/actorrun"><code>Promise</code></a></a></li><li><a href="#apifycalltasktaskid-input-options-promise"><code>Apify.callTask(taskId, [input], [options])</code> ⇒ <a href="../typedefs/actorrun"><code>Promise</code></a></a></li><li><a href="#apifyclient"><code>Apify.client</code></a></li><li><a href="#apifyevents"><code>Apify.events</code></a></li><li><a href="#apifygetapifyproxyurloptions-string"><code>Apify.getApifyProxyUrl(options)</code> ⇒ <code>String</code></a></li><li><a href="#apifygetenv-object"><code>Apify.getEnv()</code> ⇒ <code>Object</code></a></li><li><a href="#apifygetinput-promise"><code>Apify.getInput</code> ⇒ <code>Promise</code></a></li><li><a href="#apifygetmemoryinfo-promise"><code>Apify.getMemoryInfo()</code> ⇒ <code>Promise</code></a></li><li><a href="#apifygetvaluekey-promise"><code>Apify.getValue(key)</code> ⇒ <code>Promise</code></a></li><li><a href="#apifyisathome-boolean"><code>Apify.isAtHome()</code> ⇒ <code>Boolean</code></a></li><li><a href="#apifylaunchpuppeteer-options-promise"><code>Apify.launchPuppeteer([options])</code> ⇒ <code>Promise</code></a></li><li><a href="#apifymainuserfunc"><code>Apify.main(userFunc)</code></a></li><li><a href="#apifymetamorphtargetactorid-input-options-promise"><code>Apify.metamorph(targetActorId, [input], [options])</code> ⇒ <code>Promise</code></a></li><li><a href="#apifyopendataset-datasetidorname-options-promise"><code>Apify.openDataset([datasetIdOrName], [options])</code> ⇒ <a href="dataset"><code>Promise</code></a></a></li><li><a href="#apifyopenkeyvaluestore-storeidorname-options-promise"><code>Apify.openKeyValueStore([storeIdOrName], [options])</code> ⇒ <a href="keyvaluestore"><code>Promise</code></a></a></li><li><a href="#apifyopenrequestlist-promise"><code>Apify.openRequestList</code> ⇒ <a href="requestlist"><code>Promise</code></a></a></li><li><a href="#apifyopenrequestqueue-promise"><code>Apify.openRequestQueue</code> ⇒ <a href="requestqueue"><code>Promise</code></a></a></li><li><a href="#apifyopensessionpool-promise"><code>Apify.openSessionPool</code> ⇒ <a href="sessionpool"><code>Promise</code></a></a></li><li><a href="#apifypushdataitem-promise"><code>Apify.pushData(item)</code> ⇒ <code>Promise</code></a></li><li><a href="#apifysetvaluekey-value-options-promise"><code>Apify.setValue(key, value, [options])</code> ⇒ <code>Promise</code></a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/apify_logo.svg" alt="Apify SDK" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/guides/motivation">Guide</a><a href="/docs/examples/basiccrawler">Examples</a><a href="/docs/api/apify">Reference</a></div><div><h5>Community</h5><a href="https://stackoverflow.com/questions/tagged/apify" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://twitter.com/apify" target="_blank" rel="noreferrer noopener">Twitter</a><a href="https://www.facebook.com/apifytech" target="_blank" rel="noreferrer noopener">Facebook</a></div><div><h5>More</h5><a href="https://apify.com" target="_blank">Apify Cloud</a><a href="https://docusaurus.io" target="_blank">Docusaurus</a><a href="https://github.com/apifytech/apify-js" target="_blank">GitHub</a></div></section><section class="copyright">Copyright © 2019 Apify Technologies s.r.o.</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/guides/puppeteerliveview"><span class="arrow-prev">← </span><span>Puppeteer Live View</span></a><a class="docs-next button" href="/docs/api/autoscaledpool"><span class="function-name-prevnext">AutoscaledPool</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#apifyaddwebhookoptions-promise"><code>Apify.addWebhook(options)</code> ⇒ <code>Promise</code></a></li><li><a href="#apifycallactid-input-options-promise"><code>Apify.call(actId, [input], [options])</code> ⇒ <a href="../typedefs/actorrun"><code>Promise</code></a></a></li><li><a href="#apifycalltasktaskid-input-options-promise"><code>Apify.callTask(taskId, [input], [options])</code> ⇒ <a href="../typedefs/actorrun"><code>Promise</code></a></a></li><li><a href="#apifyclient"><code>Apify.client</code></a></li><li><a href="#apifyevents"><code>Apify.events</code></a></li><li><a href="#apifygetapifyproxyurloptions-string"><code>Apify.getApifyProxyUrl(options)</code> ⇒ <code>String</code></a></li><li><a href="#apifygetenv-object"><code>Apify.getEnv()</code> ⇒ <code>Object</code></a></li><li><a href="#apifygetinput-promise"><code>Apify.getInput</code> ⇒ <code>Promise</code></a></li><li><a href="#apifygetmemoryinfo-promise"><code>Apify.getMemoryInfo()</code> ⇒ <code>Promise</code></a></li><li><a href="#apifygetvaluekey-promise"><code>Apify.getValue(key)</code> ⇒ <code>Promise</code></a></li><li><a href="#apifyisathome-boolean"><code>Apify.isAtHome()</code> ⇒ <code>Boolean</code></a></li><li><a href="#apifylaunchpuppeteer-options-promise"><code>Apify.launchPuppeteer([options])</code> ⇒ <code>Promise</code></a></li><li><a href="#apifymainuserfunc"><code>Apify.main(userFunc)</code></a></li><li><a href="#apifymetamorphtargetactorid-input-options-promise"><code>Apify.metamorph(targetActorId, [input], [options])</code> ⇒ <code>Promise</code></a></li><li><a href="#apifyopendataset-datasetidorname-options-promise"><code>Apify.openDataset([datasetIdOrName], [options])</code> ⇒ <a href="dataset"><code>Promise</code></a></a></li><li><a href="#apifyopenkeyvaluestore-storeidorname-options-promise"><code>Apify.openKeyValueStore([storeIdOrName], [options])</code> ⇒ <a href="keyvaluestore"><code>Promise</code></a></a></li><li><a href="#apifyopenrequestlist-promise"><code>Apify.openRequestList</code> ⇒ <a href="requestlist"><code>Promise</code></a></a></li><li><a href="#apifyopenrequestqueue-promise"><code>Apify.openRequestQueue</code> ⇒ <a href="requestqueue"><code>Promise</code></a></a></li><li><a href="#apifyopensessionpool-promise"><code>Apify.openSessionPool</code> ⇒ <a href="sessionpool"><code>Promise</code></a></a></li><li><a href="#apifypushdataitem-promise"><code>Apify.pushData(item)</code> ⇒ <code>Promise</code></a></li><li><a href="#apifysetvaluekey-value-options-promise"><code>Apify.setValue(key, value, [options])</code> ⇒ <code>Promise</code></a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/apify_logo.svg" alt="Apify SDK" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/guides/motivation">Guide</a><a href="/docs/examples/basiccrawler">Examples</a><a href="/docs/api/apify">Reference</a></div><div><h5>Community</h5><a href="https://stackoverflow.com/questions/tagged/apify" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://twitter.com/apify" target="_blank" rel="noreferrer noopener">Twitter</a><a href="https://www.facebook.com/apifytech" target="_blank" rel="noreferrer noopener">Facebook</a></div><div><h5>More</h5><a href="https://apify.com" target="_blank">Apify Cloud</a><a href="https://docusaurus.io" target="_blank">Docusaurus</a><a href="https://github.com/apifytech/apify-js" target="_blank">GitHub</a></div></section><section class="copyright">Copyright © 2020 Apify Technologies s.r.o.</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;

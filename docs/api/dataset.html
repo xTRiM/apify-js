@@ -68,7 +68,7 @@ variables are set.</p>
 <code>APIFY_DEFAULT_DATASET_ID</code> environment variable. Each dataset item is stored as a separate JSON file, where <code>{INDEX}</code> is a zero-based index of the
 item in the dataset.</p>
 <p>If the <code>APIFY_TOKEN</code> environment variable is set but <code>APIFY_LOCAL_STORAGE_DIR</code> not, the data is stored in the
-<a href="https://apify.com/docs/storage#dataset" target="_blank">Apify Dataset</a> cloud storage. Note that you can force usage of the cloud storage
+<a href="https://docs.apify.com/storage/dataset" target="_blank">Apify Dataset</a> cloud storage. Note that you can force usage of the cloud storage
 also by passing the <code>forceCloud</code> option to <a href="apify#module_Apify.openDataset"><code>Apify.openDataset()</code></a> function, even if the <code>APIFY_LOCAL_STORAGE_DIR</code>
 variable is set.</p>
 <p><strong>Example usage:</strong></p>
@@ -256,7 +256,7 @@ The objects must be serializable to JSON and the JSON representation of each obj
 <h2><a class="anchor" aria-hidden="true" id="datasetgetinfo-promise-object"></a><a href="#datasetgetinfo-promise-object" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>dataset.getInfo()</code> ⇒ <code>Promise&lt;Object&gt;</code></h2>
 <p>Returns an object containing general information about the dataset.</p>
 <p>The function returns the same object as the Apify API Client's
-<a href="https://apify.com/docs/api/apify-client-js/latest#ApifyClient-datasets-getDataset">getDataset</a> function, which in turn calls the
+<a href="https://docs.apify.com/api/apify-client-js/latest#ApifyClient-datasets-getDataset">getDataset</a> function, which in turn calls the
 <a href="https://apify.com/docs/api/v2#/reference/datasets/dataset/get-dataset">Get dataset</a> API endpoint.</p>
 <p><strong>Example:</strong></p>
 <pre><code class="hljs"><span class="token punctuation">{</span>
@@ -301,11 +301,6 @@ The objects must be serializable to JSON and the JSON representation of each obj
 <td colspan="3"><p>All <code>forEach()</code> parameters are passed
   via an options object with the following keys:</p>
 </td></tr><tr>
-<td><code>[options.offset]</code></td><td><code>Number</code></td><td><code>0</code></td>
-</tr>
-<tr>
-<td colspan="3"><p>Number of array elements that should be skipped at the start.</p>
-</td></tr><tr>
 <td><code>[options.desc]</code></td><td><code>Boolean</code></td><td><code>false</code></td>
 </tr>
 <tr>
@@ -320,11 +315,6 @@ The objects must be serializable to JSON and the JSON representation of each obj
 </tr>
 <tr>
 <td colspan="3"><p>If provided then objects will be unwound based on provided field.</p>
-</td></tr><tr>
-<td><code>[options.limit]</code></td><td><code>Number</code></td><td><code>250000</code></td>
-</tr>
-<tr>
-<td colspan="3"><p>How many items to load in one request.</p>
 </td></tr><tr>
 <td><code>[index]</code></td><td><code>Number</code></td><td><code>0</code></td>
 </tr>
@@ -355,11 +345,6 @@ with two arguments: <code>(element, index)</code>.</p>
 <td colspan="3"><p>All <code>map()</code> parameters are passed
   via an options object with the following keys:</p>
 </td></tr><tr>
-<td><code>[options.offset]</code></td><td><code>Number</code></td><td><code>0</code></td>
-</tr>
-<tr>
-<td colspan="3"><p>Number of array elements that should be skipped at the start.</p>
-</td></tr><tr>
 <td><code>[options.desc]</code></td><td><code>Boolean</code></td><td><code>false</code></td>
 </tr>
 <tr>
@@ -374,11 +359,6 @@ with two arguments: <code>(element, index)</code>.</p>
 </tr>
 <tr>
 <td colspan="3"><p>If provided then objects will be unwound based on provided field.</p>
-</td></tr><tr>
-<td><code>[options.limit]</code></td><td><code>Number</code></td><td><code>250000</code></td>
-</tr>
-<tr>
-<td colspan="3"><p>How many items to load in one request.</p>
 </td></tr></tbody>
 </table>
 <a name="Dataset+reduce"></a>
@@ -412,11 +392,6 @@ instead passed as the memo in the invocation of the <code>iteratee()</code> on t
 <td colspan="3"><p>All <code>reduce()</code> parameters are passed
   via an options object with the following keys:</p>
 </td></tr><tr>
-<td><code>[options.offset]</code></td><td><code>Number</code></td><td><code>0</code></td>
-</tr>
-<tr>
-<td colspan="3"><p>Number of array elements that should be skipped at the start.</p>
-</td></tr><tr>
 <td><code>[options.desc]</code></td><td><code>Boolean</code></td><td><code>false</code></td>
 </tr>
 <tr>
@@ -431,17 +406,12 @@ instead passed as the memo in the invocation of the <code>iteratee()</code> on t
 </tr>
 <tr>
 <td colspan="3"><p>If provided then objects will be unwound based on provided field.</p>
-</td></tr><tr>
-<td><code>[options.limit]</code></td><td><code>Number</code></td><td><code>250000</code></td>
-</tr>
-<tr>
-<td colspan="3"><p>How many items to load in one request.</p>
 </td></tr></tbody>
 </table>
 <a name="Dataset+drop"></a>
 <h2><a class="anchor" aria-hidden="true" id="datasetdrop-promise"></a><a href="#datasetdrop-promise" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>dataset.drop()</code> ⇒ <code>Promise</code></h2>
 <p>Removes the dataset either from the Apify cloud storage or from the local directory, depending on the mode of operation.</p>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/api/cheeriocrawler"><span class="arrow-prev">← </span><span class="function-name-prevnext">CheerioCrawler</span></a><a class="docs-next button" href="/docs/api/keyvaluestore"><span class="function-name-prevnext">KeyValueStore</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#datasetpushdatadata-promise"><code>dataset.pushData(data)</code> ⇒ <code>Promise</code></a></li><li><a href="#datasetgetdata-options-promise"><code>dataset.getData([options])</code> ⇒ <code>Promise</code></a></li><li><a href="#datasetgetinfo-promise"><code>dataset.getInfo()</code> ⇒ <code>Promise</code></a></li><li><a href="#datasetforeachiteratee-options-index-promise"><code>dataset.forEach(iteratee, [options], [index])</code> ⇒ <code>Promise</code></a></li><li><a href="#datasetmapiteratee-options-promise"><code>dataset.map(iteratee, options)</code> ⇒ <code>Promise</code></a></li><li><a href="#datasetreduceiteratee-memo-options-promise"><code>dataset.reduce(iteratee, memo, options)</code> ⇒ <code>Promise</code></a></li><li><a href="#datasetdrop-promise"><code>dataset.drop()</code> ⇒ <code>Promise</code></a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/apify_logo.svg" alt="Apify SDK" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/guides/motivation">Guide</a><a href="/docs/examples/basiccrawler">Examples</a><a href="/docs/api/apify">Reference</a></div><div><h5>Community</h5><a href="https://stackoverflow.com/questions/tagged/apify" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://twitter.com/apify" target="_blank" rel="noreferrer noopener">Twitter</a><a href="https://www.facebook.com/apifytech" target="_blank" rel="noreferrer noopener">Facebook</a></div><div><h5>More</h5><a href="https://apify.com" target="_blank">Apify Cloud</a><a href="https://docusaurus.io" target="_blank">Docusaurus</a><a href="https://github.com/apifytech/apify-js" target="_blank">GitHub</a></div></section><section class="copyright">Copyright © 2019 Apify Technologies s.r.o.</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/api/cheeriocrawler"><span class="arrow-prev">← </span><span class="function-name-prevnext">CheerioCrawler</span></a><a class="docs-next button" href="/docs/api/keyvaluestore"><span class="function-name-prevnext">KeyValueStore</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#datasetpushdatadata-promise"><code>dataset.pushData(data)</code> ⇒ <code>Promise</code></a></li><li><a href="#datasetgetdata-options-promise"><code>dataset.getData([options])</code> ⇒ <code>Promise</code></a></li><li><a href="#datasetgetinfo-promise"><code>dataset.getInfo()</code> ⇒ <code>Promise</code></a></li><li><a href="#datasetforeachiteratee-options-index-promise"><code>dataset.forEach(iteratee, [options], [index])</code> ⇒ <code>Promise</code></a></li><li><a href="#datasetmapiteratee-options-promise"><code>dataset.map(iteratee, options)</code> ⇒ <code>Promise</code></a></li><li><a href="#datasetreduceiteratee-memo-options-promise"><code>dataset.reduce(iteratee, memo, options)</code> ⇒ <code>Promise</code></a></li><li><a href="#datasetdrop-promise"><code>dataset.drop()</code> ⇒ <code>Promise</code></a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/apify_logo.svg" alt="Apify SDK" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/guides/motivation">Guide</a><a href="/docs/examples/basiccrawler">Examples</a><a href="/docs/api/apify">Reference</a></div><div><h5>Community</h5><a href="https://stackoverflow.com/questions/tagged/apify" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://twitter.com/apify" target="_blank" rel="noreferrer noopener">Twitter</a><a href="https://www.facebook.com/apifytech" target="_blank" rel="noreferrer noopener">Facebook</a></div><div><h5>More</h5><a href="https://apify.com" target="_blank">Apify Cloud</a><a href="https://docusaurus.io" target="_blank">Docusaurus</a><a href="https://github.com/apifytech/apify-js" target="_blank">GitHub</a></div></section><section class="copyright">Copyright © 2020 Apify Technologies s.r.o.</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;

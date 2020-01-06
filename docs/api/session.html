@@ -70,6 +70,13 @@ internal state can be enriched with custom user data for example some authorizat
 <li><a href="#Session+getState"><code>.getState()</code></a> ⇒ <code>Object</code></li>
 <li><a href="#Session+retire"><code>.retire()</code></a></li>
 <li><a href="#Session+markBad"><code>.markBad()</code></a></li>
+<li><a href="#Session+checkStatus"><code>.checkStatus(statusCode)</code></a> ⇒ <code>boolean</code></li>
+<li><a href="#Session+putResponse"><code>.putResponse(response)</code></a></li>
+<li><a href="#Session+putPuppeteerCookies"><code>.putPuppeteerCookies(puppeteerCookies, url)</code></a></li>
+<li><a href="#Session+setCookies"><code>.setCookies(cookies, url)</code></a></li>
+<li><a href="#Session+getCookies"><code>.getCookies(url)</code></a> ⇒ <code>Array&lt;Object&gt;</code></li>
+<li><a href="#Session+getCookieString"><code>.getCookieString(url)</code></a> ⇒ <code>String</code></li>
+<li><a href="#Session+getPuppeteerCookies"><code>.getPuppeteerCookies(url)</code></a> ⇒ <code>*</code></li>
 </ul></li>
 </ul>
 <p><a name="new_Session_new"></a></p>
@@ -174,7 +181,132 @@ due to some external factors as server error such as 5XX you probably want to us
 <p><a name="Session+markBad"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="sessionmarkbad"></a><a href="#sessionmarkbad" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>session.markBad()</code></h2>
 <p>Increases usage and error count. Should be used when the session has been used unsuccessfully. For example because of timeouts.</p>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/api/sessionpool"><span class="arrow-prev">← </span><span class="function-name-prevnext">SessionPool</span></a><a class="docs-next button" href="/docs/api/utils"><span>utils</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#new-exportssession"><code>new exports.Session()</code></a></li><li><a href="#sessionisblocked-boolean"><code>session.isBlocked()</code> ⇒ <code>boolean</code></a></li><li><a href="#sessionisexpired-boolean"><code>session.isExpired()</code> ⇒ <code>boolean</code></a></li><li><a href="#sessionismaxusagecountreached-boolean"><code>session.isMaxUsageCountReached()</code> ⇒ <code>boolean</code></a></li><li><a href="#sessionisusable-boolean"><code>session.isUsable()</code> ⇒ <code>boolean</code></a></li><li><a href="#sessionmarkgood"><code>session.markGood()</code></a></li><li><a href="#sessiongetstate-object"><code>session.getState()</code> ⇒ <code>Object</code></a></li><li><a href="#sessionretire"><code>session.retire()</code></a></li><li><a href="#sessionmarkbad"><code>session.markBad()</code></a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/apify_logo.svg" alt="Apify SDK" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/guides/motivation">Guide</a><a href="/docs/examples/basiccrawler">Examples</a><a href="/docs/api/apify">Reference</a></div><div><h5>Community</h5><a href="https://stackoverflow.com/questions/tagged/apify" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://twitter.com/apify" target="_blank" rel="noreferrer noopener">Twitter</a><a href="https://www.facebook.com/apifytech" target="_blank" rel="noreferrer noopener">Facebook</a></div><div><h5>More</h5><a href="https://apify.com" target="_blank">Apify Cloud</a><a href="https://docusaurus.io" target="_blank">Docusaurus</a><a href="https://github.com/apifytech/apify-js" target="_blank">GitHub</a></div></section><section class="copyright">Copyright © 2019 Apify Technologies s.r.o.</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+<p><a name="Session+checkStatus"></a></p>
+<h2><a class="anchor" aria-hidden="true" id="sessioncheckstatusstatuscode-boolean"></a><a href="#sessioncheckstatusstatuscode-boolean" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>session.checkStatus(statusCode)</code> ⇒ <code>boolean</code></h2>
+<p>Retires session based on status code.</p>
+<p><strong>Returns</strong>: <code>boolean</code> - whether the session was retired.</p>
+<table>
+<thead>
+<tr>
+<th>Param</th><th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>statusCode</code></td><td><code>Number</code></td>
+</tr>
+<tr>
+<td colspan="3"><p>HTTP status code</p>
+</td></tr></tbody>
+</table>
+<a name="Session+putResponse"></a>
+<h2><a class="anchor" aria-hidden="true" id="sessionputresponseresponse"></a><a href="#sessionputresponseresponse" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>session.putResponse(response)</code></h2>
+<p>Sets cookies from response to the cookieJar. Parses cookies from <code>set-cookie</code> header and sets them to <code>Session.cookieJar</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>response</code></td>
+</tr>
+<tr>
+</tr></tbody>
+</table>
+<a name="Session+putPuppeteerCookies"></a>
+<h2><a class="anchor" aria-hidden="true" id="sessionputpuppeteercookiespuppeteercookies-url"></a><a href="#sessionputpuppeteercookiespuppeteercookies-url" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>session.putPuppeteerCookies(puppeteerCookies, url)</code></h2>
+<p>Persists puppeteer cookies to session for reuse.</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>puppeteerCookies</code></td>
+</tr>
+<tr>
+<td colspan="3"><p>cookie from puppeteer <code>page.cookies</code> method.</p>
+</td></tr><tr>
+<td><code>url</code></td>
+</tr>
+<tr>
+<td colspan="3"><p>Loaded url from page function.</p>
+</td></tr></tbody>
+</table>
+<a name="Session+setCookies"></a>
+<h2><a class="anchor" aria-hidden="true" id="sessionsetcookiescookies-url"></a><a href="#sessionsetcookiescookies-url" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>session.setCookies(cookies, url)</code></h2>
+<p>Set cookies to session cookieJar. Cookies array should be compatible with tough-cookie.</p>
+<table>
+<thead>
+<tr>
+<th>Param</th><th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cookies</code></td><td><code>Array<Cookie></code></td>
+</tr>
+<tr>
+</tr><tr>
+<td><code>url</code></td><td><code>String</code></td>
+</tr>
+<tr>
+</tr></tbody>
+</table>
+<a name="Session+getCookies"></a>
+<h2><a class="anchor" aria-hidden="true" id="sessiongetcookiesurl-array-object"></a><a href="#sessiongetcookiesurl-array-object" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>session.getCookies(url)</code> ⇒ <code>Array&lt;Object&gt;</code></h2>
+<p>Get cookies. Gets a array of <code>tough-cookie</code> Cookie instances.</p>
+<table>
+<thead>
+<tr>
+<th>Param</th><th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>url</code></td><td><code>String</code></td>
+</tr>
+<tr>
+</tr></tbody>
+</table>
+<a name="Session+getCookieString"></a>
+<h2><a class="anchor" aria-hidden="true" id="sessiongetcookiestringurl-string"></a><a href="#sessiongetcookiestringurl-string" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>session.getCookieString(url)</code> ⇒ <code>String</code></h2>
+<p>Wrapper around <code>tough-cookie</code> Cookie jar <code>getCookieString</code> method.</p>
+<p><strong>Returns</strong>: <code>String</code> - - represents <code>Cookie</code> header.</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>url</code></td>
+</tr>
+<tr>
+</tr></tbody>
+</table>
+<a name="Session+getPuppeteerCookies"></a>
+<h2><a class="anchor" aria-hidden="true" id="sessiongetpuppeteercookiesurl"></a><a href="#sessiongetpuppeteercookiesurl" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>session.getPuppeteerCookies(url)</code> ⇒ <code>*</code></h2>
+<p>Gets cookies in format ready for puppeteer.</p>
+<table>
+<thead>
+<tr>
+<th>Param</th><th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>url</code></td><td><code>String</code></td>
+</tr>
+<tr>
+</tr></tbody>
+</table>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/api/sessionpool"><span class="arrow-prev">← </span><span class="function-name-prevnext">SessionPool</span></a><a class="docs-next button" href="/docs/api/utils"><span>utils</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#new-exportssession"><code>new exports.Session()</code></a></li><li><a href="#sessionisblocked-boolean"><code>session.isBlocked()</code> ⇒ <code>boolean</code></a></li><li><a href="#sessionisexpired-boolean"><code>session.isExpired()</code> ⇒ <code>boolean</code></a></li><li><a href="#sessionismaxusagecountreached-boolean"><code>session.isMaxUsageCountReached()</code> ⇒ <code>boolean</code></a></li><li><a href="#sessionisusable-boolean"><code>session.isUsable()</code> ⇒ <code>boolean</code></a></li><li><a href="#sessionmarkgood"><code>session.markGood()</code></a></li><li><a href="#sessiongetstate-object"><code>session.getState()</code> ⇒ <code>Object</code></a></li><li><a href="#sessionretire"><code>session.retire()</code></a></li><li><a href="#sessionmarkbad"><code>session.markBad()</code></a></li><li><a href="#sessioncheckstatusstatuscode-boolean"><code>session.checkStatus(statusCode)</code> ⇒ <code>boolean</code></a></li><li><a href="#sessionputresponseresponse"><code>session.putResponse(response)</code></a></li><li><a href="#sessionputpuppeteercookiespuppeteercookies-url"><code>session.putPuppeteerCookies(puppeteerCookies, url)</code></a></li><li><a href="#sessionsetcookiescookies-url"><code>session.setCookies(cookies, url)</code></a></li><li><a href="#sessiongetcookiesurl-array"><code>session.getCookies(url)</code> ⇒ <code>Array</code></a></li><li><a href="#sessiongetcookiestringurl-string"><code>session.getCookieString(url)</code> ⇒ <code>String</code></a></li><li><a href="#sessiongetpuppeteercookiesurl"><code>session.getPuppeteerCookies(url)</code> ⇒ <code>*</code></a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/apify_logo.svg" alt="Apify SDK" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/guides/motivation">Guide</a><a href="/docs/examples/basiccrawler">Examples</a><a href="/docs/api/apify">Reference</a></div><div><h5>Community</h5><a href="https://stackoverflow.com/questions/tagged/apify" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://twitter.com/apify" target="_blank" rel="noreferrer noopener">Twitter</a><a href="https://www.facebook.com/apifytech" target="_blank" rel="noreferrer noopener">Facebook</a></div><div><h5>More</h5><a href="https://apify.com" target="_blank">Apify Cloud</a><a href="https://docusaurus.io" target="_blank">Docusaurus</a><a href="https://github.com/apifytech/apify-js" target="_blank">GitHub</a></div></section><section class="copyright">Copyright © 2020 Apify Technologies s.r.o.</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;
