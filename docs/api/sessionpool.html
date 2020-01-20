@@ -55,8 +55,8 @@
               }
             });
         </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">SessionPool</h1></header><article><div><span><p><a name="SessionPool"></a></p>
-<p>Experimental feature and might change in the future releases. Handles the sessions rotation, creation and persistence. Creates a pool of
-<a href="session"><code>Session</code></a> instances, that are randomly rotated. When some session is marked as blocked. It is removed and new one is created instead.</p>
+<p>Handles the sessions rotation, creation and persistence. Creates a pool of <a href="session"><code>Session</code></a> instances, that are randomly rotated. When some
+session is marked as blocked. It is removed and new one is created instead.</p>
 <p>Session pool is by default persisted in default <a href="keyvaluestore"><code>KeyValueStore</code></a>. If you want to have one pool for all runs you have to specify
 <code>persistStateKeyValueStoreId</code>.</p>
 <p><strong>Example usage:</strong></p>

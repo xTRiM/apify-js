@@ -129,8 +129,9 @@ The objects must be serializable to JSON and the JSON representation of each obj
 <pre><code class="hljs css language-javascript"><span class="token punctuation">{</span>
     items<span class="token punctuation">,</span> <span class="token comment">// Array|String|Buffer based on chosen format parameter.</span>
     total<span class="token punctuation">,</span> <span class="token comment">// Number</span>
-    limit<span class="token punctuation">,</span> <span class="token comment">// Number</span>
     offset<span class="token punctuation">,</span> <span class="token comment">// Number</span>
+    count<span class="token punctuation">,</span> <span class="token comment">// Number</span>
+    limit<span class="token punctuation">,</span> <span class="token comment">// Number</span>
 <span class="token punctuation">}</span>
 </code></pre>
 <p><strong>NOTE</strong>: If using dataset with local disk storage, the <code>format</code> option must be <code>json</code> and the following options are not supported: <code>unwind</code>,
