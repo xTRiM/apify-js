@@ -54,7 +54,7 @@
                 };
               }
             });
-        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Puppeteer With Proxy</h1></header><article><div><span><p>This example demonstrates how to load pages in headless Chrome / Puppeteer over <a href="https://docs.apify.com/proxy" target="_blank">Apify
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Puppeteer With Proxy</h1></header><article><div><span><p>This example demonstrates how to load pages in headless Chrome / Puppeteer over <a href="https://docs.apify.com/proxy" target="_blank">Apify
 Proxy</a>. To make it work, you'll need an Apify Account that has access to the proxy. The proxy password is available on the
 <a href="https://my.apify.com/proxy" target="_blank">Proxy</a> page in the app. Just set it to the <code>APIFY_PROXY_PASSWORD</code>
 <a href="../guides/environmentvariables">environment variable</a> or run the script using the CLI.</p>
@@ -67,7 +67,7 @@ Apify<span class="token punctuation">.</span><span class="token function">main</
     <span class="token comment">// It accepts the same parameters and returns a preconfigured Puppeteer.Browser instance.</span>
     <span class="token comment">// Moreover, it accepts several additional options, such as useApifyProxy.</span>
     <span class="token keyword">const</span> options <span class="token operator">=</span> <span class="token punctuation">{</span>
-        useApifyProxy<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        useApifyProxy<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
     <span class="token punctuation">}</span><span class="token punctuation">;</span>
     <span class="token keyword">const</span> browser <span class="token operator">=</span> <span class="token keyword">await</span> Apify<span class="token punctuation">.</span><span class="token function">launchPuppeteer</span><span class="token punctuation">(</span>options<span class="token punctuation">)</span><span class="token punctuation">;</span>
 

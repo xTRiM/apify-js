@@ -54,7 +54,7 @@
                 };
               }
             });
-        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Call Actor</h1></header><article><div><span><p>This example demonstrates how to start an Apify actor using <a href="../api/apify#module_Apify.call"><code>Apify.call()</code></a> and how to call Apify API using
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Call Actor</h1></header><article><div><span><p>This example demonstrates how to start an Apify actor using <a href="../api/apify#module_Apify.call"><code>Apify.call()</code></a> and how to call Apify API using
 <a href="../api/apify#module_Apify.client"><code>Apify.client</code></a>. The script extracts the current Bitcoin prices from
 <a href="https://www.kraken.com/" target="_blank">Kraken.com</a> and sends them to your email using the
 <a href="https://apify.com/apify/send-mail" target="_blank">apify/send-mail</a> actor.</p>
@@ -86,9 +86,9 @@ Apify<span class="token punctuation">.</span><span class="token function">main</
     <span class="token comment">// the actor's documentation page: https://apify.com/apify/send-mail</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Sending email to </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>user<span class="token punctuation">.</span>email<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">...</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">await</span> <span class="token function">Apify</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token string">'apify/send-mail'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
-        to<span class="token punctuation">:</span> user<span class="token punctuation">.</span>email<span class="token punctuation">,</span>
-        subject<span class="token punctuation">:</span> <span class="token string">'Kraken.com BTC'</span><span class="token punctuation">,</span>
-        html<span class="token punctuation">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">&lt;h1>Kraken.com BTC&lt;/h1></span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>tradedPricesHtml<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+        to<span class="token operator">:</span> user<span class="token punctuation">.</span>email<span class="token punctuation">,</span>
+        subject<span class="token operator">:</span> <span class="token string">'Kraken.com BTC'</span><span class="token punctuation">,</span>
+        html<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">&lt;h1>Kraken.com BTC&lt;/h1></span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>tradedPricesHtml<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
     <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Email sent. Good luck!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>

@@ -54,7 +54,7 @@
                 };
               }
             });
-        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Cheerio Crawler</h1></header><article><div><span><p>This example demonstrates how to use <a href="../api/cheeriocrawler"><code>CheerioCrawler</code></a> to crawl a list of URLs from an external file, load each URL using a
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Cheerio Crawler</h1></header><article><div><span><p>This example demonstrates how to use <a href="../api/cheeriocrawler"><code>CheerioCrawler</code></a> to crawl a list of URLs from an external file, load each URL using a
 plain HTTP request, parse the HTML using <a href="https://www.npmjs.com/package/cheerio" target="_blank">cheerio</a> and extract some data from it:
 the page title and all H1 tags.</p>
 <p>To run this example on the Apify Platform, select the <code>Node.js 10 on Alpine Linux (apify/actor-node-basic)</code> base image on the source tab of your actor
@@ -74,7 +74,7 @@ Apify<span class="token punctuation">.</span><span class="token function">main</
     <span class="token comment">// Create an instance of the RequestList class that contains a list of URLs to crawl.</span>
     <span class="token comment">// Here we download and parse the list of URLs from an external file.</span>
     <span class="token keyword">const</span> requestList <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Apify<span class="token punctuation">.</span>RequestList</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-        sources<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span> requestsFromUrl<span class="token punctuation">:</span> <span class="token constant">CSV_LINK</span> <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        sources<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span> requestsFromUrl<span class="token operator">:</span> <span class="token constant">CSV_LINK</span> <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
     <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">await</span> requestList<span class="token punctuation">.</span><span class="token function">initialize</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
@@ -87,21 +87,21 @@ Apify<span class="token punctuation">.</span><span class="token function">main</
         <span class="token comment">// The crawler downloads and processes the web pages in parallel, with a concurrency</span>
         <span class="token comment">// automatically managed based on the available system memory and CPU (see AutoscaledPool class).</span>
         <span class="token comment">// Here we define some hard limits for the concurrency.</span>
-        minConcurrency<span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">,</span>
-        maxConcurrency<span class="token punctuation">:</span> <span class="token number">50</span><span class="token punctuation">,</span>
+        minConcurrency<span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span>
+        maxConcurrency<span class="token operator">:</span> <span class="token number">50</span><span class="token punctuation">,</span>
 
         <span class="token comment">// On error, retry each page at most once.</span>
-        maxRequestRetries<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+        maxRequestRetries<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
 
         <span class="token comment">// Increase the timeout for processing of each page.</span>
-        handlePageTimeoutSecs<span class="token punctuation">:</span> <span class="token number">60</span><span class="token punctuation">,</span>
+        handlePageTimeoutSecs<span class="token operator">:</span> <span class="token number">60</span><span class="token punctuation">,</span>
 
         <span class="token comment">// This function will be called for each URL to crawl.</span>
         <span class="token comment">// It accepts a single parameter, which is an object with the following fields:</span>
         <span class="token comment">// - request: an instance of the Request class with information such as URL and HTTP method</span>
         <span class="token comment">// - html: contains raw HTML of the page</span>
         <span class="token comment">// - $: the cheerio object containing parsed HTML</span>
-        <span class="token function-variable function">handlePageFunction</span><span class="token punctuation">:</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> request<span class="token punctuation">,</span> html<span class="token punctuation">,</span> $ <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+        <span class="token function-variable function">handlePageFunction</span><span class="token operator">:</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> request<span class="token punctuation">,</span> html<span class="token punctuation">,</span> $ <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
             console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Processing </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>request<span class="token punctuation">.</span>url<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">...</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
             <span class="token comment">// Extract data from the page using cheerio.</span>
@@ -109,14 +109,14 @@ Apify<span class="token punctuation">.</span><span class="token function">main</
             <span class="token keyword">const</span> h1texts <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
             <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'h1'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">each</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">index<span class="token punctuation">,</span> el</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
                 h1texts<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-                    text<span class="token punctuation">:</span> <span class="token function">$</span><span class="token punctuation">(</span>el<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">text</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                    text<span class="token operator">:</span> <span class="token function">$</span><span class="token punctuation">(</span>el<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">text</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
                 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
             <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
             <span class="token comment">// Store the results to the default dataset. In local configuration,</span>
             <span class="token comment">// the data will be stored as JSON files in ./apify_storage/datasets/default</span>
             <span class="token keyword">await</span> Apify<span class="token punctuation">.</span><span class="token function">pushData</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-                url<span class="token punctuation">:</span> request<span class="token punctuation">.</span>url<span class="token punctuation">,</span>
+                url<span class="token operator">:</span> request<span class="token punctuation">.</span>url<span class="token punctuation">,</span>
                 title<span class="token punctuation">,</span>
                 h1texts<span class="token punctuation">,</span>
                 html<span class="token punctuation">,</span>
@@ -124,7 +124,7 @@ Apify<span class="token punctuation">.</span><span class="token function">main</
         <span class="token punctuation">}</span><span class="token punctuation">,</span>
 
         <span class="token comment">// This function is called if the page processing failed more than maxRequestRetries+1 times.</span>
-        <span class="token function-variable function">handleFailedRequestFunction</span><span class="token punctuation">:</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> request <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+        <span class="token function-variable function">handleFailedRequestFunction</span><span class="token operator">:</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> request <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
             console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Request </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>request<span class="token punctuation">.</span>url<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> failed twice.</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span><span class="token punctuation">,</span>
     <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>

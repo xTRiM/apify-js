@@ -54,7 +54,7 @@
                 };
               }
             });
-        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Basic Crawler</h1></header><article><div><span><p>This is the most basic example of the Apify SDK, which demonstrates some of its elementary tools, such as the <a href="../api/basiccrawler"><code>BasicCrawler</code></a>
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Basic Crawler</h1></header><article><div><span><p>This is the most basic example of the Apify SDK, which demonstrates some of its elementary tools, such as the <a href="../api/basiccrawler"><code>BasicCrawler</code></a>
 and <a href="../api/requestlist"><code>RequestList</code></a> classes. The script just downloads several web pages with plain HTTP requests (using the
 <a href="https://www.npmjs.com/package/request-promise" target="_blank">request-promise</a> library) and stores their raw HTML and URL to the default
 dataset. In local configuration, the data will be stored as JSON files in <code>./apify_storage/datasets/default</code>.</p>
@@ -68,11 +68,11 @@ Apify<span class="token punctuation">.</span><span class="token function">main</
     <span class="token comment">// Create and initialize an instance of the RequestList class that contains</span>
     <span class="token comment">// a list of URLs to crawl. Here we use just a few hard-coded URLs.</span>
     <span class="token keyword">const</span> requestList <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Apify<span class="token punctuation">.</span>RequestList</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-        sources<span class="token punctuation">:</span> <span class="token punctuation">[</span>
-            <span class="token punctuation">{</span> url<span class="token punctuation">:</span> <span class="token string">'http://www.google.com/'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
-            <span class="token punctuation">{</span> url<span class="token punctuation">:</span> <span class="token string">'http://www.example.com/'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
-            <span class="token punctuation">{</span> url<span class="token punctuation">:</span> <span class="token string">'http://www.bing.com/'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
-            <span class="token punctuation">{</span> url<span class="token punctuation">:</span> <span class="token string">'http://www.wikipedia.com/'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        sources<span class="token operator">:</span> <span class="token punctuation">[</span>
+            <span class="token punctuation">{</span> url<span class="token operator">:</span> <span class="token string">'http://www.google.com/'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span> url<span class="token operator">:</span> <span class="token string">'http://www.example.com/'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span> url<span class="token operator">:</span> <span class="token string">'http://www.bing.com/'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span> url<span class="token operator">:</span> <span class="token string">'http://www.wikipedia.com/'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
         <span class="token punctuation">]</span><span class="token punctuation">,</span>
     <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">await</span> requestList<span class="token punctuation">.</span><span class="token function">initialize</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -86,7 +86,7 @@ Apify<span class="token punctuation">.</span><span class="token function">main</
         <span class="token comment">// This function will be called for each URL to crawl.</span>
         <span class="token comment">// The 'request' option is an instance of the Request class, which contains</span>
         <span class="token comment">// information such as URL and HTTP method, as supplied by the RequestList.</span>
-        <span class="token function-variable function">handleRequestFunction</span><span class="token punctuation">:</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> request <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+        <span class="token function-variable function">handleRequestFunction</span><span class="token operator">:</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> request <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
             console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Processing </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>request<span class="token punctuation">.</span>url<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">...</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
             <span class="token comment">// Fetch the page HTML</span>
@@ -94,7 +94,7 @@ Apify<span class="token punctuation">.</span><span class="token function">main</
 
             <span class="token comment">// Store the HTML and URL to the default dataset.</span>
             <span class="token keyword">await</span> Apify<span class="token punctuation">.</span><span class="token function">pushData</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-                url<span class="token punctuation">:</span> request<span class="token punctuation">.</span>url<span class="token punctuation">,</span>
+                url<span class="token operator">:</span> request<span class="token punctuation">.</span>url<span class="token punctuation">,</span>
                 html<span class="token punctuation">,</span>
             <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token punctuation">}</span><span class="token punctuation">,</span>

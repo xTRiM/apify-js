@@ -54,7 +54,7 @@
                 };
               }
             });
-        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Synchronous Run</h1></header><article><div><span><p>This example shows a quick actor that has a run time of just a few seconds. It opens a
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Synchronous Run</h1></header><article><div><span><p>This example shows a quick actor that has a run time of just a few seconds. It opens a
 <a href="http://goldengatebridge75.org/news/webcam.html" target="_blank">web page</a> that contains a webcam stream from the Golden Gate Bridge, takes
 a screenshot of the page and saves it as output.</p>
 <p>This actor can be invoked synchronously using a single HTTP request to directly obtain its output as a reponse, using the
@@ -91,7 +91,7 @@ Apify<span class="token punctuation">.</span><span class="token function">main</
 
     <span class="token comment">// Save the screenshot as the actor's output. By convention, similarly to "INPUT",</span>
     <span class="token comment">// the actor's output is stored in the default key-value store under the "OUTPUT" key.</span>
-    <span class="token keyword">await</span> Apify<span class="token punctuation">.</span><span class="token function">setValue</span><span class="token punctuation">(</span><span class="token string">'OUTPUT'</span><span class="token punctuation">,</span> imageBuffer<span class="token punctuation">,</span> <span class="token punctuation">{</span> contentType<span class="token punctuation">:</span> <span class="token string">'image/jpeg'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">await</span> Apify<span class="token punctuation">.</span><span class="token function">setValue</span><span class="token punctuation">(</span><span class="token string">'OUTPUT'</span><span class="token punctuation">,</span> imageBuffer<span class="token punctuation">,</span> <span class="token punctuation">{</span> contentType<span class="token operator">:</span> <span class="token string">'image/jpeg'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Actor finished.'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
