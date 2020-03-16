@@ -77,8 +77,6 @@ however, that this may prevent parsing URLs from comma delimited lists, or the U
 <hr>
 <p><a name="enqueuelinks"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="utilsenqueuelinksoptions"></a><a href="#utilsenqueuelinksoptions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>utils.enqueueLinks(options)</code></h2>
-<p><strong>Returns</strong>: <a href="/docs/typedefs/queue-operation-info"><code>Promise&lt;Array&lt;QueueOperationInfo&gt;&gt;</code></a> - Promise that resolves to an array of
-<a href="/docs/typedefs/queue-operation-info"><code>QueueOperationInfo</code></a> objects.</p>
 <p>The function finds elements matching a specific CSS selector (HTML anchor (<code>&lt;a&gt;</code>) by default) either in a Puppeteer page, or in a Cheerio object
 (parsed HTML), and enqueues the URLs in their <code>href</code> attributes to the provided <a href="/docs/api/request-queue"><code>RequestQueue</code></a>. If you're looking to find
 URLs in JavaScript heavy pages where links are not available in <code>href</code> elements, but rather navigations are triggered in click handlers see
@@ -135,12 +133,11 @@ share the same URL, but differ in methods or payloads, or to dynamically update 
 <span class="token punctuation">}</span>
 </code></pre></li>
 </ul>
+<p><strong>Returns</strong>: <a href="/docs/typedefs/queue-operation-info"><code>Promise&lt;Array&lt;QueueOperationInfo&gt;&gt;</code></a> - Promise that resolves to an array of
+<a href="/docs/typedefs/queue-operation-info"><code>QueueOperationInfo</code></a> objects.</p>
 <hr>
 <p><a name="requestasbrowser"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="utilsrequestasbrowseroptions"></a><a href="#utilsrequestasbrowseroptions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>utils.requestAsBrowser(options)</code></h2>
-<p><strong>Returns</strong>: <code>Promise&lt;(IncomingMessage|Readable)&gt;</code> - This will typically be a
-<a href="https://nodejs.org/api/http.html#http_class_http_incomingmessage" target="_blank" rel="nofollow noreferrer noopener">Node.js HTTP response stream</a>, however, if returned from the cache it will be a
-<a href="https://github.com/lukechilds/responselike" target="_blank" rel="nofollow noreferrer noopener">response-like object</a> which behaves in the same way.</p>
 <p><strong>IMPORTANT:</strong> This function uses an insecure version of HTTP parser by default and also ignores SSL/TLS errors. This is very useful in scraping,
 because it allows bypassing certain anti-scraping walls, but it also exposes some vulnerability. For other than scraping scenarios, please set
 <code>useInsecureHttpParser: false</code> and <code>ignoreSslErrors: false</code>.</p>
@@ -156,19 +153,21 @@ request. All <code>options</code> not recognized by this function are passed to 
 <ul>
 <li><strong><code>options</code></strong>: <a href="/docs/typedefs/request-as-browser-options"><code>RequestAsBrowserOptions</code></a> - All <code>requestAsBrowser</code> configuration options.</li>
 </ul>
+<p><strong>Returns</strong>: <code>Promise&lt;(IncomingMessage|Readable)&gt;</code> - This will typically be a
+<a href="https://nodejs.org/api/http.html#http_class_http_incomingmessage" target="_blank" rel="nofollow noreferrer noopener">Node.js HTTP response stream</a>, however, if returned from the cache it will be a
+<a href="https://github.com/lukechilds/responselike" target="_blank" rel="nofollow noreferrer noopener">response-like object</a> which behaves in the same way.</p>
 <hr>
 <p><a name="isdocker"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="utilsisdockerforcereset"></a><a href="#utilsisdockerforcereset" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>utils.isDocker(forceReset)</code></h2>
-<p><strong>Returns</strong>: <code>Promise&lt;boolean&gt;</code></p>
 <p>Returns a <code>Promise</code> that resolves to true if the code is running in a Docker container.</p>
 <p><strong>Params</strong></p>
 <ul>
 <li><strong><code>forceReset</code></strong>: <code>boolean</code></li>
 </ul>
+<p><strong>Returns</strong>: <code>Promise&lt;boolean&gt;</code></p>
 <hr>
 <p><a name="sleep"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="utilssleepmillis"></a><a href="#utilssleepmillis" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>utils.sleep(millis)</code></h2>
-<p><strong>Returns</strong>: <code>Promise&lt;void&gt;</code></p>
 <p>Returns a <code>Promise</code> that resolves after a specific period of time. This is useful to implement waiting in your code, e.g. to prevent overloading of
 target website or to avoid bot detection.</p>
 <p><strong>Example usage:</strong></p>
@@ -183,10 +182,10 @@ target website or to avoid bot detection.</p>
 <ul>
 <li><strong><code>millis</code></strong>: <code>number</code> - Period of time to sleep, in milliseconds. If not a positive number, the returned promise resolves immediately.</li>
 </ul>
+<p><strong>Returns</strong>: <code>Promise&lt;void&gt;</code></p>
 <hr>
 <p><a name="downloadlistofurls"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="utilsdownloadlistofurlsoptions"></a><a href="#utilsdownloadlistofurlsoptions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>utils.downloadListOfUrls(options)</code></h2>
-<p><strong>Returns</strong>: <code>Promise&lt;Array&lt;string&gt;&gt;</code></p>
 <p>Returns a promise that resolves to an array of urls parsed from the resource available at the provided url. Optionally, custom regular expression and
 encoding may be provided.</p>
 <p><strong>Params</strong></p>
@@ -199,10 +198,10 @@ encoding may be provided.</p>
 regular expression should be case-insensitive and have global flag set (i.e. <code>/something/gi</code>).</li>
 </ul></li>
 </ul>
+<p><strong>Returns</strong>: <code>Promise&lt;Array&lt;string&gt;&gt;</code></p>
 <hr>
 <p><a name="extracturls"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="utilsextracturlsoptions"></a><a href="#utilsextracturlsoptions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>utils.extractUrls(options)</code></h2>
-<p><strong>Returns</strong>: <code>Array&lt;string&gt;</code></p>
 <p>Collects all URLs in an arbitrary string to an array, optionally using a custom regular expression.</p>
 <p><strong>Params</strong></p>
 <ul>
@@ -212,15 +211,15 @@ regular expression should be case-insensitive and have global flag set (i.e. <co
 <li><strong><code>[.urlRegExp]</code></strong>: <code>RegExp</code> <code> = Apify.utils.URL_NO_COMMAS_REGEX</code></li>
 </ul></li>
 </ul>
+<p><strong>Returns</strong>: <code>Array&lt;string&gt;</code></p>
 <hr>
 <p><a name="getrandomuseragent"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="utilsgetrandomuseragent"></a><a href="#utilsgetrandomuseragent" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>utils.getRandomUserAgent()</code></h2>
-<p><strong>Returns</strong>: <code>string</code></p>
 <p>Returns a randomly selected User-Agent header out of a list of the most common headers.</p>
+<p><strong>Returns</strong>: <code>string</code></p>
 <hr>
 <p><a name="htmltotext"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="utilshtmltotexthtml"></a><a href="#utilshtmltotexthtml" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>utils.htmlToText(html)</code></h2>
-<p><strong>Returns</strong>: <code>string</code> - Plain text</p>
 <p>The function converts a HTML document to a plain text.</p>
 <p>The plain text generated by the function is similar to a text captured by pressing Ctrl+A and Ctrl+C on a page when loaded in a web browser. The
 function doesn't aspire to preserve the formatting or to be perfectly correct with respect to HTML specifications. However, it attempts to generate
@@ -241,6 +240,7 @@ thus improve performance, you can pass an existing Cheerio object to the functio
 <ul>
 <li><strong><code>html</code></strong>: <code>string</code> | <code>CheerioStatic</code> - HTML text or parsed HTML represented using a <a href="https://www.npmjs.com/package/cheerio" target="_blank" rel="nofollow noreferrer noopener">cheerio</a> function.</li>
 </ul>
+<p><strong>Returns</strong>: <code>string</code> - Plain text</p>
 <hr>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/api/pseudo-url"><span class="arrow-prev">← </span><span class="function-name-prevnext">PseudoUrl</span></a><a class="docs-next button" href="/docs/api/log"><span>utils.log</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#utilsurl_no_commas_regex"><code>utils.URL_NO_COMMAS_REGEX</code></a></li><li><a href="#utilsurl_with_commas_regex"><code>utils.URL_WITH_COMMAS_REGEX</code></a></li><li><a href="#utilsenqueuelinksoptions"><code>utils.enqueueLinks(options)</code></a></li><li><a href="#utilsrequestasbrowseroptions"><code>utils.requestAsBrowser(options)</code></a></li><li><a href="#utilsisdockerforcereset"><code>utils.isDocker(forceReset)</code></a></li><li><a href="#utilssleepmillis"><code>utils.sleep(millis)</code></a></li><li><a href="#utilsdownloadlistofurlsoptions"><code>utils.downloadListOfUrls(options)</code></a></li><li><a href="#utilsextracturlsoptions"><code>utils.extractUrls(options)</code></a></li><li><a href="#utilsgetrandomuseragent"><code>utils.getRandomUserAgent()</code></a></li><li><a href="#utilshtmltotexthtml"><code>utils.htmlToText(html)</code></a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/apify_logo.svg" alt="Apify SDK" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/guides/motivation">Guide</a><a href="/docs/examples/puppeteer-crawler">Examples</a><a href="/docs/api/apify">API Reference</a></div><div><h5>Community</h5><a href="https://stackoverflow.com/questions/tagged/apify" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://twitter.com/apify" target="_blank" rel="noreferrer noopener">Twitter</a><a href="https://www.facebook.com/apifytech" target="_blank" rel="noreferrer noopener">Facebook</a></div><div><h5>More</h5><a href="https://apify.com" target="_blank">Apify Cloud</a><a href="https://docusaurus.io" target="_blank">Docusaurus</a><a href="https://github.com/apifytech/apify-js" target="_blank">GitHub</a></div></section><section class="copyright">Copyright © 2020 Apify Technologies s.r.o.</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {

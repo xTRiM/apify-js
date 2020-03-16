@@ -94,7 +94,6 @@ item in the dataset.</p>
 <hr>
 <p><a name="pushdata"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="datasetpushdatadata"></a><a href="#datasetpushdatadata" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>dataset.pushData(data)</code></h2>
-<p><strong>Returns</strong>: <code>Promise&lt;void&gt;</code></p>
 <p>Stores an object or an array of objects to the dataset. The function returns a promise that resolves when the operation finishes. It has no result,
 but throws on invalid args or other errors.</p>
 <p><strong>IMPORTANT</strong>: Make sure to use the <code>await</code> keyword when calling <code>pushData()</code>, otherwise the actor process might finish before the data is stored!</p>
@@ -110,10 +109,10 @@ the data from this item onwards to prevent duplicates.</p>
 <li><strong><code>data</code></strong>: <code>object</code> | <code>Array&lt;object&gt;</code> - Object or array of objects containing data to be stored in the default dataset. The objects must be
 serializable to JSON and the JSON representation of each object must be smaller than 9MB.</li>
 </ul>
+<p><strong>Returns</strong>: <code>Promise&lt;void&gt;</code></p>
 <hr>
 <p><a name="getdata"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="datasetgetdataoptions"></a><a href="#datasetgetdataoptions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>dataset.getData([options])</code></h2>
-<p><strong>Returns</strong>: <a href="/docs/typedefs/dataset-content"><code>Promise&lt;DatasetContent&gt;</code></a></p>
 <p>Returns {DatasetContent} object holding the items in the dataset based on the provided parameters.</p>
 <p><strong>NOTE</strong>: If using dataset with local disk storage, the <code>format</code> option must be <code>json</code> and the following options are not supported: <code>unwind</code>,
 <code>disableBodyParser</code>, <code>attachment</code>, <code>bom</code> and <code>simplified</code>. If you try to use them, you will receive an error.</p>
@@ -157,10 +156,10 @@ is here to emulate functionality of Apify API version 1 used for the legacy Apif
 integrations.</li>
 </ul></li>
 </ul>
+<p><strong>Returns</strong>: <a href="/docs/typedefs/dataset-content"><code>Promise&lt;DatasetContent&gt;</code></a></p>
 <hr>
 <p><a name="getinfo"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="datasetgetinfo"></a><a href="#datasetgetinfo" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>dataset.getInfo()</code></h2>
-<p><strong>Returns</strong>: <code>Promise&lt;object&gt;</code></p>
 <p>Returns an object containing general information about the dataset.</p>
 <p>The function returns the same object as the Apify API Client's
 <a href="https://docs.apify.com/api/apify-client-js/latest#ApifyClient-datasets-getDataset" target="_blank" rel="nofollow noreferrer noopener">getDataset</a> function, which in turn calls the
@@ -177,10 +176,10 @@ integrations.</li>
   cleanItemCount<span class="token operator">:</span> <span class="token number">10</span>
 <span class="token punctuation">}</span>
 </code></pre>
+<p><strong>Returns</strong>: <code>Promise&lt;object&gt;</code></p>
 <hr>
 <p><a name="foreach"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="datasetforeachiteratee-options-index"></a><a href="#datasetforeachiteratee-options-index" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>dataset.forEach(iteratee, [options], [index])</code></h2>
-<p><strong>Returns</strong>: <code>Promise&lt;void&gt;</code></p>
 <p>Iterates over dataset items, yielding each in turn to an <code>iteratee</code> function. Each invocation of <code>iteratee</code> is called with two arguments:
 <code>(item, index)</code>.</p>
 <p>If the <code>iteratee</code> function returns a Promise then it is awaited before the next call. If it throws an error, the iteration is aborted and the
@@ -202,10 +201,10 @@ integrations.</li>
 </ul></li>
 <li><strong><code>[index]</code></strong>: <code>number</code> <code> = 0</code> - Specifies the initial index number passed to the <code>iteratee</code> function.</li>
 </ul>
+<p><strong>Returns</strong>: <code>Promise&lt;void&gt;</code></p>
 <hr>
 <p><a name="map"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="datasetmapiteratee-options"></a><a href="#datasetmapiteratee-options" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>dataset.map(iteratee, [options])</code></h2>
-<p><strong>Returns</strong>: <code>Promise&lt;Array&lt;object&gt;&gt;</code></p>
 <p>Produces a new array of values by mapping each value in list through a transformation function <code>iteratee()</code>. Each invocation of <code>iteratee()</code> is called
 with two arguments: <code>(element, index)</code>.</p>
 <p>If <code>iteratee</code> returns a <code>Promise</code> then it's awaited before a next call.</p>
@@ -219,10 +218,10 @@ with two arguments: <code>(element, index)</code>.</p>
 <li><strong><code>[.unwind]</code></strong>: <code>string</code> - If provided then objects will be unwound based on provided field.</li>
 </ul></li>
 </ul>
+<p><strong>Returns</strong>: <code>Promise&lt;Array&lt;object&gt;&gt;</code></p>
 <hr>
 <p><a name="reduce"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="datasetreduceiteratee-memo-options"></a><a href="#datasetreduceiteratee-memo-options" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>dataset.reduce(iteratee, memo, [options])</code></h2>
-<p><strong>Returns</strong>: <code>Promise&lt;object&gt;</code></p>
 <p>Reduces a list of values down to a single value.</p>
 <p>Memo is the initial state of the reduction, and each successive step of it should be returned by <code>iteratee()</code>. The <code>iteratee()</code> is passed three
 arguments: the <code>memo</code>, then the <code>value</code> and <code>index</code> of the iteration.</p>
@@ -240,11 +239,12 @@ instead passed as the memo in the invocation of the <code>iteratee()</code> on t
 <li><strong><code>[.unwind]</code></strong>: <code>string</code> - If provided then objects will be unwound based on provided field.</li>
 </ul></li>
 </ul>
+<p><strong>Returns</strong>: <code>Promise&lt;object&gt;</code></p>
 <hr>
 <p><a name="drop"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="datasetdrop"></a><a href="#datasetdrop" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>dataset.drop()</code></h2>
-<p><strong>Returns</strong>: <code>Promise&lt;void&gt;</code></p>
 <p>Removes the dataset either from the Apify cloud storage or from the local directory, depending on the mode of operation.</p>
+<p><strong>Returns</strong>: <code>Promise&lt;void&gt;</code></p>
 <hr>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/api/puppeteer-crawler"><span class="arrow-prev">← </span><span class="function-name-prevnext">PuppeteerCrawler</span></a><a class="docs-next button" href="/docs/api/key-value-store"><span class="function-name-prevnext">KeyValueStore</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#new-datasetdatasetid-datasetname"><code>new Dataset(datasetId, datasetName)</code></a></li><li><a href="#datasetpushdatadata"><code>dataset.pushData(data)</code></a></li><li><a href="#datasetgetdataoptions"><code>dataset.getData([options])</code></a></li><li><a href="#datasetgetinfo"><code>dataset.getInfo()</code></a></li><li><a href="#datasetforeachiteratee-options-index"><code>dataset.forEach(iteratee, [options], [index])</code></a></li><li><a href="#datasetmapiteratee-options"><code>dataset.map(iteratee, [options])</code></a></li><li><a href="#datasetreduceiteratee-memo-options"><code>dataset.reduce(iteratee, memo, [options])</code></a></li><li><a href="#datasetdrop"><code>dataset.drop()</code></a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/apify_logo.svg" alt="Apify SDK" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/guides/motivation">Guide</a><a href="/docs/examples/puppeteer-crawler">Examples</a><a href="/docs/api/apify">API Reference</a></div><div><h5>Community</h5><a href="https://stackoverflow.com/questions/tagged/apify" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://twitter.com/apify" target="_blank" rel="noreferrer noopener">Twitter</a><a href="https://www.facebook.com/apifytech" target="_blank" rel="noreferrer noopener">Facebook</a></div><div><h5>More</h5><a href="https://apify.com" target="_blank">Apify Cloud</a><a href="https://docusaurus.io" target="_blank">Docusaurus</a><a href="https://github.com/apifytech/apify-js" target="_blank">GitHub</a></div></section><section class="copyright">Copyright © 2020 Apify Technologies s.r.o.</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {

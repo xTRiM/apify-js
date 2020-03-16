@@ -61,15 +61,13 @@ separate, detailed, documentation pages accessible from the left sidebar. To lea
 <hr>
 <p><a name="addwebhook"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="apifyaddwebhookoptions"></a><a href="#apifyaddwebhookoptions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Apify.addWebhook(options)</code></h2>
-<p><strong>Returns</strong>: <code>Promise&lt;object&gt;</code> - The return value is the Webhook object. For more information, see the
-<a href="https://apify.com/docs/api/v2#/reference/webhooks/webhook-object/get-webhook" target="_blank" rel="nofollow noreferrer noopener">Get webhook</a> API endpoint.</p>
 <p>Creates an ad-hoc webhook for the current actor run, which lets you receive a notification when the actor run finished or failed. For more information
 about Apify actor webhooks, please see the <a href="https://docs.apify.com/webhooks" target="_blank" rel="nofollow noreferrer noopener">documentation</a>.</p>
 <p>Note that webhooks are only supported for actors running on the Apify platform. In local environment, the function will print a warning and have no
 effect.</p>
 <p><strong>Params</strong></p>
 <ul>
-<li><p><strong><code>options</code></strong>: <code>Object</code></p>
+<li><strong><code>options</code></strong>: <code>Object</code>
 <ul>
 <li><strong><code>.eventTypes</code></strong>: <code>Array&lt;string&gt;</code> - Array of event types, which you can set for actor run, see the
 <a href="https://docs.apify.com/webhooks/events#actor-run" target="_blank" rel="nofollow noreferrer noopener">actor run events</a> in the Apify doc.</li>
@@ -77,19 +75,18 @@ effect.</p>
 <li><strong><code>[.payloadTemplate]</code></strong>: <code>string</code> - Payload template is a JSON-like string that describes the structure of the webhook POST request payload.
 It uses JSON syntax, extended with a double curly braces syntax for injecting variables <code>{{variable}}</code>. Those variables are resolved at the
 time of the webhook's dispatch, and a list of available variables with their descriptions is available in the
-<a href="https://docs.apify.com/webhooks" target="_blank" rel="nofollow noreferrer noopener">Apify webhook documentation</a>.</li>
-</ul>
-<p>When omitted, the default payload template will be used. <a href="https://docs.apify.com/webhooks" target="_blank" rel="nofollow noreferrer noopener">See the docs for the default payload template</a>.</p>
-<ul>
+<a href="https://docs.apify.com/webhooks" target="_blank" rel="nofollow noreferrer noopener">Apify webhook documentation</a>. If <code>payloadTemplate</code> is omitted, the default payload template is used
+(<a href="https://docs.apify.com/webhooks/actions#payload-template" target="_blank" rel="nofollow noreferrer noopener">view docs</a>).</li>
 <li><strong><code>[.idempotencyKey]</code></strong>: <code>string</code> - Idempotency key enables you to ensure that a webhook will not be added multiple times in case of an actor
 restart or other situation that would cause the <code>addWebhook()</code> function to be called again. We suggest using the actor run ID as the
 idempotency key. You can get the run ID by calling <a href="/docs/api/apify#getenv"><code>Apify.getEnv()</code></a> function.</li>
 </ul></li>
 </ul>
+<p><strong>Returns</strong>: <code>Promise&lt;object&gt;</code> - The return value is the Webhook object. For more information, see the
+<a href="https://apify.com/docs/api/v2#/reference/webhooks/webhook-object/get-webhook" target="_blank" rel="nofollow noreferrer noopener">Get webhook</a> API endpoint.</p>
 <hr>
 <p><a name="call"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="apifycallactid-input-options"></a><a href="#apifycallactid-input-options" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Apify.call(actId, [input], [options])</code></h2>
-<p><strong>Returns</strong>: <a href="/docs/typedefs/actor-run"><code>Promise&lt;ActorRun&gt;</code></a></p>
 <p>Runs an actor on the Apify platform using the current user account (determined by the <code>APIFY_TOKEN</code> environment variable), waits for the actor to
 finish and fetches its output.</p>
 <p>By passing the <code>waitSecs</code> option you can reduce the maximum amount of time to wait for the run to finish. If the value is less than or equal to zero,
@@ -136,10 +133,10 @@ e.g. when the actor finished or failed, see <a href="https://docs.apify.com/webh
 description.</li>
 </ul></li>
 </ul>
+<p><strong>Returns</strong>: <a href="/docs/typedefs/actor-run"><code>Promise&lt;ActorRun&gt;</code></a></p>
 <hr>
 <p><a name="calltask"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="apifycalltasktaskid-input-options"></a><a href="#apifycalltasktaskid-input-options" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Apify.callTask(taskId, [input], [options])</code></h2>
-<p><strong>Returns</strong>: <a href="/docs/typedefs/actor-run"><code>Promise&lt;ActorRun&gt;</code></a></p>
 <p>Runs an actor task on the Apify platform using the current user account (determined by the <code>APIFY_TOKEN</code> environment variable), waits for the task to
 finish and fetches its output.</p>
 <p>By passing the <code>waitSecs</code> option you can reduce the maximum amount of time to wait for the run to finish. If the value is less than or equal to zero,
@@ -185,6 +182,7 @@ e.g. when the actor finished or failed, see <a href="https://docs.apify.com/webh
 description.</li>
 </ul></li>
 </ul>
+<p><strong>Returns</strong>: <a href="/docs/typedefs/actor-run"><code>Promise&lt;ActorRun&gt;</code></a></p>
 <hr>
 <p><a name="client"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="apifyclient"></a><a href="#apifyclient" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Apify.client</code></h2>
@@ -257,7 +255,6 @@ SDK or the Apify platform. The event emitter is initialized by calling the <a hr
 <hr>
 <p><a name="getapifyproxyurl"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="apifygetapifyproxyurloptions"></a><a href="#apifygetapifyproxyurloptions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Apify.getApifyProxyUrl([options])</code></h2>
-<p><strong>Returns</strong>: <code>string</code> - Returns the proxy URL, e.g. <code>http://auto:my_password@proxy.apify.com:8000</code>.</p>
 <p>Constructs an Apify Proxy URL using the specified settings. The proxy URL can be used from Apify actors, web browsers or any other HTTP proxy-enabled
 applications.</p>
 <p>For more information, see the <a href="https://my.apify.com/proxy" target="_blank" rel="nofollow noreferrer noopener">Apify Proxy</a> page in the app or the <a href="https://docs.apify.com/proxy" target="_blank" rel="nofollow noreferrer noopener">documentation</a>.</p>
@@ -281,20 +278,19 @@ country code. See the
 optional, by default, the proxy uses all available proxy servers from all countries.</li>
 </ul></li>
 </ul>
+<p><strong>Returns</strong>: <code>string</code> - Returns the proxy URL, e.g. <code>http://auto:my_password@proxy.apify.com:8000</code>.</p>
 <hr>
 <p><a name="getenv"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="apifygetenv"></a><a href="#apifygetenv" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Apify.getEnv()</code></h2>
-<p><strong>Returns</strong>: <a href="/docs/typedefs/apify-env"><code>ApifyEnv</code></a></p>
 <p>Returns a new <a href="/docs/typedefs/apify-env"><code>ApifyEnv</code></a> object which contains information parsed from all the <code>APIFY_XXX</code> environment variables.</p>
 <p>For the list of the <code>APIFY_XXX</code> environment variables, see <a href="https://docs.apify.com/actor/run#environment-variables" target="_blank" rel="nofollow noreferrer noopener">Actor documentation</a>. If some of
 the variables are not defined or are invalid, the corresponding value in the resulting object will be null.</p>
+<p><strong>Returns</strong>: <a href="/docs/typedefs/apify-env"><code>ApifyEnv</code></a></p>
 <hr>
 <p><a name="getinput"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="apifygetinput"></a><a href="#apifygetinput" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Apify.getInput()</code></h2>
-<p><strong>Returns</strong>: <code>Promise&lt;(object|string|Buffer|null)&gt;</code> - Returns a promise that resolves to an object, string or
-<a href="https://nodejs.org/api/buffer.html" target="_blank" rel="nofollow noreferrer noopener"><code>Buffer</code></a>, depending on the MIME content type of the record, or <code>null</code> if the record is missing.</p>
 <p>Gets the actor input value from the default <a href="/docs/api/key-value-store"><code>KeyValueStore</code></a> associated with the current actor run.</p>
-<p>This is just a convenient shortcut for <a href="keyvaluestore#getvalue"><code>keyValueStore.getValue('INPUT')</code></a>. For example, calling the following code:</p>
+<p>This is just a convenient shortcut for <a href="key-value-store#getvalue"><code>keyValueStore.getValue('INPUT')</code></a>. For example, calling the following code:</p>
 <pre><code class="hljs css language-javascript"><span class="token keyword">const</span> input <span class="token operator">=</span> <span class="token keyword">await</span> Apify<span class="token punctuation">.</span><span class="token function">getInput</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>is equivalent to:</p>
@@ -303,19 +299,19 @@ the variables are not defined or are invalid, the corresponding value in the res
 </code></pre>
 <p>For more information, see <a href="/docs/api/apify#openkeyvaluestore"><code>Apify.openKeyValueStore()</code></a> and
 <a href="/docs/api/key-value-store#getvalue"><code>KeyValueStore.getValue()</code></a>.</p>
+<p><strong>Returns</strong>: <code>Promise&lt;(object|string|Buffer|null)&gt;</code> - Returns a promise that resolves to an object, string or
+<a href="https://nodejs.org/api/buffer.html" target="_blank" rel="nofollow noreferrer noopener"><code>Buffer</code></a>, depending on the MIME content type of the record, or <code>null</code> if the record is missing.</p>
 <hr>
 <p><a name="getmemoryinfo"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="apifygetmemoryinfo"></a><a href="#apifygetmemoryinfo" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Apify.getMemoryInfo()</code></h2>
-<p><strong>Returns</strong>: <a href="/docs/typedefs/memory-info"><code>Promise&lt;MemoryInfo&gt;</code></a></p>
 <p>Returns memory statistics of the process and the system, see <a href="/docs/typedefs/memory-info"><code>MemoryInfo</code></a>.</p>
 <p>If the process runs inside of Docker, the <code>getMemoryInfo</code> gets container memory limits, otherwise it gets system memory limits.</p>
 <p>Beware that the function is quite inefficient because it spawns a new process. Therefore you shouldn't call it too often, like more than once per
 second.</p>
+<p><strong>Returns</strong>: <a href="/docs/typedefs/memory-info"><code>Promise&lt;MemoryInfo&gt;</code></a></p>
 <hr>
 <p><a name="getvalue"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="apifygetvaluekey"></a><a href="#apifygetvaluekey" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Apify.getValue(key)</code></h2>
-<p><strong>Returns</strong>: <code>Promise&lt;(object|string|Buffer|null)&gt;</code> - Returns a promise that resolves to an object, string or
-<a href="https://nodejs.org/api/buffer.html" target="_blank" rel="nofollow noreferrer noopener"><code>Buffer</code></a>, depending on the MIME content type of the record, or <code>null</code> if the record is missing.</p>
 <p>Gets a value from the default <a href="/docs/api/key-value-store"><code>KeyValueStore</code></a> associated with the current actor run.</p>
 <p>This is just a convenient shortcut for <a href="/docs/api/key-value-store#getvalue"><code>KeyValueStore.getValue()</code></a>. For example, calling the following code:</p>
 <pre><code class="hljs css language-javascript"><span class="token keyword">const</span> value <span class="token operator">=</span> <span class="token keyword">await</span> Apify<span class="token punctuation">.</span><span class="token function">getValue</span><span class="token punctuation">(</span><span class="token string">'my-key'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -331,18 +327,19 @@ second.</p>
 <ul>
 <li><strong><code>key</code></strong>: <code>string</code> - Unique record key.</li>
 </ul>
+<p><strong>Returns</strong>: <code>Promise&lt;(object|string|Buffer|null)&gt;</code> - Returns a promise that resolves to an object, string or
+<a href="https://nodejs.org/api/buffer.html" target="_blank" rel="nofollow noreferrer noopener"><code>Buffer</code></a>, depending on the MIME content type of the record, or <code>null</code> if the record is missing.</p>
 <hr>
 <p><a name="isathome"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="apifyisathome"></a><a href="#apifyisathome" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Apify.isAtHome()</code></h2>
-<p><strong>Returns</strong>: <code>boolean</code></p>
 <p>Returns <code>true</code> when code is running on Apify platform and <code>false</code> otherwise (for example locally).</p>
+<p><strong>Returns</strong>: <code>boolean</code></p>
 <hr>
 <p><a name="launchpuppeteer"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="apifylaunchpuppeteeroptions"></a><a href="#apifylaunchpuppeteeroptions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Apify.launchPuppeteer([options])</code></h2>
-<p><strong>Returns</strong>: <code>Promise&lt;Browser&gt;</code> - Promise that resolves to Puppeteer's <code>Browser</code> instance.</p>
 <p>Launches headless Chrome using Puppeteer pre-configured to work within the Apify platform. The function has the same argument and the return value as
-<code>puppeteer.launch()</code>. See <a href="https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#puppeteerlaunchoptions" target="_blank">
-Puppeteer documentation</a> for more details.</p>
+<code>puppeteer.launch()</code>. See <a href="https://github.com/puppeteer/puppeteer/blob/master/docs/api.md#puppeteerlaunchoptions" target="_blank"> Puppeteer
+documentation</a> for more details.</p>
 <p>The <code>launchPuppeteer()</code> function alters the following Puppeteer options:</p>
 <ul>
    <li>
@@ -379,14 +376,15 @@ Puppeteer documentation</a> for more details.</p>
 <p>To use this function, you need to have the <a href="https://www.npmjs.com/package/puppeteer" target="_blank" rel="nofollow noreferrer noopener">puppeteer</a> NPM package installed in your project. When running on
 the Apify cloud, you can achieve that simply by using the <code>apify/actor-node-chrome</code> base Docker image for your actor - see
 <a href="https://docs.apify.com/actor/build#base-images" target="_blank" rel="nofollow noreferrer noopener">Apify Actor documentation</a> for details.</p>
-<p>For an example of usage, see the <a href="../examples/synchronousrun">Synchronous run Example</a> or the
-<a href="../examples/puppeteerwithproxy">Puppeteer proxy Example</a></p>
+<p>For an example of usage, see the <a href="../examples/synchronous-run">Synchronous run Example</a> or the
+<a href="../examples/puppeteer-with-proxy">Puppeteer proxy Example</a></p>
 <p><strong>Params</strong></p>
 <ul>
 <li><strong><code>[options]</code></strong>: <a href="/docs/typedefs/launch-puppeteer-options"><code>LaunchPuppeteerOptions</code></a> - Optional settings passed to <code>puppeteer.launch()</code>. In
 addition to <a href="https://pptr.dev/#?product=Puppeteer&amp;show=api-puppeteerlaunchoptions" target="_blank" rel="nofollow noreferrer noopener">Puppeteer's options</a> the object may contain our own
 <a href="/docs/typedefs/launch-puppeteer-options"><code>LaunchPuppeteerOptions</code></a> that enable additional features.</li>
 </ul>
+<p><strong>Returns</strong>: <code>Promise&lt;Browser&gt;</code> - Promise that resolves to Puppeteer's <code>Browser</code> instance.</p>
 <hr>
 <p><a name="main"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="apifymainuserfunc"></a><a href="#apifymainuserfunc" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Apify.main(userFunc)</code></h2>
@@ -445,7 +443,6 @@ user function is called with no arguments.</li>
 <hr>
 <p><a name="metamorph"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="apifymetamorphtargetactorid-input-options"></a><a href="#apifymetamorphtargetactorid-input-options" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Apify.metamorph(targetActorId, [input], [options])</code></h2>
-<p><strong>Returns</strong>: <code>Promise&lt;void&gt;</code></p>
 <p>Transforms this actor run to an actor run of a given actor. The system stops the current container and starts the new container instead. All the
 default storages are preserved and the new input is stored under the <code>INPUT-METAMORPH-1</code> key in the same default key-value store.</p>
 <p><strong>Params</strong></p>
@@ -462,10 +459,10 @@ to JSON and content type set to <code>application/json; charset=utf-8</code>. If
 build tag or number from the default actor run configuration (typically <code>latest</code>).</li>
 </ul></li>
 </ul>
+<p><strong>Returns</strong>: <code>Promise&lt;void&gt;</code></p>
 <hr>
 <p><a name="opendataset"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="apifyopendatasetdatasetidorname-options"></a><a href="#apifyopendatasetdatasetidorname-options" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Apify.openDataset([datasetIdOrName], [options])</code></h2>
-<p><strong>Returns</strong>: <a href="/docs/api/dataset"><code>Promise&lt;Dataset&gt;</code></a></p>
 <p>Opens a dataset and returns a promise resolving to an instance of the <a href="/docs/api/dataset"><code>Dataset</code></a> class.</p>
 <p>Datasets are used to store structured data where each object stored has the same attributes, such as online store products or real estate offers. The
 actual data is stored either on the local filesystem or in the cloud.</p>
@@ -480,10 +477,10 @@ associated with the actor run.</li>
 <code>APIFY_LOCAL_STORAGE_DIR</code> environment variable is set. This way it is possible to combine local and cloud storage.</li>
 </ul></li>
 </ul>
+<p><strong>Returns</strong>: <a href="/docs/api/dataset"><code>Promise&lt;Dataset&gt;</code></a></p>
 <hr>
 <p><a name="openkeyvaluestore"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="apifyopenkeyvaluestorestoreidorname-options"></a><a href="#apifyopenkeyvaluestorestoreidorname-options" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Apify.openKeyValueStore([storeIdOrName], [options])</code></h2>
-<p><strong>Returns</strong>: <a href="/docs/api/key-value-store"><code>Promise&lt;KeyValueStore&gt;</code></a></p>
 <p>Opens a key-value store and returns a promise resolving to an instance of the <a href="/docs/api/key-value-store"><code>KeyValueStore</code></a> class.</p>
 <p>Key-value stores are used to store records or files, along with their MIME content type. The records are stored and retrieved using a unique key. The
 actual data is stored either on a local filesystem or in the Apify cloud.</p>
@@ -498,10 +495,10 @@ key-value store associated with the actor run.</li>
 <code>APIFY_LOCAL_STORAGE_DIR</code> environment variable is set. This way it is possible to combine local and cloud storage.</li>
 </ul></li>
 </ul>
+<p><strong>Returns</strong>: <a href="/docs/api/key-value-store"><code>Promise&lt;KeyValueStore&gt;</code></a></p>
 <hr>
 <p><a name="openrequestlist"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="apifyopenrequestlistlistname-sources-options"></a><a href="#apifyopenrequestlistlistname-sources-options" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Apify.openRequestList(listName, sources, [options])</code></h2>
-<p><strong>Returns</strong>: <a href="/docs/api/request-list"><code>Promise&lt;RequestList&gt;</code></a></p>
 <p>Opens a request list and returns a promise resolving to an instance of the <a href="/docs/api/request-list"><code>RequestList</code></a> class that is already initialized.</p>
 <p><a href="/docs/api/request-list"><code>RequestList</code></a> represents a list of URLs to crawl, which is always stored in memory. To enable picking up where left off
 after a process restart, the request list sources are persisted to the key-value store at initialization of the list. Then, while crawling, a small
@@ -536,10 +533,10 @@ parameter containing regular expression pattern for URLs to be included.</p>
 <a href="/docs/typedefs/request-list-options#persistrequestskey"><code>RequestListOptions.persistRequestsKey</code></a> options and the <code>sources</code> parameter supersedes
 the <a href="/docs/typedefs/request-list-options#sources"><code>RequestListOptions.sources</code></a> option.</li>
 </ul>
+<p><strong>Returns</strong>: <a href="/docs/api/request-list"><code>Promise&lt;RequestList&gt;</code></a></p>
 <hr>
 <p><a name="openrequestqueue"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="apifyopenrequestqueuequeueidorname-options"></a><a href="#apifyopenrequestqueuequeueidorname-options" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Apify.openRequestQueue([queueIdOrName], [options])</code></h2>
-<p><strong>Returns</strong>: <a href="/docs/api/request-queue"><code>Promise&lt;RequestQueue&gt;</code></a></p>
 <p>Opens a request queue and returns a promise resolving to an instance of the <a href="/docs/api/request-queue"><code>RequestQueue</code></a> class.</p>
 <p><a href="/docs/api/request-queue"><code>RequestQueue</code></a> represents a queue of URLs to crawl, which is stored either on local filesystem or in the cloud. The queue
 is used for deep crawling of websites, where you start with several URLs and then recursively follow links to other pages. The data structure supports
@@ -555,20 +552,20 @@ queue associated with the actor run.</li>
 <code>APIFY_LOCAL_STORAGE_DIR</code> environment variable is set. This way it is possible to combine local and cloud storage.</li>
 </ul></li>
 </ul>
+<p><strong>Returns</strong>: <a href="/docs/api/request-queue"><code>Promise&lt;RequestQueue&gt;</code></a></p>
 <hr>
 <p><a name="opensessionpool"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="apifyopensessionpoolsessionpooloptions"></a><a href="#apifyopensessionpoolsessionpooloptions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Apify.openSessionPool(sessionPoolOptions)</code></h2>
-<p><strong>Returns</strong>: <a href="/docs/api/session-pool"><code>Promise&lt;SessionPool&gt;</code></a></p>
 <p>Opens a SessionPool and returns a promise resolving to an instance of the <a href="/docs/api/session-pool"><code>SessionPool</code></a> class that is already initialized.</p>
 <p>For more details and code examples, see the <a href="/docs/api/session-pool"><code>SessionPool</code></a> class.</p>
 <p><strong>Params</strong></p>
 <ul>
 <li><strong><code>sessionPoolOptions</code></strong>: <a href="/docs/typedefs/session-pool-options"><code>SessionPoolOptions</code></a></li>
 </ul>
+<p><strong>Returns</strong>: <a href="/docs/api/session-pool"><code>Promise&lt;SessionPool&gt;</code></a></p>
 <hr>
 <p><a name="pushdata"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="apifypushdataitem"></a><a href="#apifypushdataitem" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Apify.pushData(item)</code></h2>
-<p><strong>Returns</strong>: <code>Promise&lt;void&gt;</code></p>
 <p>Stores an object or an array of objects to the default <a href="/docs/api/dataset"><code>Dataset</code></a> of the current actor run.</p>
 <p>This is just a convenient shortcut for <a href="/docs/api/dataset#pushdata"><code>Dataset.pushData()</code></a>. For example, calling the following code:</p>
 <pre><code class="hljs css language-javascript"><span class="token keyword">await</span> Apify<span class="token punctuation">.</span><span class="token function">pushData</span><span class="token punctuation">(</span><span class="token punctuation">{</span> myValue<span class="token operator">:</span> <span class="token number">123</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -584,10 +581,10 @@ queue associated with the actor run.</li>
 <li><strong><code>item</code></strong>: <code>object</code> - Object or array of objects containing data to be stored in the default dataset. The objects must be serializable to JSON
 and the JSON representation of each object must be smaller than 9MB.</li>
 </ul>
+<p><strong>Returns</strong>: <code>Promise&lt;void&gt;</code></p>
 <hr>
 <p><a name="setvalue"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="apifysetvaluekey-value-options"></a><a href="#apifysetvaluekey-value-options" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Apify.setValue(key, value, [options])</code></h2>
-<p><strong>Returns</strong>: <code>Promise&lt;void&gt;</code></p>
 <p>Stores or deletes a value in the default <a href="/docs/api/key-value-store"><code>KeyValueStore</code></a> associated with the current actor run.</p>
 <p>This is just a convenient shortcut for <a href="/docs/api/key-value-store#setvalue"><code>KeyValueStore.setValue()</code></a>. For example, calling the following code:</p>
 <pre><code class="hljs css language-javascript"><span class="token keyword">await</span> Apify<span class="token punctuation">.</span><span class="token function">setValue</span><span class="token punctuation">(</span><span class="token string">'OUTPUT'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> foo<span class="token operator">:</span> <span class="token string">'bar'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -615,6 +612,7 @@ For any other value an error will be thrown.</li>
 <li><strong><code>[.contentType]</code></strong>: <code>string</code> - Specifies a custom MIME content type of the record.</li>
 </ul></li>
 </ul>
+<p><strong>Returns</strong>: <code>Promise&lt;void&gt;</code></p>
 <hr>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/guides/puppeteer-live-view"><span class="arrow-prev">← </span><span>Puppeteer Live View</span></a><a class="docs-next button" href="/docs/api/basic-crawler"><span class="function-name-prevnext">BasicCrawler</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#apifyaddwebhookoptions"><code>Apify.addWebhook(options)</code></a></li><li><a href="#apifycallactid-input-options"><code>Apify.call(actId, [input], [options])</code></a></li><li><a href="#apifycalltasktaskid-input-options"><code>Apify.callTask(taskId, [input], [options])</code></a></li><li><a href="#apifyclient"><code>Apify.client</code></a></li><li><a href="#apifyevents"><code>Apify.events</code></a></li><li><a href="#apifygetapifyproxyurloptions"><code>Apify.getApifyProxyUrl([options])</code></a></li><li><a href="#apifygetenv"><code>Apify.getEnv()</code></a></li><li><a href="#apifygetinput"><code>Apify.getInput()</code></a></li><li><a href="#apifygetmemoryinfo"><code>Apify.getMemoryInfo()</code></a></li><li><a href="#apifygetvaluekey"><code>Apify.getValue(key)</code></a></li><li><a href="#apifyisathome"><code>Apify.isAtHome()</code></a></li><li><a href="#apifylaunchpuppeteeroptions"><code>Apify.launchPuppeteer([options])</code></a></li><li><a href="#apifymainuserfunc"><code>Apify.main(userFunc)</code></a></li><li><a href="#apifymetamorphtargetactorid-input-options"><code>Apify.metamorph(targetActorId, [input], [options])</code></a></li><li><a href="#apifyopendatasetdatasetidorname-options"><code>Apify.openDataset([datasetIdOrName], [options])</code></a></li><li><a href="#apifyopenkeyvaluestorestoreidorname-options"><code>Apify.openKeyValueStore([storeIdOrName], [options])</code></a></li><li><a href="#apifyopenrequestlistlistname-sources-options"><code>Apify.openRequestList(listName, sources, [options])</code></a></li><li><a href="#apifyopenrequestqueuequeueidorname-options"><code>Apify.openRequestQueue([queueIdOrName], [options])</code></a></li><li><a href="#apifyopensessionpoolsessionpooloptions"><code>Apify.openSessionPool(sessionPoolOptions)</code></a></li><li><a href="#apifypushdataitem"><code>Apify.pushData(item)</code></a></li><li><a href="#apifysetvaluekey-value-options"><code>Apify.setValue(key, value, [options])</code></a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/apify_logo.svg" alt="Apify SDK" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/guides/motivation">Guide</a><a href="/docs/examples/puppeteer-crawler">Examples</a><a href="/docs/api/apify">API Reference</a></div><div><h5>Community</h5><a href="https://stackoverflow.com/questions/tagged/apify" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://twitter.com/apify" target="_blank" rel="noreferrer noopener">Twitter</a><a href="https://www.facebook.com/apifytech" target="_blank" rel="noreferrer noopener">Facebook</a></div><div><h5>More</h5><a href="https://apify.com" target="_blank">Apify Cloud</a><a href="https://docusaurus.io" target="_blank">Docusaurus</a><a href="https://github.com/apifytech/apify-js" target="_blank">GitHub</a></div></section><section class="copyright">Copyright © 2020 Apify Technologies s.r.o.</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {

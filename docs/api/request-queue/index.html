@@ -113,7 +113,6 @@ set.</p>
 <hr>
 <p><a name="addrequest"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="requestqueueaddrequestrequest-options"></a><a href="#requestqueueaddrequestrequest-options" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>requestQueue.addRequest(request, [options])</code></h2>
-<p><strong>Returns</strong>: <a href="/docs/typedefs/queue-operation-info"><code>Promise&lt;QueueOperationInfo&gt;</code></a></p>
 <p>Adds a request to the queue.</p>
 <p>If a request with the same <code>uniqueKey</code> property is already present in the queue, it will not be updated. You can find out whether this happened from
 the resulting <a href="/docs/typedefs/queue-operation-info"><code>QueueOperationInfo</code></a> object.</p>
@@ -128,19 +127,19 @@ vanilla object with request data. Note that the function sets the <code>uniqueKe
 <li><strong><code>[.forefront]</code></strong>: <code>boolean</code> <code> = false</code> - If <code>true</code>, the request will be added to the foremost position in the queue.</li>
 </ul></li>
 </ul>
+<p><strong>Returns</strong>: <a href="/docs/typedefs/queue-operation-info"><code>Promise&lt;QueueOperationInfo&gt;</code></a></p>
 <hr>
 <p><a name="getrequest"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="requestqueuegetrequestrequestid"></a><a href="#requestqueuegetrequestrequestid" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>requestQueue.getRequest(requestId)</code></h2>
-<p><strong>Returns</strong>: <a href="/docs/api/request"><code>Promise&lt;(Request|null)&gt;</code></a> - Returns the request object, or <code>null</code> if it was not found.</p>
 <p>Gets the request from the queue specified by ID.</p>
 <p><strong>Params</strong></p>
 <ul>
 <li><strong><code>requestId</code></strong>: <code>string</code> - ID of the request.</li>
 </ul>
+<p><strong>Returns</strong>: <a href="/docs/api/request"><code>Promise&lt;(Request|null)&gt;</code></a> - Returns the request object, or <code>null</code> if it was not found.</p>
 <hr>
 <p><a name="fetchnextrequest"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="requestqueuefetchnextrequest"></a><a href="#requestqueuefetchnextrequest" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>requestQueue.fetchNextRequest()</code></h2>
-<p><strong>Returns</strong>: <a href="/docs/api/request"><code>Promise&lt;(Request|null)&gt;</code></a> - Returns the request object or <code>null</code> if there are no more pending requests.</p>
 <p>Returns a next request in the queue to be processed, or <code>null</code> if there are no more pending requests.</p>
 <p>Once you successfully finish processing of the request, you need to call
 <a href="/docs/api/request-queue#markrequesthandled"><code>RequestQueue.markRequestHandled()</code></a> to mark the request as handled in the queue. If there was some error
@@ -148,20 +147,20 @@ in processing the request, call <a href="/docs/api/request-queue#reclaimrequest"
 request to some other consumer in another call to the <code>fetchNextRequest</code> function.</p>
 <p>Note that the <code>null</code> return value doesn't mean the queue processing finished, it means there are currently no pending requests. To check whether all
 requests in queue were finished, use <a href="/docs/api/request-queue#isfinished"><code>RequestQueue.isFinished()</code></a> instead.</p>
+<p><strong>Returns</strong>: <a href="/docs/api/request"><code>Promise&lt;(Request|null)&gt;</code></a> - Returns the request object or <code>null</code> if there are no more pending requests.</p>
 <hr>
 <p><a name="markrequesthandled"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="requestqueuemarkrequesthandledrequest"></a><a href="#requestqueuemarkrequesthandledrequest" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>requestQueue.markRequestHandled(request)</code></h2>
-<p><strong>Returns</strong>: <a href="/docs/typedefs/queue-operation-info"><code>Promise&lt;QueueOperationInfo&gt;</code></a></p>
 <p>Marks a request that was previously returned by the <a href="/docs/api/request-queue#fetchnextrequest"><code>RequestQueue.fetchNextRequest()</code></a> function as handled
 after successful processing. Handled requests will never again be returned by the <code>fetchNextRequest</code> function.</p>
 <p><strong>Params</strong></p>
 <ul>
 <li><strong><code>request</code></strong>: <a href="/docs/api/request"><code>Request</code></a></li>
 </ul>
+<p><strong>Returns</strong>: <a href="/docs/typedefs/queue-operation-info"><code>Promise&lt;QueueOperationInfo&gt;</code></a></p>
 <hr>
 <p><a name="reclaimrequest"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="requestqueuereclaimrequestrequest-options"></a><a href="#requestqueuereclaimrequestrequest-options" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>requestQueue.reclaimRequest(request, [options])</code></h2>
-<p><strong>Returns</strong>: <a href="/docs/typedefs/queue-operation-info"><code>Promise&lt;QueueOperationInfo&gt;</code></a></p>
 <p>Reclaims a failed request back to the queue, so that it can be returned for processed later again by another call to
 <a href="/docs/api/request-queue#fetchnextrequest"><code>RequestQueue.fetchNextRequest()</code></a>. The request record in the queue is updated using the provided <code>request</code>
 parameter. For example, this lets you store the number of retries or error messages for the request.</p>
@@ -172,36 +171,36 @@ parameter. For example, this lets you store the number of retries or error messa
 queue, so that it's returned in the next call to <a href="/docs/api/request-queue#fetchnextrequest"><code>RequestQueue.fetchNextRequest()</code></a>. By default, it's
 put to the end of the queue.</li>
 </ul>
+<p><strong>Returns</strong>: <a href="/docs/typedefs/queue-operation-info"><code>Promise&lt;QueueOperationInfo&gt;</code></a></p>
 <hr>
 <p><a name="isempty"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="requestqueueisempty"></a><a href="#requestqueueisempty" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>requestQueue.isEmpty()</code></h2>
-<p><strong>Returns</strong>: <code>Promise&lt;boolean&gt;</code></p>
 <p>Resolves to <code>true</code> if the next call to <a href="/docs/api/request-queue#fetchnextrequest"><code>RequestQueue.fetchNextRequest()</code></a> would return <code>null</code>, otherwise it
 resolves to <code>false</code>. Note that even if the queue is empty, there might be some pending requests currently being processed. If you need to ensure that
 there is no activity in the queue, use <a href="/docs/api/request-queue#isfinished"><code>RequestQueue.isFinished()</code></a>.</p>
+<p><strong>Returns</strong>: <code>Promise&lt;boolean&gt;</code></p>
 <hr>
 <p><a name="isfinished"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="requestqueueisfinished"></a><a href="#requestqueueisfinished" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>requestQueue.isFinished()</code></h2>
-<p><strong>Returns</strong>: <code>Promise&lt;boolean&gt;</code></p>
 <p>Resolves to <code>true</code> if all requests were already handled and there are no more left. Due to the nature of distributed storage used by the queue, the
 function might occasionally return a false negative, but it will never return a false positive.</p>
+<p><strong>Returns</strong>: <code>Promise&lt;boolean&gt;</code></p>
 <hr>
 <p><a name="drop"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="requestqueuedrop"></a><a href="#requestqueuedrop" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>requestQueue.drop()</code></h2>
-<p><strong>Returns</strong>: <code>Promise&lt;void&gt;</code></p>
 <p>Removes the queue either from the Apify Cloud storage or from the local directory, depending on the mode of operation.</p>
+<p><strong>Returns</strong>: <code>Promise&lt;void&gt;</code></p>
 <hr>
 <p><a name="handledcount"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="requestqueuehandledcount"></a><a href="#requestqueuehandledcount" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>requestQueue.handledCount()</code></h2>
-<p><strong>Returns</strong>: <code>Promise&lt;number&gt;</code></p>
 <p>Returns the number of handled requests.</p>
 <p>This function is just a convenient shortcut for:</p>
 <pre><code class="hljs css language-javascript"><span class="token keyword">const</span> <span class="token punctuation">{</span> handledRequestCount <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">await</span> queue<span class="token punctuation">.</span><span class="token function">getInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
+<p><strong>Returns</strong>: <code>Promise&lt;number&gt;</code></p>
 <hr>
 <p><a name="getinfo"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="requestqueuegetinfo"></a><a href="#requestqueuegetinfo" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>requestQueue.getInfo()</code></h2>
-<p><strong>Returns</strong>: <code>Promise&lt;object&gt;</code></p>
 <p>Returns an object containing general information about the request queue.</p>
 <p>The function returns the same object as the Apify API Client's <a href="https://docs.apify.com/api/apify-client-js/latest#ApifyClient-requestQueues" target="_blank" rel="nofollow noreferrer noopener">getQueue</a>
 function, which in turn calls the <a href="https://apify.com/docs/api/v2#/reference/request-queues/queue/get-request-queue" target="_blank" rel="nofollow noreferrer noopener">Get request queue</a> API endpoint.</p>
@@ -218,6 +217,7 @@ function, which in turn calls the <a href="https://apify.com/docs/api/v2#/refere
   pendingRequestCount<span class="token operator">:</span> <span class="token number">20</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span>
 </code></pre>
+<p><strong>Returns</strong>: <code>Promise&lt;object&gt;</code></p>
 <hr>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/api/request-list"><span class="arrow-prev">← </span><span class="function-name-prevnext">RequestList</span></a><a class="docs-next button" href="/docs/api/pseudo-url"><span class="function-name-prevnext">PseudoUrl</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#new-requestqueuequeueid-queuename-clientkey"><code>new RequestQueue(queueId, [queueName], [clientKey])</code></a></li><li><a href="#requestqueueaddrequestrequest-options"><code>requestQueue.addRequest(request, [options])</code></a></li><li><a href="#requestqueuegetrequestrequestid"><code>requestQueue.getRequest(requestId)</code></a></li><li><a href="#requestqueuefetchnextrequest"><code>requestQueue.fetchNextRequest()</code></a></li><li><a href="#requestqueuemarkrequesthandledrequest"><code>requestQueue.markRequestHandled(request)</code></a></li><li><a href="#requestqueuereclaimrequestrequest-options"><code>requestQueue.reclaimRequest(request, [options])</code></a></li><li><a href="#requestqueueisempty"><code>requestQueue.isEmpty()</code></a></li><li><a href="#requestqueueisfinished"><code>requestQueue.isFinished()</code></a></li><li><a href="#requestqueuedrop"><code>requestQueue.drop()</code></a></li><li><a href="#requestqueuehandledcount"><code>requestQueue.handledCount()</code></a></li><li><a href="#requestqueuegetinfo"><code>requestQueue.getInfo()</code></a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/apify_logo.svg" alt="Apify SDK" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/guides/motivation">Guide</a><a href="/docs/examples/puppeteer-crawler">Examples</a><a href="/docs/api/apify">API Reference</a></div><div><h5>Community</h5><a href="https://stackoverflow.com/questions/tagged/apify" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://twitter.com/apify" target="_blank" rel="noreferrer noopener">Twitter</a><a href="https://www.facebook.com/apifytech" target="_blank" rel="noreferrer noopener">Facebook</a></div><div><h5>More</h5><a href="https://apify.com" target="_blank">Apify Cloud</a><a href="https://docusaurus.io" target="_blank">Docusaurus</a><a href="https://github.com/apifytech/apify-js" target="_blank">GitHub</a></div></section><section class="copyright">Copyright © 2020 Apify Technologies s.r.o.</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
