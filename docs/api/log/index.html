@@ -106,7 +106,7 @@ the <code>log.LEVELS</code> constants such as</p>
 <pre><code class="hljs">log<span class="token punctuation">.</span><span class="token function">setLevel</span><span class="token punctuation">(</span>log<span class="token punctuation">.</span><span class="token constant">LEVELS</span><span class="token punctuation">.</span><span class="token constant">DEBUG</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>Default log level is INFO.</p>
-<p><strong>Params</strong></p>
+<p><strong>Parameters</strong>:</p>
 <ul>
 <li><strong><code>level</code></strong>: <code>number</code></li>
 </ul>
@@ -120,7 +120,7 @@ level is not high enough at the moment, it doesn't make sense to execute the que
 <p><a name="setoptions"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="logsetoptionsoptions"></a><a href="#logsetoptionsoptions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>log.setOptions(options)</code></h2>
 <p>Configures logger.</p>
-<p><strong>Params</strong></p>
+<p><strong>Parameters</strong>:</p>
 <ul>
 <li><strong><code>options</code></strong>: <a href="/docs/typedefs/logger-options"><code>LoggerOptions</code></a></li>
 </ul>
@@ -128,7 +128,7 @@ level is not high enough at the moment, it doesn't make sense to execute the que
 <p><a name="child"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="logchildoptions"></a><a href="#logchildoptions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>log.child([options])</code></h2>
 <p>Creates a new instance of logger that inherits settings from a parent logger.</p>
-<p><strong>Params</strong></p>
+<p><strong>Parameters</strong>:</p>
 <ul>
 <li><strong><code>[options]</code></strong>: <a href="/docs/typedefs/logger-options"><code>LoggerOptions</code></a> - Supports the same options as the <code>setOptions()</code> method.</li>
 </ul>
@@ -136,14 +136,15 @@ level is not high enough at the moment, it doesn't make sense to execute the que
 <p><a name="getoptions"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="loggetoptions"></a><a href="#loggetoptions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>log.getOptions()</code></h2>
 <p>Returns the logger configuration.</p>
-<p><strong>Returns</strong>: <a href="/docs/typedefs/logger-options"><code>LoggerOptions</code></a></p>
+<p><strong>Returns</strong>:</p>
+<p><a href="/docs/typedefs/logger-options"><code>LoggerOptions</code></a></p>
 <hr>
 <p><a name="debug"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="logdebugmessage-data"></a><a href="#logdebugmessage-data" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>log.debug(message, [data])</code></h2>
 <p>Logs a <code>DEBUG</code> message. By default, it will not be written to the console. To see <code>DEBUG</code> messages in the console, set the log level to <code>DEBUG</code> either
 using the <code>log.setLevel(log.LEVELS.DEBUG)</code> method or using the environment variable <code>APIFY_LOG_LEVEL=DEBUG</code>. Data are stringified and appended to the
 message.</p>
-<p><strong>Params</strong></p>
+<p><strong>Parameters</strong>:</p>
 <ul>
 <li><strong><code>message</code></strong>: <code>string</code></li>
 <li><strong><code>[data]</code></strong>: <code>Object</code></li>
@@ -153,7 +154,7 @@ message.</p>
 <h2><a class="anchor" aria-hidden="true" id="loginfomessage-data"></a><a href="#loginfomessage-data" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>log.info(message, [data])</code></h2>
 <p>Logs an <code>INFO</code> message. <code>INFO</code> is the default log level so info messages will be always logged, unless the log level is changed. Data are stringified
 and appended to the message.</p>
-<p><strong>Params</strong></p>
+<p><strong>Parameters</strong>:</p>
 <ul>
 <li><strong><code>message</code></strong>: <code>string</code></li>
 <li><strong><code>[data]</code></strong>: <code>Object</code></li>
@@ -162,7 +163,7 @@ and appended to the message.</p>
 <p><a name="warning"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="logwarningmessage-data"></a><a href="#logwarningmessage-data" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>log.warning(message, [data])</code></h2>
 <p>Logs a <code>WARNING</code> level message. Data are stringified and appended to the message.</p>
-<p><strong>Params</strong></p>
+<p><strong>Parameters</strong>:</p>
 <ul>
 <li><strong><code>message</code></strong>: <code>string</code></li>
 <li><strong><code>[data]</code></strong>: <code>Object</code></li>
@@ -172,7 +173,7 @@ and appended to the message.</p>
 <h2><a class="anchor" aria-hidden="true" id="logerrormessage-data"></a><a href="#logerrormessage-data" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>log.error(message, [data])</code></h2>
 <p>Logs an <code>ERROR</code> message. Use this method to log error messages that are not directly connected to an exception. For logging exceptions, use the
 <code>log.exception</code> method.</p>
-<p><strong>Params</strong></p>
+<p><strong>Parameters</strong>:</p>
 <ul>
 <li><strong><code>message</code></strong>: <code>string</code></li>
 <li><strong><code>[data]</code></strong>: <code>Object</code></li>
@@ -182,7 +183,7 @@ and appended to the message.</p>
 <h2><a class="anchor" aria-hidden="true" id="logexceptionexception-message-data"></a><a href="#logexceptionexception-message-data" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>log.exception(exception, [message], [data])</code></h2>
 <p>Logs an <code>ERROR</code> level message with a nicely formatted exception. Note that the exception is the first parameter here and an additional message is only
 optional.</p>
-<p><strong>Params</strong></p>
+<p><strong>Parameters</strong>:</p>
 <ul>
 <li><strong><code>exception</code></strong>: <code>Error</code></li>
 <li><strong><code>[message]</code></strong>: <code>string</code></li>

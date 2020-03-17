@@ -70,7 +70,7 @@ set interval.</p>
 <hr>
 <p><a name="snapshotter"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="new-snapshotteroptions"></a><a href="#new-snapshotteroptions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>new Snapshotter([options])</code></h2>
-<p><strong>Params</strong></p>
+<p><strong>Parameters</strong>:</p>
 <ul>
 <li><strong><code>[options]</code></strong>: <a href="/docs/typedefs/snapshotter-options"><code>SnapshotterOptions</code></a> - All <code>Snapshotter</code> configuration options.</li>
 </ul>
@@ -78,52 +78,58 @@ set interval.</p>
 <p><a name="start"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="snapshotterstart"></a><a href="#snapshotterstart" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>snapshotter.start()</code></h2>
 <p>Starts capturing snapshots at configured intervals.</p>
-<p><strong>Returns</strong>: <code>Promise&lt;void&gt;</code></p>
+<p><strong>Returns</strong>:</p>
+<p><code>Promise&lt;void&gt;</code></p>
 <hr>
 <p><a name="stop"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="snapshotterstop"></a><a href="#snapshotterstop" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>snapshotter.stop()</code></h2>
 <p>Stops all resource capturing.</p>
-<p><strong>Returns</strong>: <code>Promise&lt;void&gt;</code></p>
+<p><strong>Returns</strong>:</p>
+<p><code>Promise&lt;void&gt;</code></p>
 <hr>
 <p><a name="getmemorysample"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="snapshottergetmemorysamplesampledurationmillis"></a><a href="#snapshottergetmemorysamplesampledurationmillis" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>snapshotter.getMemorySample([sampleDurationMillis])</code></h2>
 <p>Returns a sample of latest memory snapshots, with the size of the sample defined by the sampleDurationMillis parameter. If omitted, it returns a full
 snapshot history.</p>
-<p><strong>Params</strong></p>
+<p><strong>Parameters</strong>:</p>
 <ul>
 <li><strong><code>[sampleDurationMillis]</code></strong>: <code>number</code></li>
 </ul>
-<p><strong>Returns</strong>: <code>Array&lt;*&gt;</code></p>
+<p><strong>Returns</strong>:</p>
+<p><code>Array&lt;*&gt;</code></p>
 <hr>
 <p><a name="geteventloopsample"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="snapshottergeteventloopsamplesampledurationmillis"></a><a href="#snapshottergeteventloopsamplesampledurationmillis" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>snapshotter.getEventLoopSample([sampleDurationMillis])</code></h2>
 <p>Returns a sample of latest event loop snapshots, with the size of the sample defined by the sampleDurationMillis parameter. If omitted, it returns a
 full snapshot history.</p>
-<p><strong>Params</strong></p>
+<p><strong>Parameters</strong>:</p>
 <ul>
 <li><strong><code>[sampleDurationMillis]</code></strong>: <code>number</code></li>
 </ul>
-<p><strong>Returns</strong>: <code>Array&lt;*&gt;</code></p>
+<p><strong>Returns</strong>:</p>
+<p><code>Array&lt;*&gt;</code></p>
 <hr>
 <p><a name="getcpusample"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="snapshottergetcpusamplesampledurationmillis"></a><a href="#snapshottergetcpusamplesampledurationmillis" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>snapshotter.getCpuSample([sampleDurationMillis])</code></h2>
 <p>Returns a sample of latest CPU snapshots, with the size of the sample defined by the sampleDurationMillis parameter. If omitted, it returns a full
 snapshot history.</p>
-<p><strong>Params</strong></p>
+<p><strong>Parameters</strong>:</p>
 <ul>
 <li><strong><code>[sampleDurationMillis]</code></strong>: <code>number</code></li>
 </ul>
-<p><strong>Returns</strong>: <code>Array&lt;*&gt;</code></p>
+<p><strong>Returns</strong>:</p>
+<p><code>Array&lt;*&gt;</code></p>
 <hr>
 <p><a name="getclientsample"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="snapshottergetclientsamplesampledurationmillis"></a><a href="#snapshottergetclientsamplesampledurationmillis" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>snapshotter.getClientSample(sampleDurationMillis)</code></h2>
 <p>Returns a sample of latest Client snapshots, with the size of the sample defined by the sampleDurationMillis parameter. If omitted, it returns a full
 snapshot history.</p>
-<p><strong>Params</strong></p>
+<p><strong>Parameters</strong>:</p>
 <ul>
 <li><strong><code>sampleDurationMillis</code></strong>: <code>number</code></li>
 </ul>
-<p><strong>Returns</strong>: <code>Array&lt;*&gt;</code></p>
+<p><strong>Returns</strong>:</p>
+<p><code>Array&lt;*&gt;</code></p>
 <hr>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/api/session-pool"><span class="arrow-prev">← </span><span class="function-name-prevnext">SessionPool</span></a><a class="docs-next button" href="/docs/api/system-status"><span class="function-name-prevnext">SystemStatus</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#new-snapshotteroptions"><code>new Snapshotter([options])</code></a></li><li><a href="#snapshotterstart"><code>snapshotter.start()</code></a></li><li><a href="#snapshotterstop"><code>snapshotter.stop()</code></a></li><li><a href="#snapshottergetmemorysamplesampledurationmillis"><code>snapshotter.getMemorySample([sampleDurationMillis])</code></a></li><li><a href="#snapshottergeteventloopsamplesampledurationmillis"><code>snapshotter.getEventLoopSample([sampleDurationMillis])</code></a></li><li><a href="#snapshottergetcpusamplesampledurationmillis"><code>snapshotter.getCpuSample([sampleDurationMillis])</code></a></li><li><a href="#snapshottergetclientsamplesampledurationmillis"><code>snapshotter.getClientSample(sampleDurationMillis)</code></a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/apify_logo.svg" alt="Apify SDK" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/guides/motivation">Guide</a><a href="/docs/examples/puppeteer-crawler">Examples</a><a href="/docs/api/apify">API Reference</a></div><div><h5>Community</h5><a href="https://stackoverflow.com/questions/tagged/apify" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://twitter.com/apify" target="_blank" rel="noreferrer noopener">Twitter</a><a href="https://www.facebook.com/apifytech" target="_blank" rel="noreferrer noopener">Facebook</a></div><div><h5>More</h5><a href="https://apify.com" target="_blank">Apify Cloud</a><a href="https://docusaurus.io" target="_blank">Docusaurus</a><a href="https://github.com/apifytech/apify-js" target="_blank">GitHub</a></div></section><section class="copyright">Copyright © 2020 Apify Technologies s.r.o.</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {

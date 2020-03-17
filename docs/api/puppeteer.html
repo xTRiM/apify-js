@@ -105,22 +105,24 @@ can override only a value of specific header.</p>
 
 <span class="token keyword">await</span> page<span class="token punctuation">.</span><span class="token function">goto</span><span class="token punctuation">(</span><span class="token string">'http://example.com'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p><strong>Params</strong></p>
+<p><strong>Parameters</strong>:</p>
 <ul>
 <li><strong><code>page</code></strong>: <code>Page</code> - Puppeteer <a href="https://pptr.dev/#?product=Puppeteer&amp;show=api-class-page" target="_blank" rel="nofollow noreferrer noopener"><code>Page</code></a> object.</li>
 <li><strong><code>handler</code></strong>: <a href="/docs/typedefs/intercept-handler"><code>InterceptHandler</code></a> - Request interception handler.</li>
 </ul>
-<p><strong>Returns</strong>: <code>Promise&lt;void&gt;</code></p>
+<p><strong>Returns</strong>:</p>
+<p><code>Promise&lt;void&gt;</code></p>
 <hr>
 <p><a name="removeinterceptrequesthandler"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="puppeteerremoveinterceptrequesthandler"></a><a href="#puppeteerremoveinterceptrequesthandler" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>puppeteer.removeInterceptRequestHandler</code></h2>
 <p>Removes request interception handler for given page.</p>
-<p><strong>Params</strong></p>
+<p><strong>Parameters</strong>:</p>
 <ul>
 <li><strong><code>page</code></strong>: <code>Page</code> - Puppeteer <a href="https://pptr.dev/#?product=Puppeteer&amp;show=api-class-page" target="_blank" rel="nofollow noreferrer noopener"><code>Page</code></a> object.</li>
 <li><strong><code>handler</code></strong>: <a href="/docs/typedefs/intercept-handler"><code>InterceptHandler</code></a> - Request interception handler.</li>
 </ul>
-<p><strong>Returns</strong>: <code>Promise&lt;void&gt;</code></p>
+<p><strong>Returns</strong>:</p>
+<p><code>Promise&lt;void&gt;</code></p>
 <hr>
 <p><a name="gotoextended"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="puppeteergotoextended"></a><a href="#puppeteergotoextended" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>puppeteer.gotoExtended</code></h2>
@@ -128,49 +130,52 @@ can override only a value of specific header.</p>
 method, headers and payload are taken from request parameter that must be an instance of Apify.Request class.</p>
 <p><em>NOTE:</em> In recent versions of Puppeteer using requests other than GET, overriding headers and adding payloads disables browser cache which degrades
 performance.</p>
-<p><strong>Params</strong></p>
+<p><strong>Parameters</strong>:</p>
 <ul>
 <li><strong><code>page</code></strong>: <code>Page</code> - Puppeteer <a href="https://pptr.dev/#?product=Puppeteer&amp;show=api-class-page" target="_blank" rel="nofollow noreferrer noopener"><code>Page</code></a> object.</li>
 <li><strong><code>request</code></strong>: <a href="/docs/api/request"><code>Request</code></a></li>
 <li><strong><code>gotoOptions</code></strong>: <code>DirectNavigationOptions</code> - Custom options for <code>page.goto()</code>.</li>
 </ul>
-<p><strong>Returns</strong>: <code>Promise&lt;(Response|null)&gt;</code></p>
+<p><strong>Returns</strong>:</p>
+<p><code>Promise&lt;(Response|null)&gt;</code></p>
 <hr>
 <p><a name="infinitescroll"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="puppeteerinfinitescroll"></a><a href="#puppeteerinfinitescroll" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>puppeteer.infiniteScroll</code></h2>
 <p>Scrolls to the bottom of a page, or until it times out. Loads dynamic content when it hits the bottom of a page, and then continues scrolling.</p>
-<p><strong>Params</strong></p>
+<p><strong>Parameters</strong>:</p>
 <ul>
 <li><strong><code>page</code></strong>: <code>Page</code> - Puppeteer <a href="https://pptr.dev/#?product=Puppeteer&amp;show=api-class-page" target="_blank" rel="nofollow noreferrer noopener"><code>Page</code></a> object.</li>
 <li><strong><code>[options]</code></strong>: <code>Object</code>
 <ul>
-<li><strong><code>[.timeoutSecs]</code></strong>: <code>number</code> <code> = 0</code> - How many seconds to scroll for. If 0, will scroll until bottom of page.</li>
-<li><strong><code>[.waitForSecs]</code></strong>: <code>number</code> <code> = 4</code> - How many seconds to wait for no new content to load before exit.</li>
+<li><strong><code>[timeoutSecs]</code></strong>: <code>number</code> <code> = 0</code> - How many seconds to scroll for. If 0, will scroll until bottom of page.</li>
+<li><strong><code>[waitForSecs]</code></strong>: <code>number</code> <code> = 4</code> - How many seconds to wait for no new content to load before exit.</li>
 </ul></li>
 </ul>
-<p><strong>Returns</strong>: <code>Promise&lt;void&gt;</code></p>
+<p><strong>Returns</strong>:</p>
+<p><code>Promise&lt;void&gt;</code></p>
 <hr>
 <p><a name="savesnapshot"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="puppeteersavesnapshot"></a><a href="#puppeteersavesnapshot" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>puppeteer.saveSnapshot</code></h2>
 <p>Saves a full screenshot and HTML of the current page into a Key-Value store.</p>
-<p><strong>Params</strong></p>
+<p><strong>Parameters</strong>:</p>
 <ul>
 <li><strong><code>page</code></strong>: <code>Page</code> - Puppeteer <a href="https://pptr.dev/#?product=Puppeteer&amp;show=api-class-page" target="_blank" rel="nofollow noreferrer noopener"><code>Page</code></a> object.</li>
 <li><strong><code>[options]</code></strong>: <code>Object</code>
 <ul>
-<li><strong><code>[.key]</code></strong>: <code>string</code> <code> = &quot;SNAPSHOT&quot;</code> - Key under which the screenshot and HTML will be saved. <code>.jpg</code> will be appended
+<li><strong><code>[key]</code></strong>: <code>string</code> <code> = &quot;SNAPSHOT&quot;</code> - Key under which the screenshot and HTML will be saved. <code>.jpg</code> will be appended
 for screenshot and <code>.html</code> for HTML.</li>
-<li><strong><code>[.screenshotQuality]</code></strong>: <code>number</code> <code> = 50</code> - The quality of the image, between 0-100. Higher quality images have bigger size and
+<li><strong><code>[screenshotQuality]</code></strong>: <code>number</code> <code> = 50</code> - The quality of the image, between 0-100. Higher quality images have bigger size and
 require more storage.</li>
-<li><strong><code>[.saveScreenshot]</code></strong>: <code>boolean</code> <code> = true</code> - If true, it will save a full screenshot of the current page as a record with <code>key</code>
+<li><strong><code>[saveScreenshot]</code></strong>: <code>boolean</code> <code> = true</code> - If true, it will save a full screenshot of the current page as a record with <code>key</code>
 appended by <code>.jpg</code>.</li>
-<li><strong><code>[.saveHtml]</code></strong>: <code>boolean</code> <code> = true</code> - If true, it will save a full HTML of the current page as a record with <code>key</code> appended by
+<li><strong><code>[saveHtml]</code></strong>: <code>boolean</code> <code> = true</code> - If true, it will save a full HTML of the current page as a record with <code>key</code> appended by
 <code>.html</code>.</li>
-<li><strong><code>[.keyValueStoreName]</code></strong>: <code>string</code> <code> = null</code> - Name or id of the Key-Value store where snapshot is saved. By default it is saved
+<li><strong><code>[keyValueStoreName]</code></strong>: <code>string</code> <code> = null</code> - Name or id of the Key-Value store where snapshot is saved. By default it is saved
 to default Key-Value store.</li>
 </ul></li>
 </ul>
-<p><strong>Returns</strong>: <code>Promise&lt;void&gt;</code></p>
+<p><strong>Returns</strong>:</p>
+<p><code>Promise&lt;void&gt;</code></p>
 <hr>
 <p><a name="enqueuelinksbyclickingelements"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="puppeteerenqueuelinksbyclickingelementsoptions"></a><a href="#puppeteerenqueuelinksbyclickingelementsoptions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>puppeteer.enqueueLinksByClickingElements(options)</code></h2>
@@ -206,27 +211,27 @@ wait minutes to get results on a large and complex page.</p>
   <span class="token punctuation">]</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p><strong>Params</strong></p>
+<p><strong>Parameters</strong>:</p>
 <ul>
 <li><p><strong><code>options</code></strong>: <code>Object</code> - All <code>enqueueLinksByClickingElements()</code> parameters are passed via an options object with the following keys:</p>
 <ul>
-<li><strong><code>.page</code></strong>: <code>Page</code> - Puppeteer <a href="https://pptr.dev/#?product=Puppeteer&amp;show=api-class-page" target="_blank" rel="nofollow noreferrer noopener"><code>Page</code></a> object.</li>
-<li><strong><code>.requestQueue</code></strong>: <a href="/docs/api/request-queue"><code>RequestQueue</code></a> - A request queue to which the URLs will be enqueued.</li>
-<li><strong><code>.selector</code></strong>: <code>string</code> - A CSS selector matching elements to be clicked on. Unlike in
+<li><strong><code>page</code></strong>: <code>Page</code> - Puppeteer <a href="https://pptr.dev/#?product=Puppeteer&amp;show=api-class-page" target="_blank" rel="nofollow noreferrer noopener"><code>Page</code></a> object.</li>
+<li><strong><code>requestQueue</code></strong>: <a href="/docs/api/request-queue"><code>RequestQueue</code></a> - A request queue to which the URLs will be enqueued.</li>
+<li><strong><code>selector</code></strong>: <code>string</code> - A CSS selector matching elements to be clicked on. Unlike in
 <a href="/docs/api/utils#enqueuelinks"><code>utils.enqueueLinks()</code></a>, there is no default value. This is to prevent suboptimal use of this function by using
 it too broadly.</li>
-<li><strong><code>[.pseudoUrls]</code></strong>: <code>Array&lt;(string|RegExp|Object)&gt;</code> - An array of <a href="/docs/api/pseudo-url"><code>PseudoUrl</code></a>s matching the URLs to be enqueued, or
-an array of strings or RegExps or plain Objects from which the <a href="/docs/api/pseudo-url"><code>PseudoUrl</code></a>s can be constructed.</li>
+<li><strong><code>[pseudoUrls]</code></strong>: <code>Array&lt;(string|RegExp|Object)&gt;</code> - An array of <a href="/docs/api/pseudo-url"><code>PseudoUrl</code></a>s matching the URLs to be enqueued, or an
+array of strings or RegExps or plain Objects from which the <a href="/docs/api/pseudo-url"><code>PseudoUrl</code></a>s can be constructed.</li>
 </ul>
 <p>The plain objects must include at least the <code>purl</code> property, which holds the pseudo-URL string or RegExp. All remaining keys will be used as the
 <code>requestTemplate</code> argument of the <a href="/docs/api/pseudo-url"><code>PseudoUrl</code></a> constructor, which lets you specify special properties for the enqueued
 <a href="/docs/api/request"><code>Request</code></a> objects.</p>
 <p>If <code>pseudoUrls</code> is an empty array, <code>null</code> or <code>undefined</code>, then the function enqueues all links found on the page.</p>
 <ul>
-<li><strong><code>[.transformRequestFunction]</code></strong>: <a href="/docs/typedefs/request-transform"><code>RequestTransform</code></a> - Just before a new <a href="/docs/api/request"><code>Request</code></a>
-is constructed and enqueued to the <a href="/docs/api/request-queue"><code>RequestQueue</code></a>, this function can be used to remove it or modify its contents
-such as <code>userData</code>, <code>payload</code> or, most importantly <code>uniqueKey</code>. This is useful when you need to enqueue multiple <code>Requests</code> to the queue that
-share the same URL, but differ in methods or payloads, or to dynamically update or create <code>userData</code>.</li>
+<li><strong><code>[transformRequestFunction]</code></strong>: <a href="/docs/typedefs/request-transform"><code>RequestTransform</code></a> - Just before a new <a href="/docs/api/request"><code>Request</code></a> is
+constructed and enqueued to the <a href="/docs/api/request-queue"><code>RequestQueue</code></a>, this function can be used to remove it or modify its contents such
+as <code>userData</code>, <code>payload</code> or, most importantly <code>uniqueKey</code>. This is useful when you need to enqueue multiple <code>Requests</code> to the queue that share
+the same URL, but differ in methods or payloads, or to dynamically update or create <code>userData</code>.</li>
 </ul>
 <p>For example: by adding <code>useExtendedUniqueKey: true</code> to the <code>request</code> object, <code>uniqueKey</code> will be computed from a combination of <code>url</code>, <code>method</code>
 and <code>payload</code> which enables crawling of websites that navigate using form submits (POST requests).</p>
@@ -240,7 +245,7 @@ and <code>payload</code> which enables crawling of websites that navigate using 
 <span class="token punctuation">}</span>
 </code></pre>
 <ul>
-<li><strong><code>[.waitForPageIdleSecs]</code></strong>: <code>number</code> <code> = 1</code> - Clicking in the page triggers various asynchronous operations that lead to new URLs
+<li><strong><code>[waitForPageIdleSecs]</code></strong>: <code>number</code> <code> = 1</code> - Clicking in the page triggers various asynchronous operations that lead to new URLs
 being shown by the browser. It could be a simple JavaScript redirect or opening of a new tab in the browser. These events often happen only
 some time after the actual click. Requests typically take milliseconds while new tabs open in hundreds of milliseconds.</li>
 </ul>
@@ -250,12 +255,13 @@ return, unless the below <code>maxWaitForPageIdleSecs</code> timeout is reached.
 <p>You may want to reduce this for example when you're sure that your clicks do not open new tabs, or increase when you're not getting all the
 expected URLs.</p>
 <ul>
-<li><strong><code>[.maxWaitForPageIdleSecs]</code></strong>: <code>number</code> <code> = 5</code> - This is the maximum period for which the function will keep tracking events,
-even if more events keep coming. Its purpose is to prevent a deadlock in the page by periodic events, often unrelated to the clicking itself.
-See <code>waitForPageIdleSecs</code> above for an explanation.</li>
+<li><strong><code>[maxWaitForPageIdleSecs]</code></strong>: <code>number</code> <code> = 5</code> - This is the maximum period for which the function will keep tracking events, even
+if more events keep coming. Its purpose is to prevent a deadlock in the page by periodic events, often unrelated to the clicking itself. See
+<code>waitForPageIdleSecs</code> above for an explanation.</li>
 </ul></li>
 </ul>
-<p><strong>Returns</strong>: <a href="/docs/typedefs/queue-operation-info"><code>Promise&lt;Array&lt;QueueOperationInfo&gt;&gt;</code></a> - Promise that resolves to an array of
+<p><strong>Returns</strong>:</p>
+<p><a href="/docs/typedefs/queue-operation-info"><code>Promise&lt;Array&lt;QueueOperationInfo&gt;&gt;</code></a> - Promise that resolves to an array of
 <a href="/docs/typedefs/queue-operation-info"><code>QueueOperationInfo</code></a> objects.</p>
 <hr>
 <p><a name="injectfile"></a></p>
@@ -263,18 +269,19 @@ See <code>waitForPageIdleSecs</code> above for an explanation.</li>
 <p>Injects a JavaScript file into a Puppeteer page. Unlike Puppeteer's <code>addScriptTag</code> function, this function works on pages with arbitrary Cross-Origin
 Resource Sharing (CORS) policies.</p>
 <p>File contents are cached for up to 10 files to limit file system access.</p>
-<p><strong>Params</strong></p>
+<p><strong>Parameters</strong>:</p>
 <ul>
 <li><strong><code>page</code></strong>: <code>Page</code> - Puppeteer <a href="https://pptr.dev/#?product=Puppeteer&amp;show=api-class-page" target="_blank" rel="nofollow noreferrer noopener"><code>Page</code></a> object.</li>
 <li><strong><code>filePath</code></strong>: <code>string</code> - File path</li>
 <li><strong><code>[options]</code></strong>: <code>Object</code>
 <ul>
-<li><strong><code>[.surviveNavigations]</code></strong>: <code>boolean</code> - Enables the injected script to survive page navigations and reloads without need to be re-injected
+<li><strong><code>[surviveNavigations]</code></strong>: <code>boolean</code> - Enables the injected script to survive page navigations and reloads without need to be re-injected
 manually. This does not mean, however, that internal state will be preserved. Just that it will be automatically re-injected on each
 navigation before any other scripts get the chance to execute.</li>
 </ul></li>
 </ul>
-<p><strong>Returns</strong>: <code>Promise&lt;*&gt;</code></p>
+<p><strong>Returns</strong>:</p>
+<p><code>Promise&lt;*&gt;</code></p>
 <hr>
 <p><a name="injectjquery"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="puppeteerinjectjquerypage"></a><a href="#puppeteerinjectjquerypage" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>puppeteer.injectJQuery(page)</code></h2>
@@ -291,11 +298,12 @@ page that use the same variable name (e.g. another version of jQuery). This can 
 </code></pre>
 <p>Note that <code>injectJQuery()</code> does not affect the Puppeteer's <a href="https://pptr.dev/#?product=Puppeteer&amp;show=api-pageselector" target="_blank" rel="nofollow noreferrer noopener"><code>page.$()</code></a> function in any
 way.</p>
-<p><strong>Params</strong></p>
+<p><strong>Parameters</strong>:</p>
 <ul>
 <li><strong><code>page</code></strong>: <code>Page</code> - Puppeteer <a href="https://pptr.dev/#?product=Puppeteer&amp;show=api-class-page" target="_blank" rel="nofollow noreferrer noopener"><code>Page</code></a> object.</li>
 </ul>
-<p><strong>Returns</strong>: <code>Promise&lt;*&gt;</code></p>
+<p><strong>Returns</strong>:</p>
+<p><code>Promise&lt;*&gt;</code></p>
 <hr>
 <p><a name="injectunderscore"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="puppeteerinjectunderscorepage"></a><a href="#puppeteerinjectunderscorepage" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>puppeteer.injectUnderscore(page)</code></h2>
@@ -309,11 +317,12 @@ page that use the same variable name. This can affect functionality of page's sc
     <span class="token keyword">return</span> _<span class="token punctuation">.</span><span class="token function">escape</span><span class="token punctuation">(</span><span class="token string">'&lt;h1>Hello&lt;/h1>'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p><strong>Params</strong></p>
+<p><strong>Parameters</strong>:</p>
 <ul>
 <li><strong><code>page</code></strong>: <code>Page</code> - Puppeteer <a href="https://github.com/puppeteer/puppeteer/blob/master/docs/api.md#class-page" target="_blank" rel="nofollow noreferrer noopener">Page</a> object.</li>
 </ul>
-<p><strong>Returns</strong>: <code>Promise&lt;*&gt;</code></p>
+<p><strong>Returns</strong>:</p>
+<p><code>Promise&lt;*&gt;</code></p>
 <hr>
 <p><a name="blockrequests"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="puppeteerblockrequestspage-options"></a><a href="#puppeteerblockrequestspage-options" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>puppeteer.blockRequests(page, [options])</code></h2>
@@ -342,18 +351,19 @@ benefits of request interception.</p>
 
 <span class="token keyword">await</span> page<span class="token punctuation">.</span><span class="token function">goto</span><span class="token punctuation">(</span><span class="token string">'https://cnn.com'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p><strong>Params</strong></p>
+<p><strong>Parameters</strong>:</p>
 <ul>
 <li><strong><code>page</code></strong>: <code>Page</code> - Puppeteer <a href="https://pptr.dev/#?product=Puppeteer&amp;show=api-class-page" target="_blank" rel="nofollow noreferrer noopener"><code>Page</code></a> object.</li>
 <li><strong><code>[options]</code></strong>: <code>Object</code>
 <ul>
-<li><strong><code>[.urlPatterns]</code></strong>: <code>Array&lt;string&gt;</code> - The patterns of URLs to block from being loaded by the browser. Only <code>*</code> can be used as a wildcard. It
+<li><strong><code>[urlPatterns]</code></strong>: <code>Array&lt;string&gt;</code> - The patterns of URLs to block from being loaded by the browser. Only <code>*</code> can be used as a wildcard. It
 is also automatically added to the beginning and end of the pattern. This limitation is enforced by the DevTools protocol. <code>.png</code> is the same
 as <code>*.png*</code>.</li>
-<li><strong><code>[.extraUrlPatterns]</code></strong>: <code>Array&lt;string&gt;</code> - If you just want to append to the default blocked patterns, use this property.</li>
+<li><strong><code>[extraUrlPatterns]</code></strong>: <code>Array&lt;string&gt;</code> - If you just want to append to the default blocked patterns, use this property.</li>
 </ul></li>
 </ul>
-<p><strong>Returns</strong>: <code>Promise&lt;void&gt;</code></p>
+<p><strong>Returns</strong>:</p>
+<p><code>Promise&lt;void&gt;</code></p>
 <hr>
 <p><a name="cacheresponses"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="puppeteercacheresponsespage-cache-responseurlrules"></a><a href="#puppeteercacheresponsespage-cache-responseurlrules" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><del><code>puppeteer.cacheResponses(page, cache, responseUrlRules)</code></del></h2>
@@ -363,14 +373,15 @@ resolves, we suggest just relying on the in-browser cache unless absolutely nece
 <p>Enables caching of intercepted responses into a provided object. Automatically enables request interception in Puppeteer. <em>IMPORTANT</em>: Caching
 responses stores them to memory, so too loose rules could cause memory leaks for longer running crawlers. This issue should be resolved or atleast
 mitigated in future iterations of this feature.</p>
-<p><strong>Params</strong></p>
+<p><strong>Parameters</strong>:</p>
 <ul>
 <li><strong><code>page</code></strong>: <code>Page</code> - Puppeteer <a href="https://pptr.dev/#?product=Puppeteer&amp;show=api-class-page" target="_blank" rel="nofollow noreferrer noopener"><code>Page</code></a> object.</li>
 <li><strong><code>cache</code></strong>: <code>Object</code> - Object in which responses are stored</li>
 <li><strong><code>responseUrlRules</code></strong>: <code>Array&lt;(string|RegExp)&gt;</code> - List of rules that are used to check if the response should be cached. String rules are
 compared as page.url().includes(rule) while RegExp rules are evaluated as rule.test(page.url()).</li>
 </ul>
-<p><strong>Returns</strong>: <code>Promise&lt;void&gt;</code></p>
+<p><strong>Returns</strong>:</p>
+<p><code>Promise&lt;void&gt;</code></p>
 <hr>
 <p><a name="compilescript"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="puppeteercompilescriptscriptstring-context"></a><a href="#puppeteercompilescriptscriptstring-context" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>puppeteer.compileScript(scriptString, context)</code></h2>
@@ -388,12 +399,13 @@ a safe sandbox and even though globals are not easily accessible, malicious code
 Therefore you should only use this function to execute sanitized or safe code.</p>
 <p>Custom context may also be provided using the <code>context</code> parameter. To improve security, make sure to only pass the really necessary objects to the
 context. Preferably making secured copies beforehand.</p>
-<p><strong>Params</strong></p>
+<p><strong>Parameters</strong>:</p>
 <ul>
 <li><strong><code>scriptString</code></strong>: <code>string</code></li>
 <li><strong><code>context</code></strong>: <code>Object</code></li>
 </ul>
-<p><strong>Returns</strong>: <code>function</code> - <code>async ({ page, request }) =&gt; { scriptString }</code></p>
+<p><strong>Returns</strong>:</p>
+<p><code>function</code> - <code>async ({ page, request }) =&gt; { scriptString }</code></p>
 <hr>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/api/log"><span class="arrow-prev">← </span><span>utils.log</span></a><a class="docs-next button" href="/docs/api/social"><span>utils.social</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#puppeteeraddinterceptrequesthandler"><code>puppeteer.addInterceptRequestHandler</code></a></li><li><a href="#puppeteerremoveinterceptrequesthandler"><code>puppeteer.removeInterceptRequestHandler</code></a></li><li><a href="#puppeteergotoextended"><code>puppeteer.gotoExtended</code></a></li><li><a href="#puppeteerinfinitescroll"><code>puppeteer.infiniteScroll</code></a></li><li><a href="#puppeteersavesnapshot"><code>puppeteer.saveSnapshot</code></a></li><li><a href="#puppeteerenqueuelinksbyclickingelementsoptions"><code>puppeteer.enqueueLinksByClickingElements(options)</code></a></li><li><a href="#puppeteerinjectfilepage-filepath-options"><code>puppeteer.injectFile(page, filePath, [options])</code></a></li><li><a href="#puppeteerinjectjquerypage"><code>puppeteer.injectJQuery(page)</code></a></li><li><a href="#puppeteerinjectunderscorepage"><code>puppeteer.injectUnderscore(page)</code></a></li><li><a href="#puppeteerblockrequestspage-options"><code>puppeteer.blockRequests(page, [options])</code></a></li><li><a href="#puppeteercacheresponsespage-cache-responseurlrules"><del><code>puppeteer.cacheResponses(page, cache, responseUrlRules)</code></del></a></li><li><a href="#puppeteercompilescriptscriptstring-context"><code>puppeteer.compileScript(scriptString, context)</code></a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/apify_logo.svg" alt="Apify SDK" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/guides/motivation">Guide</a><a href="/docs/examples/puppeteer-crawler">Examples</a><a href="/docs/api/apify">API Reference</a></div><div><h5>Community</h5><a href="https://stackoverflow.com/questions/tagged/apify" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://twitter.com/apify" target="_blank" rel="noreferrer noopener">Twitter</a><a href="https://www.facebook.com/apifytech" target="_blank" rel="noreferrer noopener">Facebook</a></div><div><h5>More</h5><a href="https://apify.com" target="_blank">Apify Cloud</a><a href="https://docusaurus.io" target="_blank">Docusaurus</a><a href="https://github.com/apifytech/apify-js" target="_blank">GitHub</a></div></section><section class="copyright">Copyright © 2020 Apify Technologies s.r.o.</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {

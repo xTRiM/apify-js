@@ -62,7 +62,7 @@ user data for example some authorization tokens and specific headers in general.
 <p><a name="exports.session"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="new-sessionoptions"></a><a href="#new-sessionoptions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>new Session(options)</code></h2>
 <p>Session configuration.</p>
-<p><strong>Params</strong></p>
+<p><strong>Parameters</strong>:</p>
 <ul>
 <li><strong><code>options</code></strong>: <a href="/docs/typedefs/session-options"><code>SessionOptions</code></a></li>
 </ul>
@@ -70,24 +70,28 @@ user data for example some authorization tokens and specific headers in general.
 <p><a name="isblocked"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="sessionisblocked"></a><a href="#sessionisblocked" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>session.isBlocked()</code></h2>
 <p>indicates whether the session is blocked. Session is blocked once it reaches the <code>maxErrorScore</code>.</p>
-<p><strong>Returns</strong>: <code>boolean</code></p>
+<p><strong>Returns</strong>:</p>
+<p><code>boolean</code></p>
 <hr>
 <p><a name="isexpired"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="sessionisexpired"></a><a href="#sessionisexpired" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>session.isExpired()</code></h2>
 <p>Indicates whether the session is expired. Session expiration is determined by the <code>maxAgeSecs</code>. Once the session is older than
 <code>createdAt + maxAgeSecs</code> the session is considered expired.</p>
-<p><strong>Returns</strong>: <code>boolean</code></p>
+<p><strong>Returns</strong>:</p>
+<p><code>boolean</code></p>
 <hr>
 <p><a name="ismaxusagecountreached"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="sessionismaxusagecountreached"></a><a href="#sessionismaxusagecountreached" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>session.isMaxUsageCountReached()</code></h2>
 <p>Indicates whether the session is used maximum number of times. Session maximum usage count can be changed by <code>maxUsageCount</code> parameter.</p>
-<p><strong>Returns</strong>: <code>boolean</code></p>
+<p><strong>Returns</strong>:</p>
+<p><code>boolean</code></p>
 <hr>
 <p><a name="isusable"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="sessionisusable"></a><a href="#sessionisusable" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>session.isUsable()</code></h2>
 <p>Indicates whether the session can be used for next requests. Session is usable when it is not expired, not blocked and the maximum usage count has not
 be reached.</p>
-<p><strong>Returns</strong>: <code>boolean</code></p>
+<p><strong>Returns</strong>:</p>
+<p><code>boolean</code></p>
 <hr>
 <p><a name="markgood"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="sessionmarkgood"></a><a href="#sessionmarkgood" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>session.markGood()</code></h2>
@@ -97,7 +101,8 @@ be reached.</p>
 <p><a name="getstate"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="sessiongetstate"></a><a href="#sessiongetstate" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>session.getState()</code></h2>
 <p>Gets session state for persistence in KeyValueStore.</p>
-<p><strong>Returns</strong>: <a href="/docs/typedefs/session-state"><code>SessionState</code></a> - represents session internal state.</p>
+<p><strong>Returns</strong>:</p>
+<p><a href="/docs/typedefs/session-state"><code>SessionState</code></a> - represents session internal state.</p>
 <hr>
 <p><a name="retire"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="sessionretire"></a><a href="#sessionretire" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>session.retire()</code></h2>
@@ -113,19 +118,20 @@ due to some external factors as server error such as 5XX you probably want to us
 <h2><a class="anchor" aria-hidden="true" id="sessionretireonblockedstatuscodesstatuscode-blockedstatuscodes"></a><a href="#sessionretireonblockedstatuscodesstatuscode-blockedstatuscodes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>session.retireOnBlockedStatusCodes(statusCode, [blockedStatusCodes])</code></h2>
 <p>With certain status codes: <code>401</code>, <code>403</code> or <code>429</code> we can be certain that the target website is blocking us. This function helps to do this conveniently
 by retiring the session when such code is received. Optionally the default status codes can be extended in the second parameter.</p>
-<p><strong>Params</strong></p>
+<p><strong>Parameters</strong>:</p>
 <ul>
 <li><strong><code>statusCode</code></strong>: <code>number</code> - HTTP status code</li>
 <li><strong><code>[blockedStatusCodes]</code></strong>: <code>Array&lt;number&gt;</code> - Custom HTTP status codes that means blocking on particular website.</li>
 </ul>
-<p><strong>Returns</strong>: <code>boolean</code> - whether the session was retired.</p>
+<p><strong>Returns</strong>:</p>
+<p><code>boolean</code> - whether the session was retired.</p>
 <hr>
 <p><a name="setcookiesfromresponse"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="sessionsetcookiesfromresponseresponse"></a><a href="#sessionsetcookiesfromresponseresponse" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>session.setCookiesFromResponse(response)</code></h2>
 <p>Saves cookies from an HTTP response to be used with the session. It expects an object with a <code>headers</code> property that's either an <code>Object</code> (typical
 Node.js responses) or a <code>Function</code> (Puppeteer Response).</p>
 <p>It then parses and saves the cookies from the <code>set-cookie</code> header, if available.</p>
-<p><strong>Params</strong></p>
+<p><strong>Parameters</strong>:</p>
 <ul>
 <li><strong><code>response</code></strong>: <code>PuppeteerResponse</code> | <code>IncomingMessage</code></li>
 </ul>
@@ -140,7 +146,7 @@ manually:</p>
   <span class="token punctuation">{</span> name<span class="token operator">:</span> <span class="token string">'cookie2'</span><span class="token punctuation">,</span> value<span class="token operator">:</span> <span class="token string">'your-cookie'</span> <span class="token punctuation">}</span>
 <span class="token punctuation">]</span>
 </code></pre>
-<p><strong>Params</strong></p>
+<p><strong>Parameters</strong>:</p>
 <ul>
 <li><strong><code>cookies</code></strong>: <code>Array&lt;PuppeteerCookie&gt;</code></li>
 <li><strong><code>url</code></strong>: <code>string</code></li>
@@ -149,25 +155,28 @@ manually:</p>
 <p><a name="getpuppeteercookies"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="sessiongetpuppeteercookiesurl"></a><a href="#sessiongetpuppeteercookiesurl" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>session.getPuppeteerCookies(url)</code></h2>
 <p>Returns cookies in a format compatible with puppeteer and ready to be used with <code>page.setCookie</code>.</p>
-<p><strong>Params</strong></p>
+<p><strong>Parameters</strong>:</p>
 <ul>
 <li><strong><code>url</code></strong>: <code>string</code> - website url. Only cookies stored for this url will be returned</li>
 </ul>
-<p><strong>Returns</strong>: <code>Array&lt;PuppeteerCookie&gt;</code></p>
+<p><strong>Returns</strong>:</p>
+<p><code>Array&lt;PuppeteerCookie&gt;</code></p>
 <hr>
 <p><a name="getcookiestring"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="sessiongetcookiestringurl"></a><a href="#sessiongetcookiestringurl" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>session.getCookieString(url)</code></h2>
 <p>Returns cookies saved with the session in the typical key1=value1; key2=value2 format, ready to be used in a cookie header or elsewhere.</p>
-<p><strong>Params</strong></p>
+<p><strong>Parameters</strong>:</p>
 <ul>
 <li><strong><code>url</code></strong>: <code>string</code></li>
 </ul>
-<p><strong>Returns</strong>: <code>string</code> - - represents <code>Cookie</code> header.</p>
+<p><strong>Returns</strong>:</p>
+<p><code>string</code> - - represents <code>Cookie</code> header.</p>
 <hr>
 <p><a name="_getdefaultcookieexpirationdate"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="session_getdefaultcookieexpirationdate"></a><a href="#session_getdefaultcookieexpirationdate" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>session._getDefaultCookieExpirationDate()</code></h2>
 <p>Calculate cookie expiration date</p>
-<p><strong>Returns</strong>: <code>Date</code> - - calculated date by session max age seconds.</p>
+<p><strong>Returns</strong>:</p>
+<p><code>Date</code> - - calculated date by session max age seconds.</p>
 <hr>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/api/puppeteer-pool"><span class="arrow-prev">← </span><span class="function-name-prevnext">PuppeteerPool</span></a><a class="docs-next button" href="/docs/api/session-pool"><span class="function-name-prevnext">SessionPool</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#new-sessionoptions"><code>new Session(options)</code></a></li><li><a href="#sessionisblocked"><code>session.isBlocked()</code></a></li><li><a href="#sessionisexpired"><code>session.isExpired()</code></a></li><li><a href="#sessionismaxusagecountreached"><code>session.isMaxUsageCountReached()</code></a></li><li><a href="#sessionisusable"><code>session.isUsable()</code></a></li><li><a href="#sessionmarkgood"><code>session.markGood()</code></a></li><li><a href="#sessiongetstate"><code>session.getState()</code></a></li><li><a href="#sessionretire"><code>session.retire()</code></a></li><li><a href="#sessionmarkbad"><code>session.markBad()</code></a></li><li><a href="#sessionretireonblockedstatuscodesstatuscode-blockedstatuscodes"><code>session.retireOnBlockedStatusCodes(statusCode, [blockedStatusCodes])</code></a></li><li><a href="#sessionsetcookiesfromresponseresponse"><code>session.setCookiesFromResponse(response)</code></a></li><li><a href="#sessionsetpuppeteercookiescookies-url"><code>session.setPuppeteerCookies(cookies, url)</code></a></li><li><a href="#sessiongetpuppeteercookiesurl"><code>session.getPuppeteerCookies(url)</code></a></li><li><a href="#sessiongetcookiestringurl"><code>session.getCookieString(url)</code></a></li><li><a href="#session_getdefaultcookieexpirationdate"><code>session._getDefaultCookieExpirationDate()</code></a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/apify_logo.svg" alt="Apify SDK" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/guides/motivation">Guide</a><a href="/docs/examples/puppeteer-crawler">Examples</a><a href="/docs/api/apify">API Reference</a></div><div><h5>Community</h5><a href="https://stackoverflow.com/questions/tagged/apify" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://twitter.com/apify" target="_blank" rel="noreferrer noopener">Twitter</a><a href="https://www.facebook.com/apifytech" target="_blank" rel="noreferrer noopener">Facebook</a></div><div><h5>More</h5><a href="https://apify.com" target="_blank">Apify Cloud</a><a href="https://docusaurus.io" target="_blank">Docusaurus</a><a href="https://github.com/apifytech/apify-js" target="_blank">GitHub</a></div></section><section class="copyright">Copyright © 2020 Apify Technologies s.r.o.</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {

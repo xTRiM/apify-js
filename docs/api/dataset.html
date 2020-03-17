@@ -86,7 +86,7 @@ item in the dataset.</p>
 <hr>
 <p><a name="exports.dataset"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="new-datasetdatasetid-datasetname"></a><a href="#new-datasetdatasetid-datasetname" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>new Dataset(datasetId, datasetName)</code></h2>
-<p><strong>Params</strong></p>
+<p><strong>Parameters</strong>:</p>
 <ul>
 <li><strong><code>datasetId</code></strong>: <code>string</code></li>
 <li><strong><code>datasetName</code></strong>: <code>string</code></li>
@@ -104,59 +104,61 @@ it does not provide a transaction safety mechanism. Therefore, in the event of a
 Promise will reject and the dataset will be left in a state where some of the items have already been saved to the dataset while other items from the
 source array were not. To overcome this limitation, the developer may, for example, read the last item saved in the dataset and re-attempt the save of
 the data from this item onwards to prevent duplicates.</p>
-<p><strong>Params</strong></p>
+<p><strong>Parameters</strong>:</p>
 <ul>
 <li><strong><code>data</code></strong>: <code>object</code> | <code>Array&lt;object&gt;</code> - Object or array of objects containing data to be stored in the default dataset. The objects must be
 serializable to JSON and the JSON representation of each object must be smaller than 9MB.</li>
 </ul>
-<p><strong>Returns</strong>: <code>Promise&lt;void&gt;</code></p>
+<p><strong>Returns</strong>:</p>
+<p><code>Promise&lt;void&gt;</code></p>
 <hr>
 <p><a name="getdata"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="datasetgetdataoptions"></a><a href="#datasetgetdataoptions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>dataset.getData([options])</code></h2>
 <p>Returns {DatasetContent} object holding the items in the dataset based on the provided parameters.</p>
 <p><strong>NOTE</strong>: If using dataset with local disk storage, the <code>format</code> option must be <code>json</code> and the following options are not supported: <code>unwind</code>,
 <code>disableBodyParser</code>, <code>attachment</code>, <code>bom</code> and <code>simplified</code>. If you try to use them, you will receive an error.</p>
-<p><strong>Params</strong></p>
+<p><strong>Parameters</strong>:</p>
 <ul>
 <li><strong><code>[options]</code></strong>: <code>Object</code> - All <code>getData()</code> parameters are passed via an options object with the following keys:
 <ul>
-<li><strong><code>[.format]</code></strong>: <code>string</code> <code> = &quot;'json'&quot;</code> - Format of the <code>items</code> property, possible values are: <code>json</code>, <code>csv</code>,
+<li><strong><code>[format]</code></strong>: <code>string</code> <code> = &quot;'json'&quot;</code> - Format of the <code>items</code> property, possible values are: <code>json</code>, <code>csv</code>,
 <code>xlsx</code>, <code>html</code>, <code>xml</code> and <code>rss</code>.</li>
-<li><strong><code>[.offset]</code></strong>: <code>number</code> <code> = 0</code> - Number of array elements that should be skipped at the start.</li>
-<li><strong><code>[.limit]</code></strong>: <code>number</code> <code> = 250000</code> - Maximum number of array elements to return.</li>
-<li><strong><code>[.desc]</code></strong>: <code>boolean</code> <code> = false</code> - If <code>true</code> then the objects are sorted by <code>createdAt</code> in descending order. Otherwise they are
+<li><strong><code>[offset]</code></strong>: <code>number</code> <code> = 0</code> - Number of array elements that should be skipped at the start.</li>
+<li><strong><code>[limit]</code></strong>: <code>number</code> <code> = 250000</code> - Maximum number of array elements to return.</li>
+<li><strong><code>[desc]</code></strong>: <code>boolean</code> <code> = false</code> - If <code>true</code> then the objects are sorted by <code>createdAt</code> in descending order. Otherwise they are
 sorted in ascending order.</li>
-<li><strong><code>[.fields]</code></strong>: <code>Array&lt;string&gt;</code> - An array of field names that will be included in the result. If omitted, all fields are included in the
+<li><strong><code>[fields]</code></strong>: <code>Array&lt;string&gt;</code> - An array of field names that will be included in the result. If omitted, all fields are included in the
 results.</li>
-<li><strong><code>[.unwind]</code></strong>: <code>string</code> - Specifies a name of the field in the result objects that will be used to unwind the resulting objects. By default,
+<li><strong><code>[unwind]</code></strong>: <code>string</code> - Specifies a name of the field in the result objects that will be used to unwind the resulting objects. By default,
 the results are returned as they are.</li>
-<li><strong><code>[.disableBodyParser]</code></strong>: <code>boolean</code> <code> = false</code> - If <code>true</code> then response from API will not be parsed.</li>
-<li><strong><code>[.attachment]</code></strong>: <code>boolean</code> <code> = false</code> - If <code>true</code> then the response will define the <code>Content-Disposition: attachment</code> HTTP
+<li><strong><code>[disableBodyParser]</code></strong>: <code>boolean</code> <code> = false</code> - If <code>true</code> then response from API will not be parsed.</li>
+<li><strong><code>[attachment]</code></strong>: <code>boolean</code> <code> = false</code> - If <code>true</code> then the response will define the <code>Content-Disposition: attachment</code> HTTP
 header, forcing a web browser to download the file rather than to display it. By default, this header is not present.</li>
-<li><strong><code>[.delimiter]</code></strong>: <code>string</code> <code> = &quot;','&quot;</code> - A delimiter character for CSV files, only used if <code>format</code> is <code>csv</code>.</li>
-<li><strong><code>[.bom]</code></strong>: <code>boolean</code> - All responses are encoded in UTF-8 encoding. By default, the CSV files are prefixed with the UTF-8 Byte Order Mark
+<li><strong><code>[delimiter]</code></strong>: <code>string</code> <code> = &quot;','&quot;</code> - A delimiter character for CSV files, only used if <code>format</code> is <code>csv</code>.</li>
+<li><strong><code>[bom]</code></strong>: <code>boolean</code> - All responses are encoded in UTF-8 encoding. By default, the CSV files are prefixed with the UTF-8 Byte Order Mark
 (BOM), while JSON, JSONL, XML, HTML and RSS files are not. If you want to override this default behavior, set <code>bom</code> option to <code>true</code> to
 include the BOM, or set <code>bom</code> to <code>false</code> to skip it.</li>
-<li><strong><code>[.xmlRoot]</code></strong>: <code>string</code> <code> = &quot;'results'&quot;</code> - Overrides the default root element name of the XML output. By
+<li><strong><code>[xmlRoot]</code></strong>: <code>string</code> <code> = &quot;'results'&quot;</code> - Overrides the default root element name of the XML output. By
 default, the root element is <code>results</code>.</li>
-<li><strong><code>[.xmlRow]</code></strong>: <code>string</code> <code> = &quot;'page'&quot;</code> - Overrides the default element name that wraps each page or page
+<li><strong><code>[xmlRow]</code></strong>: <code>string</code> <code> = &quot;'page'&quot;</code> - Overrides the default element name that wraps each page or page
 function result object in XML output. By default, the element name is <code>page</code> or <code>result</code>, depending on the value of the <code>simplified</code> option.</li>
-<li><strong><code>[.skipHeaderRow]</code></strong>: <code>boolean</code> <code> = false</code> - If set to <code>true</code> then header row in CSV format is skipped.</li>
-<li><strong><code>[.clean]</code></strong>: <code>boolean</code> <code> = false</code> - If <code>true</code> then the function returns only non-empty items and skips hidden fields (i.e.
-fields starting with <code>#</code> character). Note that the <code>clean</code> parameter is a shortcut for <code>skipHidden: true</code> and <code>skipEmpty: true</code> options.</li>
-<li><strong><code>[.skipHidden]</code></strong>: <code>boolean</code> <code> = false</code> - If <code>true</code> then the function doesn't return hidden fields (fields starting with &quot;#&quot;
+<li><strong><code>[skipHeaderRow]</code></strong>: <code>boolean</code> <code> = false</code> - If set to <code>true</code> then header row in CSV format is skipped.</li>
+<li><strong><code>[clean]</code></strong>: <code>boolean</code> <code> = false</code> - If <code>true</code> then the function returns only non-empty items and skips hidden fields (i.e. fields
+starting with <code>#</code> character). Note that the <code>clean</code> parameter is a shortcut for <code>skipHidden: true</code> and <code>skipEmpty: true</code> options.</li>
+<li><strong><code>[skipHidden]</code></strong>: <code>boolean</code> <code> = false</code> - If <code>true</code> then the function doesn't return hidden fields (fields starting with &quot;#&quot;
 character).</li>
-<li><strong><code>[.skipEmpty]</code></strong>: <code>boolean</code> <code> = false</code> - If <code>true</code> then the function doesn't return empty items. Note that in this case the
+<li><strong><code>[skipEmpty]</code></strong>: <code>boolean</code> <code> = false</code> - If <code>true</code> then the function doesn't return empty items. Note that in this case the
 returned number of items might be lower than limit parameter and pagination must be done using the <code>limit</code> value.</li>
-<li><strong><code>[.simplified]</code></strong>: <code>boolean</code> - If <code>true</code> then function applies the <code>fields: ['url','pageFunctionResult','errorInfo']</code> and
+<li><strong><code>[simplified]</code></strong>: <code>boolean</code> - If <code>true</code> then function applies the <code>fields: ['url','pageFunctionResult','errorInfo']</code> and
 <code>unwind: 'pageFunctionResult'</code> options. This feature is used to emulate simplified results provided by Apify API version 1 used for the legacy
 Apify Crawler and it's not recommended to use it in new integrations.</li>
-<li><strong><code>[.skipFailedPages]</code></strong>: <code>boolean</code> - If <code>true</code> then, the all the items with errorInfo property will be skipped from the output. This feature
+<li><strong><code>[skipFailedPages]</code></strong>: <code>boolean</code> - If <code>true</code> then, the all the items with errorInfo property will be skipped from the output. This feature
 is here to emulate functionality of Apify API version 1 used for the legacy Apify Crawler product and it's not recommended to use it in new
 integrations.</li>
 </ul></li>
 </ul>
-<p><strong>Returns</strong>: <a href="/docs/typedefs/dataset-content"><code>Promise&lt;DatasetContent&gt;</code></a></p>
+<p><strong>Returns</strong>:</p>
+<p><a href="/docs/typedefs/dataset-content"><code>Promise&lt;DatasetContent&gt;</code></a></p>
 <hr>
 <p><a name="getinfo"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="datasetgetinfo"></a><a href="#datasetgetinfo" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>dataset.getInfo()</code></h2>
@@ -176,7 +178,8 @@ integrations.</li>
   cleanItemCount<span class="token operator">:</span> <span class="token number">10</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p><strong>Returns</strong>: <code>Promise&lt;object&gt;</code></p>
+<p><strong>Returns</strong>:</p>
+<p><code>Promise&lt;object&gt;</code></p>
 <hr>
 <p><a name="foreach"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="datasetforeachiteratee-options-index"></a><a href="#datasetforeachiteratee-options-index" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>dataset.forEach(iteratee, [options], [index])</code></h2>
@@ -190,35 +193,37 @@ integrations.</li>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Item at </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>index<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p><strong>Params</strong></p>
+<p><strong>Parameters</strong>:</p>
 <ul>
 <li><strong><code>iteratee</code></strong>: <a href="/docs/typedefs/dataset-consumer"><code>DatasetConsumer</code></a> - A function that is called for every item in the dataset.</li>
 <li><strong><code>[options]</code></strong>: <code>Object</code> - All <code>forEach()</code> parameters are passed via an options object with the following keys:
 <ul>
-<li><strong><code>[.desc]</code></strong>: <code>boolean</code> <code> = false</code> - If <code>true</code> then the objects are sorted by <code>createdAt</code> in descending order.</li>
-<li><strong><code>[.fields]</code></strong>: <code>Array&lt;string&gt;</code> - If provided then returned objects will only contain specified keys.</li>
-<li><strong><code>[.unwind]</code></strong>: <code>string</code> - If provided then objects will be unwound based on provided field.</li>
+<li><strong><code>[desc]</code></strong>: <code>boolean</code> <code> = false</code> - If <code>true</code> then the objects are sorted by <code>createdAt</code> in descending order.</li>
+<li><strong><code>[fields]</code></strong>: <code>Array&lt;string&gt;</code> - If provided then returned objects will only contain specified keys.</li>
+<li><strong><code>[unwind]</code></strong>: <code>string</code> - If provided then objects will be unwound based on provided field.</li>
 </ul></li>
 <li><strong><code>[index]</code></strong>: <code>number</code> <code> = 0</code> - Specifies the initial index number passed to the <code>iteratee</code> function.</li>
 </ul>
-<p><strong>Returns</strong>: <code>Promise&lt;void&gt;</code></p>
+<p><strong>Returns</strong>:</p>
+<p><code>Promise&lt;void&gt;</code></p>
 <hr>
 <p><a name="map"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="datasetmapiteratee-options"></a><a href="#datasetmapiteratee-options" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>dataset.map(iteratee, [options])</code></h2>
 <p>Produces a new array of values by mapping each value in list through a transformation function <code>iteratee()</code>. Each invocation of <code>iteratee()</code> is called
 with two arguments: <code>(element, index)</code>.</p>
 <p>If <code>iteratee</code> returns a <code>Promise</code> then it's awaited before a next call.</p>
-<p><strong>Params</strong></p>
+<p><strong>Parameters</strong>:</p>
 <ul>
 <li><strong><code>iteratee</code></strong>: <a href="/docs/typedefs/dataset-mapper"><code>DatasetMapper</code></a></li>
 <li><strong><code>[options]</code></strong>: <code>Object</code> - All <code>map()</code> parameters are passed via an options object with the following keys:
 <ul>
-<li><strong><code>[.desc]</code></strong>: <code>boolean</code> <code> = false</code> - If <code>true</code> then the objects are sorted by createdAt in descending order.</li>
-<li><strong><code>[.fields]</code></strong>: <code>Array&lt;string&gt;</code> - If provided then returned objects will only contain specified keys</li>
-<li><strong><code>[.unwind]</code></strong>: <code>string</code> - If provided then objects will be unwound based on provided field.</li>
+<li><strong><code>[desc]</code></strong>: <code>boolean</code> <code> = false</code> - If <code>true</code> then the objects are sorted by createdAt in descending order.</li>
+<li><strong><code>[fields]</code></strong>: <code>Array&lt;string&gt;</code> - If provided then returned objects will only contain specified keys</li>
+<li><strong><code>[unwind]</code></strong>: <code>string</code> - If provided then objects will be unwound based on provided field.</li>
 </ul></li>
 </ul>
-<p><strong>Returns</strong>: <code>Promise&lt;Array&lt;object&gt;&gt;</code></p>
+<p><strong>Returns</strong>:</p>
+<p><code>Promise&lt;Array&lt;object&gt;&gt;</code></p>
 <hr>
 <p><a name="reduce"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="datasetreduceiteratee-memo-options"></a><a href="#datasetreduceiteratee-memo-options" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>dataset.reduce(iteratee, memo, [options])</code></h2>
@@ -228,23 +233,25 @@ arguments: the <code>memo</code>, then the <code>value</code> and <code>index</c
 <p>If no <code>memo</code> is passed to the initial invocation of reduce, the <code>iteratee()</code> is not invoked on the first element of the list. The first element is
 instead passed as the memo in the invocation of the <code>iteratee()</code> on the next element in the list.</p>
 <p>If <code>iteratee()</code> returns a <code>Promise</code> then it's awaited before a next call.</p>
-<p><strong>Params</strong></p>
+<p><strong>Parameters</strong>:</p>
 <ul>
 <li><strong><code>iteratee</code></strong>: <a href="/docs/typedefs/dataset-reducer"><code>DatasetReducer</code></a></li>
 <li><strong><code>memo</code></strong>: <code>object</code> - Initial state of the reduction.</li>
 <li><strong><code>[options]</code></strong>: <code>Object</code> - All <code>reduce()</code> parameters are passed via an options object with the following keys:
 <ul>
-<li><strong><code>[.desc]</code></strong>: <code>boolean</code> <code> = false</code> - If <code>true</code> then the objects are sorted by createdAt in descending order.</li>
-<li><strong><code>[.fields]</code></strong>: <code>Array&lt;string&gt;</code> - If provided then returned objects will only contain specified keys</li>
-<li><strong><code>[.unwind]</code></strong>: <code>string</code> - If provided then objects will be unwound based on provided field.</li>
+<li><strong><code>[desc]</code></strong>: <code>boolean</code> <code> = false</code> - If <code>true</code> then the objects are sorted by createdAt in descending order.</li>
+<li><strong><code>[fields]</code></strong>: <code>Array&lt;string&gt;</code> - If provided then returned objects will only contain specified keys</li>
+<li><strong><code>[unwind]</code></strong>: <code>string</code> - If provided then objects will be unwound based on provided field.</li>
 </ul></li>
 </ul>
-<p><strong>Returns</strong>: <code>Promise&lt;object&gt;</code></p>
+<p><strong>Returns</strong>:</p>
+<p><code>Promise&lt;object&gt;</code></p>
 <hr>
 <p><a name="drop"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="datasetdrop"></a><a href="#datasetdrop" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>dataset.drop()</code></h2>
 <p>Removes the dataset either from the Apify cloud storage or from the local directory, depending on the mode of operation.</p>
-<p><strong>Returns</strong>: <code>Promise&lt;void&gt;</code></p>
+<p><strong>Returns</strong>:</p>
+<p><code>Promise&lt;void&gt;</code></p>
 <hr>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/api/puppeteer-crawler"><span class="arrow-prev">← </span><span class="function-name-prevnext">PuppeteerCrawler</span></a><a class="docs-next button" href="/docs/api/key-value-store"><span class="function-name-prevnext">KeyValueStore</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#new-datasetdatasetid-datasetname"><code>new Dataset(datasetId, datasetName)</code></a></li><li><a href="#datasetpushdatadata"><code>dataset.pushData(data)</code></a></li><li><a href="#datasetgetdataoptions"><code>dataset.getData([options])</code></a></li><li><a href="#datasetgetinfo"><code>dataset.getInfo()</code></a></li><li><a href="#datasetforeachiteratee-options-index"><code>dataset.forEach(iteratee, [options], [index])</code></a></li><li><a href="#datasetmapiteratee-options"><code>dataset.map(iteratee, [options])</code></a></li><li><a href="#datasetreduceiteratee-memo-options"><code>dataset.reduce(iteratee, memo, [options])</code></a></li><li><a href="#datasetdrop"><code>dataset.drop()</code></a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/apify_logo.svg" alt="Apify SDK" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/guides/motivation">Guide</a><a href="/docs/examples/puppeteer-crawler">Examples</a><a href="/docs/api/apify">API Reference</a></div><div><h5>Community</h5><a href="https://stackoverflow.com/questions/tagged/apify" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://twitter.com/apify" target="_blank" rel="noreferrer noopener">Twitter</a><a href="https://www.facebook.com/apifytech" target="_blank" rel="noreferrer noopener">Facebook</a></div><div><h5>More</h5><a href="https://apify.com" target="_blank">Apify Cloud</a><a href="https://docusaurus.io" target="_blank">Docusaurus</a><a href="https://github.com/apifytech/apify-js" target="_blank">GitHub</a></div></section><section class="copyright">Copyright © 2020 Apify Technologies s.r.o.</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
