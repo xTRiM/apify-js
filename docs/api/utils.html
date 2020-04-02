@@ -103,6 +103,7 @@ settings of the enqueued <a href="/docs/api/request"><code>Request</code></a> ob
 <ul>
 <li><strong><code>[page]</code></strong>: <code>Page</code> - Puppeteer <a href="https://pptr.dev/#?product=Puppeteer&amp;show=api-class-page" target="_blank" rel="nofollow noreferrer noopener"><code>Page</code></a> object. Either <code>page</code> or <code>$</code> option must
 be provided.</li>
+<li><strong><code>[limit]</code></strong>: <code>Number</code> - Limit the count of actually enqueued URLs to this number. Useful for testing across the entire crawling scope.</li>
 <li><strong><code>[$]</code></strong>: <code>CheerioStatic</code> - <a href="https://github.com/cheeriojs/cheerio" target="_blank" rel="nofollow noreferrer noopener"><code>Cheerio</code></a> function with loaded HTML. Either <code>page</code> or <code>$</code> option must be
 provided.</li>
 <li><strong><code>requestQueue</code></strong>: <a href="/docs/api/request-queue"><code>RequestQueue</code></a> - A request queue to which the URLs will be enqueued.</li>
