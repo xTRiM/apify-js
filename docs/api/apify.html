@@ -123,7 +123,7 @@ the default actor run configuration.</li>
 timeout of the default actor run configuration.</li>
 <li><strong><code>[build]</code></strong>: <code>string</code> - Tag or number of the actor build to run (e.g. <code>beta</code> or <code>1.2.345</code>). If not provided, the run uses build tag or
 number from the default actor run configuration (typically <code>latest</code>).</li>
-<li><strong><code>[waitSecs]</code></strong>: <code>string</code> - Maximum time to wait for the actor run to finish, in seconds. If the limit is reached, the returned promise is
+<li><strong><code>[waitSecs]</code></strong>: <code>number</code> - Maximum time to wait for the actor run to finish, in seconds. If the limit is reached, the returned promise is
 resolved to a run object that will have status <code>READY</code> or <code>RUNNING</code> and it will not contain the actor run output. If <code>waitSecs</code> is null or
 undefined, the function waits for the actor to finish (default behavior).</li>
 <li><strong><code>[fetchOutput]</code></strong>: <code>boolean</code> <code> = true</code> - If <code>false</code> then the function does not fetch output of the actor.</li>
@@ -176,7 +176,7 @@ of the default actor run configuration.</li>
 timeout of the default actor run configuration.</li>
 <li><strong><code>[build]</code></strong>: <code>string</code> - Tag or number of the actor build to run (e.g. <code>beta</code> or <code>1.2.345</code>). If not provided, the run uses build tag or
 number from the default actor run configuration (typically <code>latest</code>).</li>
-<li><strong><code>[waitSecs]</code></strong>: <code>string</code> - Maximum time to wait for the actor task run to finish, in seconds. If the limit is reached, the returned promise
+<li><strong><code>[waitSecs]</code></strong>: <code>number</code> - Maximum time to wait for the actor task run to finish, in seconds. If the limit is reached, the returned promise
 is resolved to a run object that will have status <code>READY</code> or <code>RUNNING</code> and it will not contain the actor run output. If <code>waitSecs</code> is null or
 undefined, the function waits for the actor task to finish (default behavior).</li>
 <li><strong><code>[webhooks]</code></strong>: <code>Array&lt;object&gt;</code> - Specifies optional webhooks associated with the actor run, which can be used to receive a notification
