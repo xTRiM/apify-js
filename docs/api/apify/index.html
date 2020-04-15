@@ -108,7 +108,7 @@ API endpoints to obtain the output.</p>
 </ul>
 <p><strong>Parameters</strong>:</p>
 <ul>
-<li><strong><code>actId</code></strong>: <code>string</code> - Either <code>username/actor-name</code> or actor ID.</li>
+<li><strong><code>actId</code></strong>: <code>string</code> - Allowed formats are <code>username/actor-name</code>, <code>userId/actor-name</code> or actor ID.</li>
 <li><strong><code>[input]</code></strong>: <code>object</code> - Input for the actor. If it is an object, it will be stringified to JSON and its content type set to
 <code>application/json; charset=utf-8</code>. Otherwise the <code>options.contentType</code> parameter must be provided.</li>
 <li><strong><code>[options]</code></strong>: <code>Object</code> <code> = {}</code> - Object with the settings below:
@@ -160,7 +160,7 @@ other API endpoints to obtain the output.</p>
 </ul>
 <p><strong>Parameters</strong>:</p>
 <ul>
-<li><strong><code>taskId</code></strong>: <code>string</code> - Either <code>username/task-name</code> or task ID.</li>
+<li><strong><code>taskId</code></strong>: <code>string</code> - Allowed formats are <code>username/task-name</code>, <code>userId/task-name</code> or task ID.</li>
 <li><strong><code>[input]</code></strong>: <code>object</code> - Input overrides for the actor task. If it is an object, it will be stringified to JSON and its content type set to
 <code>application/json; charset=utf-8</code>. Otherwise the <code>options.contentType</code> parameter must be provided. Provided input will be merged with actor task
 input.</li>
