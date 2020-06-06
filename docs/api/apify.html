@@ -58,6 +58,12 @@
 <p>The following section describes all functions and properties provided by the <code>apify</code> package, except individual classes and namespaces that have their
 separate, detailed, documentation pages accessible from the left sidebar. To learn how Apify SDK works, we suggest following the
 <a href="/docs/guides/getting-started">Getting Started</a> tutorial.</p>
+<p><strong>Important:</strong></p>
+<blockquote>
+<p>The following functions: <code>addWebhook</code>, <code>call</code>, <code>callTask</code> and Apify Client available under <code>client</code> are features of the
+<a href="/docs/guides/apify-platform">Apify platform</a> and require your scripts to be authenticated.
+See the <a href="/docs/guides/apify-platform#logging-into-apify-platform-from-apify-sdk">authentication guide</a> for instructions.</p>
+</blockquote>
 <hr>
 <p><a name="addwebhook"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="apifyaddwebhookoptions"></a><a href="#apifyaddwebhookoptions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Apify.addWebhook(options)</code></h2>
