@@ -199,13 +199,7 @@ intensive, but it takes time. We strongly recommend limiting the scope of the cl
 only the elements that you assume or know will produce a navigation. You can certainly click everything by using the <code>*</code> selector, but be prepared to
 wait minutes to get results on a large and complex page.</p>
 <p><strong>Example usage</strong></p>
-<pre><code class="hljs css language-javascript"><span class="token keyword">const</span> Apify <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'apify'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> browser <span class="token operator">=</span> <span class="token keyword">await</span> Apify<span class="token punctuation">.</span><span class="token function">launchPuppeteer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> page <span class="token operator">=</span> <span class="token keyword">await</span> browser<span class="token punctuation">.</span><span class="token function">goto</span><span class="token punctuation">(</span><span class="token string">'https://www.example.com'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> requestQueue <span class="token operator">=</span> <span class="token keyword">await</span> Apify<span class="token punctuation">.</span><span class="token function">openRequestQueue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token keyword">await</span> Apify<span class="token punctuation">.</span>utils<span class="token punctuation">.</span><span class="token function">enqueueLinksByClickingElements</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+<pre><code class="hljs css language-javascript"><span class="token keyword">await</span> Apify<span class="token punctuation">.</span>utils<span class="token punctuation">.</span>puppeteer<span class="token punctuation">.</span><span class="token function">enqueueLinksByClickingElements</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
   page<span class="token punctuation">,</span>
   requestQueue<span class="token punctuation">,</span>
   selector<span class="token operator">:</span> <span class="token string">'a.product-detail'</span><span class="token punctuation">,</span>
