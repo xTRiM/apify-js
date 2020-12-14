@@ -1066,7 +1066,7 @@ transformation on the result.</p>
     runCount<span class="token operator">:</span> <span class="token function">Number</span><span class="token punctuation">(</span>
         <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'ul.stats li:nth-of-type(3)'</span><span class="token punctuation">)</span>
             <span class="token punctuation">.</span><span class="token function">text</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-            <span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span><span class="token regex">/\d+/</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\d+</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
     <span class="token punctuation">)</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 </code></pre>
@@ -1093,7 +1093,7 @@ and we're good to go.</p>
     runCount<span class="token operator">:</span> <span class="token function">Number</span><span class="token punctuation">(</span>
         <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'ul.stats li:nth-of-type(3)'</span><span class="token punctuation">)</span>
             <span class="token punctuation">.</span><span class="token function">text</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-            <span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span><span class="token regex">/\d+/</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\d+</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
     <span class="token punctuation">)</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
 
@@ -1140,7 +1140,7 @@ Apify<span class="token punctuation">.</span><span class="token function">main</
                     runCount<span class="token operator">:</span> <span class="token function">Number</span><span class="token punctuation">(</span>
                         <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'ul.stats li:nth-of-type(3)'</span><span class="token punctuation">)</span>
                             <span class="token punctuation">.</span><span class="token function">text</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-                            <span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span><span class="token regex">/\d+/</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                            <span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\d+</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
                     <span class="token punctuation">)</span><span class="token punctuation">,</span>
                 <span class="token punctuation">}</span><span class="token punctuation">;</span>
                 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'RESULTS'</span><span class="token punctuation">,</span> results<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1216,7 +1216,7 @@ Apify<span class="token punctuation">.</span><span class="token function">main</
                     runCount<span class="token operator">:</span> <span class="token function">Number</span><span class="token punctuation">(</span>
                         <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'ul.stats li:nth-of-type(3)'</span><span class="token punctuation">)</span>
                             <span class="token punctuation">.</span><span class="token function">text</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-                            <span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span><span class="token regex">/\d+/</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                            <span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\d+</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
                     <span class="token punctuation">)</span><span class="token punctuation">,</span>
                 <span class="token punctuation">}</span><span class="token punctuation">;</span>
                 <span class="token keyword">await</span> Apify<span class="token punctuation">.</span><span class="token function">pushData</span><span class="token punctuation">(</span>results<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1425,7 +1425,7 @@ exports<span class="token punctuation">.</span><span class="token function-varia
         runCount<span class="token operator">:</span> <span class="token function">Number</span><span class="token punctuation">(</span>
             <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'ul.stats li:nth-of-type(3)'</span><span class="token punctuation">)</span>
                 <span class="token punctuation">.</span><span class="token function">text</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-                <span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span><span class="token regex">/\d+/</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                <span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\d+</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
         <span class="token punctuation">)</span><span class="token punctuation">,</span>
     <span class="token punctuation">}</span><span class="token punctuation">;</span>
 

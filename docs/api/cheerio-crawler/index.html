@@ -72,8 +72,7 @@ data using a <a href="https://jquery.com/" target="_blank" rel="noopener">jQuery
 <a href="/docs/api/request-list"><code>RequestList</code></a> and automatically enqueues all of them to <a href="/docs/api/request-queue"><code>RequestQueue</code></a> before it starts their
 processing. This ensures that a single URL is not crawled multiple times.</p>
 <p>The crawler finishes when there are no more <a href="/docs/api/request"><code>Request</code></a> objects to crawl.</p>
-<p><code>CheerioCrawler</code> downloads the web pages using the <a href="/docs/api/utils#requestasbrowser"><code>utils.requestAsBrowser()</code></a> utility function. You can use the
-<code>requestOptions</code> parameter to pass additional options to this function.</p>
+<p><code>CheerioCrawler</code> downloads the web pages using the <a href="/docs/api/utils#requestasbrowser"><code>utils.requestAsBrowser()</code></a> utility function.</p>
 <p>By default, <code>CheerioCrawler</code> only processes web pages with the <code>text/html</code> and <code>application/xhtml+xml</code> MIME content types (as reported by the
 <code>Content-Type</code> HTTP header), and skips pages with other content types. If you want the crawler to process other content types, use the
 <a href="/docs/typedefs/cheerio-crawler-options#additionalmimetypes"><code>CheerioCrawlerOptions.additionalMimeTypes</code></a> constructor option. Beware that the parsing

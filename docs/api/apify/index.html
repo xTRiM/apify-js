@@ -60,9 +60,9 @@ separate, detailed, documentation pages accessible from the left sidebar. To lea
 <a href="/docs/guides/getting-started">Getting Started</a> tutorial.</p>
 <p><strong>Important:</strong></p>
 <blockquote>
-<p>The following functions: <code>addWebhook</code>, <code>call</code>, <code>callTask</code> and Apify Client available under <code>client</code> are features of the
-<a href="/docs/guides/apify-platform">Apify platform</a> and require your scripts to be authenticated. See the
-<a href="/docs/guides/apify-platform#logging-into-apify-platform-from-apify-sdk">authentication guide</a> for instructions.</p>
+<p>The following functions: <code>addWebhook</code>, <code>call</code>, <code>callTask</code> and <code>newClient</code> invoke features of the <a href="/docs/guides/apify-platform">Apify platform</a> and
+require your scripts to be authenticated. See the <a href="/docs/guides/apify-platform#logging-into-apify-platform-from-apify-sdk">authentication guide</a> for
+instructions.</p>
 </blockquote>
 <hr>
 <p><a name="addwebhook"></a></p>
@@ -168,13 +168,9 @@ other API endpoints to obtain the output.</p>
 <ul>
 <li><strong><code>taskId</code></strong>: <code>string</code> - Allowed formats are <code>username/task-name</code>, <code>userId/task-name</code> or task ID.</li>
 <li><strong><code>[input]</code></strong>: <code>object</code> - Input overrides for the actor task. If it is an object, it will be stringified to JSON and its content type set to
-<code>application/json; charset=utf-8</code>. Otherwise the <code>options.contentType</code> parameter must be provided. Provided input will be merged with actor task
-input.</li>
+<code>application/json; charset=utf-8</code>. Provided input will be merged with actor task input.</li>
 <li><strong><code>[options]</code></strong>: <code>Object</code> <code> = {}</code> - Object with the settings below:
 <ul>
-<li><strong><code>[contentType]</code></strong>: <code>string</code> - Content type for the <code>input</code>. If not specified, <code>input</code> is expected to be an object that will be stringified
-to JSON and content type set to <code>application/json; charset=utf-8</code>. If <code>options.contentType</code> is specified, then <code>input</code> must be a <code>String</code> or
-<code>Buffer</code>.</li>
 <li><strong><code>[token]</code></strong>: <code>string</code> - User API token that is used to run the actor. By default, it is taken from the <code>APIFY_TOKEN</code> environment variable.</li>
 <li><strong><code>[memoryMbytes]</code></strong>: <code>number</code> - Memory in megabytes which will be allocated for the new actor task run. If not provided, the run uses memory
 of the default actor run configuration.</li>
@@ -192,17 +188,6 @@ description.</li>
 </ul>
 <p><strong>Returns</strong>:</p>
 <p><a href="/docs/typedefs/actor-run"><code>Promise&lt;ActorRun&gt;</code></a></p>
-<hr>
-<p><a name="client"></a></p>
-<h2><a class="anchor" aria-hidden="true" id="apifyclient"></a><a href="#apifyclient" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Apify.client</code></h2>
-<p>Gets the default instance of the <code>ApifyClient</code> class provided <a href="https://docs.apify.com/api/apify-client-js/latest"
-target="_blank">apify-client</a> by the NPM package. The instance is created automatically by the Apify SDK and it is configured using the
-<code>APIFY_API_BASE_URL</code>, <code>APIFY_USER_ID</code> and <code>APIFY_TOKEN</code> environment variables.</p>
-<p>The instance is used for all underlying calls to the Apify API in functions such as <a href="/docs/api/apify#getvalue"><code>Apify.getValue()</code></a> or
-<a href="/docs/api/apify#call"><code>Apify.call()</code></a>. The settings of the client can be globally altered by calling the
-<a href="https://docs.apify.com/api/apify-client-js/latest#ApifyClient-setOptions"
-target="_blank"><code>Apify.client.setOptions()</code></a> function. Beware that altering these settings might have unintended effects on the entire Apify SDK
-package.</p>
 <hr>
 <p><a name="createproxyconfiguration"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="apifycreateproxyconfigurationproxyconfigurationoptions"></a><a href="#apifycreateproxyconfigurationproxyconfigurationoptions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Apify.createProxyConfiguration([proxyConfigurationOptions])</code></h2>
@@ -433,6 +418,24 @@ build tag or number from the default actor run configuration (typically <code>la
 <p><strong>Returns</strong>:</p>
 <p><code>Promise&lt;void&gt;</code></p>
 <hr>
+<p><a name="newclient"></a></p>
+<h2><a class="anchor" aria-hidden="true" id="apifynewclientoptions"></a><a href="#apifynewclientoptions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Apify.newClient([options])</code></h2>
+<p>Returns a new instance of the Apify API client. The <code>ApifyClient</code> class is provided by the
+<a href="https://www.npmjs.com/package/apify-client" target="_blank">apify-client</a> NPM package, and it is automatically configured using the
+<code>APIFY_API_BASE_URL</code>, and <code>APIFY_TOKEN</code> environment variables. You can override the token via the available options. That's useful if you want to use
+the client as a different Apify user than the SDK internals are using.</p>
+<p><strong>Parameters</strong>:</p>
+<ul>
+<li><strong><code>[options]</code></strong>: <code>object</code>
+<ul>
+<li><strong><code>[token]</code></strong>: <code>string</code></li>
+<li><strong><code>[maxRetries]</code></strong>: <code>string</code></li>
+<li><strong><code>[minDelayBetweenRetriesMillis]</code></strong>: <code>string</code></li>
+</ul></li>
+</ul>
+<p><strong>Returns</strong>:</p>
+<p><a href="/docs/api/apify"><code>ApifyClient</code></a></p>
+<hr>
 <p><a name="opendataset"></a></p>
 <h2><a class="anchor" aria-hidden="true" id="apifyopendatasetdatasetidorname-options"></a><a href="#apifyopendatasetdatasetidorname-options" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Apify.openDataset([datasetIdOrName], [options])</code></h2>
 <p>Opens a dataset and returns a promise resolving to an instance of the <a href="/docs/api/dataset"><code>Dataset</code></a> class.</p>
@@ -592,7 +595,7 @@ other value an error will be thrown.</li>
 <p><strong>Returns</strong>:</p>
 <p><code>Promise&lt;void&gt;</code></p>
 <hr>
-</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/examples/synchronous-run"><span class="arrow-prev">← </span><span>Synchronous run</span></a><a class="docs-next button" href="/docs/api/basic-crawler"><span class="function-name-prevnext">BasicCrawler</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#apifyaddwebhookoptions"><code>Apify.addWebhook(options)</code></a></li><li><a href="#apifycallactid-input-options"><code>Apify.call(actId, [input], [options])</code></a></li><li><a href="#apifycalltasktaskid-input-options"><code>Apify.callTask(taskId, [input], [options])</code></a></li><li><a href="#apifyclient"><code>Apify.client</code></a></li><li><a href="#apifycreateproxyconfigurationproxyconfigurationoptions"><code>Apify.createProxyConfiguration([proxyConfigurationOptions])</code></a></li><li><a href="#apifyevents"><code>Apify.events</code></a></li><li><a href="#apifygetenv"><code>Apify.getEnv()</code></a></li><li><a href="#apifygetinput"><code>Apify.getInput()</code></a></li><li><a href="#apifygetmemoryinfo"><code>Apify.getMemoryInfo()</code></a></li><li><a href="#apifygetvaluekey"><code>Apify.getValue(key)</code></a></li><li><a href="#apifyisathome"><code>Apify.isAtHome()</code></a></li><li><a href="#apifylaunchpuppeteeroptions"><code>Apify.launchPuppeteer([options])</code></a></li><li><a href="#apifymainuserfunc"><code>Apify.main(userFunc)</code></a></li><li><a href="#apifymetamorphtargetactorid-input-options"><code>Apify.metamorph(targetActorId, [input], [options])</code></a></li><li><a href="#apifyopendatasetdatasetidorname-options"><code>Apify.openDataset([datasetIdOrName], [options])</code></a></li><li><a href="#apifyopenkeyvaluestorestoreidorname-options"><code>Apify.openKeyValueStore([storeIdOrName], [options])</code></a></li><li><a href="#apifyopenrequestlistlistname-sources-options"><code>Apify.openRequestList(listName, sources, [options])</code></a></li><li><a href="#apifyopenrequestqueuequeueidorname-options"><code>Apify.openRequestQueue([queueIdOrName], [options])</code></a></li><li><a href="#apifyopensessionpoolsessionpooloptions"><code>Apify.openSessionPool(sessionPoolOptions)</code></a></li><li><a href="#apifypushdataitem"><code>Apify.pushData(item)</code></a></li><li><a href="#apifysetvaluekey-value-options"><code>Apify.setValue(key, value, [options])</code></a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/apify_logo.svg" alt="Apify SDK" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/guides/motivation">Guide</a><a href="/docs/examples/crawl-multiple-urls">Examples</a><a href="/docs/api/apify">API Reference</a></div><div><h5>Community</h5><a href="https://stackoverflow.com/questions/tagged/apify" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://twitter.com/apify" target="_blank" rel="noreferrer noopener">Twitter</a><a href="https://www.facebook.com/apifytech" target="_blank" rel="noreferrer noopener">Facebook</a></div><div><h5>More</h5><a href="https://apify.com" target="_blank">Apify Cloud</a><a href="https://docusaurus.io" target="_blank">Docusaurus</a><a href="https://github.com/apify/apify-js" target="_blank">GitHub</a></div></section><section class="copyright">Copyright © 2020 Apify Technologies s.r.o.</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/examples/synchronous-run"><span class="arrow-prev">← </span><span>Synchronous run</span></a><a class="docs-next button" href="/docs/api/basic-crawler"><span class="function-name-prevnext">BasicCrawler</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#apifyaddwebhookoptions"><code>Apify.addWebhook(options)</code></a></li><li><a href="#apifycallactid-input-options"><code>Apify.call(actId, [input], [options])</code></a></li><li><a href="#apifycalltasktaskid-input-options"><code>Apify.callTask(taskId, [input], [options])</code></a></li><li><a href="#apifycreateproxyconfigurationproxyconfigurationoptions"><code>Apify.createProxyConfiguration([proxyConfigurationOptions])</code></a></li><li><a href="#apifyevents"><code>Apify.events</code></a></li><li><a href="#apifygetenv"><code>Apify.getEnv()</code></a></li><li><a href="#apifygetinput"><code>Apify.getInput()</code></a></li><li><a href="#apifygetmemoryinfo"><code>Apify.getMemoryInfo()</code></a></li><li><a href="#apifygetvaluekey"><code>Apify.getValue(key)</code></a></li><li><a href="#apifyisathome"><code>Apify.isAtHome()</code></a></li><li><a href="#apifylaunchpuppeteeroptions"><code>Apify.launchPuppeteer([options])</code></a></li><li><a href="#apifymainuserfunc"><code>Apify.main(userFunc)</code></a></li><li><a href="#apifymetamorphtargetactorid-input-options"><code>Apify.metamorph(targetActorId, [input], [options])</code></a></li><li><a href="#apifynewclientoptions"><code>Apify.newClient([options])</code></a></li><li><a href="#apifyopendatasetdatasetidorname-options"><code>Apify.openDataset([datasetIdOrName], [options])</code></a></li><li><a href="#apifyopenkeyvaluestorestoreidorname-options"><code>Apify.openKeyValueStore([storeIdOrName], [options])</code></a></li><li><a href="#apifyopenrequestlistlistname-sources-options"><code>Apify.openRequestList(listName, sources, [options])</code></a></li><li><a href="#apifyopenrequestqueuequeueidorname-options"><code>Apify.openRequestQueue([queueIdOrName], [options])</code></a></li><li><a href="#apifyopensessionpoolsessionpooloptions"><code>Apify.openSessionPool(sessionPoolOptions)</code></a></li><li><a href="#apifypushdataitem"><code>Apify.pushData(item)</code></a></li><li><a href="#apifysetvaluekey-value-options"><code>Apify.setValue(key, value, [options])</code></a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/apify_logo.svg" alt="Apify SDK" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/guides/motivation">Guide</a><a href="/docs/examples/crawl-multiple-urls">Examples</a><a href="/docs/api/apify">API Reference</a></div><div><h5>Community</h5><a href="https://stackoverflow.com/questions/tagged/apify" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://twitter.com/apify" target="_blank" rel="noreferrer noopener">Twitter</a><a href="https://www.facebook.com/apifytech" target="_blank" rel="noreferrer noopener">Facebook</a></div><div><h5>More</h5><a href="https://apify.com" target="_blank">Apify Cloud</a><a href="https://docusaurus.io" target="_blank">Docusaurus</a><a href="https://github.com/apify/apify-js" target="_blank">GitHub</a></div></section><section class="copyright">Copyright © 2020 Apify Technologies s.r.o.</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;

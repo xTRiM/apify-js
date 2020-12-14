@@ -112,8 +112,14 @@ will not be used and needs to be configured in the new <code>gotoFunction()</cod
 <p>A function to handle requests that failed more than <code>option.maxRequestRetries</code> times.</p>
 <p>The function receives the following object as an argument:</p>
 <pre><code class="hljs"><span class="token punctuation">{</span>
-  request<span class="token operator">:</span> Request<span class="token punctuation">,</span>
   error<span class="token operator">:</span> Error<span class="token punctuation">,</span>
+  request<span class="token operator">:</span> Request<span class="token punctuation">,</span>
+  response<span class="token operator">:</span> Response<span class="token punctuation">,</span>
+  page<span class="token operator">:</span> Page<span class="token punctuation">,</span>
+  puppeteerPool<span class="token operator">:</span> PuppeteerPool<span class="token punctuation">,</span>
+  autoscaledPool<span class="token operator">:</span> AutoscaledPool<span class="token punctuation">,</span>
+  session<span class="token operator">:</span> Session<span class="token punctuation">,</span>
+  proxyInfo<span class="token operator">:</span> ProxyInfo<span class="token punctuation">,</span>
 <span class="token punctuation">}</span>
 </code></pre>
 <p>Where the <a href="/docs/api/request"><code>Request</code></a> instance corresponds to the failed request, and the <code>Error</code> instance represents the last error thrown during
