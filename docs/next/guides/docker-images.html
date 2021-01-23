@@ -165,9 +165,6 @@ but in most cases, we suggest using the specialized images below.</p>
 <p>Similar to <a href="#actor-node-puppeteer-chrome"><code>actor-node-puppeteer-chrome</code></a>, but for Playwright. You can run
 <a href="../api/cheerio-crawler"><code>CheerioCrawler</code></a> and <a href="../api/playwright-crawler"><code>PlaywrightCrawler</code></a>,
 but <strong>NOT</strong> <a href="../api/puppeteer-crawler"><code>PuppeteerCrawler</code></a>.</p>
-<blockquote>
-<p>Technically, it should also work with Puppeteer if you install it yourself, but it's not guaranteed.</p>
-</blockquote>
 <p>It uses the <a href="https://playwright.dev/docs/api/environment-variables/" target="_blank" rel="noopener"><code>PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD</code></a>
 environment variable to block installation of more browsers into your images (to keep them small).
 If you want more browsers, either choose the <a href="#actor-node-playwright"><code>actor-node-playwright</code></a> image
